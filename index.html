@@ -2,7 +2,8 @@
 <html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0A2463">
     <title>OSIS SMAN 1 Paciran — Semangat Meraih Prestasi</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -40,18 +41,13 @@
         
         /* ============ HERO BACKGROUND ============ */
         .hero-full {
-            /* FOTO LOKAL - taruh file foto sekolah di folder yang sama, beri nama sekolah.jpg */
             background-image: url('sekolah.jpg');
-            
-            /* FALLBACK - kalau foto lokal tidak ada, pakai foto dari Unsplash */
             background-color: #0A2463;
-            
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
         
-        /* Overlay gradasi agar teks tetap terbaca di atas foto sekolah */
         .hero-full::after {
             content: '';
             position: absolute;
@@ -122,7 +118,6 @@
 
         .hero-content { position: relative; z-index: 10; }
         .ambient.dim { opacity: 0.3; transition: opacity 0.6s ease; }
-        .countdown-box { background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3); }
         .logo-osis { background: linear-gradient(135deg, #0A2463 0%, #C2410C 100%); }
 
         /* ===== PROFIL PENGURUS ===== */
@@ -233,12 +228,71 @@
         .mading-scroll { scrollbar-width: thin; scrollbar-color: #C2410C #FEF3C7; }
         .mading-scroll::-webkit-scrollbar { height: 6px; }
         .mading-scroll::-webkit-scrollbar-thumb { background: #C2410C; border-radius: 3px; }
+
+        /* ========================================= */
+        /* RESPONSIVE — MOBILE OPTIMIZATION          */
+        /* ========================================= */
+
+        /* Mobile menu */
+        .mobile-menu {
+            transform: translateY(-100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+        .mobile-menu.open {
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Hamburger animation */
+        .hamburger span {
+            display: block;
+            width: 20px; height: 2px;
+            background: #1C1917;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .hamburger span + span { margin-top: 4px; }
+        .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+
+        /* Reduce ambient animation on mobile for performance */
+        @media (max-width: 640px) {
+            .cloud { filter: blur(15px); opacity: 0.35; }
+            .cloud-1 { width: 280px; height: 90px; }
+            .cloud-2 { width: 220px; height: 75px; }
+            .cloud-3 { width: 340px; height: 110px; }
+            .cloud-4 { width: 180px; height: 60px; }
+            .light-sweep { opacity: 0.6; }
+            .fog { height: 20%; }
+        }
+
+        /* Prevent text overflow on mobile */
+        @media (max-width: 640px) {
+            h1 { word-break: break-word; hyphens: auto; }
+            .foto-pengurus { width: 72px !important; height: 72px !important; }
+            .card-bph .foto-pengurus { width: 100px !important; height: 100px !important; }
+        }
+
+        /* Safe area untuk iPhone notch */
+        @supports (padding: env(safe-area-inset-top)) {
+            .nav-pill { margin-top: env(safe-area-inset-top); }
+        }
+
+        /* Touch-friendly tap targets di mobile */
+        @media (hover: none) {
+            .card-hover:hover { transform: none; }
+            .card-hover:active { transform: scale(0.98); }
+            .card-pengurus:active { transform: scale(0.98); }
+            .card-bph:active { transform: scale(0.98); }
+        }
     </style>
 </head>
 <body>
 
     <!-- ============== HERO ============== -->
-    <section class="relative min-h-screen hero-full flex flex-col overflow-hidden">
+    <section class="relative min-h-[100svh] md:min-h-screen hero-full flex flex-col overflow-hidden">
 
         <div class="ambient" id="ambient">
             <div class="cloud cloud-1"></div>
@@ -249,8 +303,8 @@
             <div class="fog"></div>
         </div>
 
-        <!-- NAVBAR -->
-        <div class="relative z-20 w-full flex justify-center pt-6 px-4">
+        <!-- NAVBAR — Desktop pill -->
+        <div class="relative z-30 w-full hidden md:flex justify-center pt-6 px-4">
             <nav class="nav-pill rounded-full px-2 py-2 flex items-center gap-2 w-full max-w-6xl">
                 <a href="#" class="flex items-center gap-2 px-4 py-2">
                     <div class="w-9 h-9 rounded-full logo-osis flex items-center justify-center">
@@ -277,80 +331,122 @@
             </nav>
         </div>
 
+        <!-- NAVBAR — Mobile -->
+        <div class="relative z-30 w-full md:hidden pt-4 px-4">
+            <nav class="nav-pill rounded-2xl px-3 py-2.5 flex items-center justify-between">
+                <a href="#" class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full logo-osis flex items-center justify-center">
+                        <i class="fa-solid fa-users text-white text-xs"></i>
+                    </div>
+                    <div class="leading-tight">
+                        <div class="font-bold text-ink text-xs tracking-tight">OSIS SMAPA</div>
+                        <div class="text-[8px] text-slate font-medium">SMAN 1 Paciran</div>
+                    </div>
+                </a>
+
+                <button id="hamburger-btn" class="hamburger w-9 h-9 rounded-full flex flex-col items-center justify-center gap-0 active:bg-black/5 transition" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 right-0 z-40 md:hidden bg-white/98 backdrop-blur-xl shadow-2xl rounded-b-3xl pt-20 pb-6 px-6">
+            <div class="flex flex-col gap-1">
+                <a href="#profil" class="mobile-link px-4 py-3 rounded-2xl text-ink font-medium hover:bg-butter transition flex items-center gap-3">
+                    <i class="fa-solid fa-circle-info text-terracotta w-5"></i> Profil
+                </a>
+                <a href="#program" class="mobile-link px-4 py-3 rounded-2xl text-ink font-medium hover:bg-butter transition flex items-center gap-3">
+                    <i class="fa-solid fa-list-check text-terracotta w-5"></i> Program Kerja
+                </a>
+                <a href="#pengurus" class="mobile-link px-4 py-3 rounded-2xl text-ink font-medium hover:bg-butter transition flex items-center gap-3">
+                    <i class="fa-solid fa-users text-terracotta w-5"></i> Pengurus
+                </a>
+                <a href="#prestasi" class="mobile-link px-4 py-3 rounded-2xl text-ink font-medium hover:bg-butter transition flex items-center gap-3">
+                    <i class="fa-solid fa-trophy text-terracotta w-5"></i> Prestasi
+                </a>
+                <button class="btn-gold mt-3 px-5 py-3.5 rounded-2xl text-sm flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-user-plus text-xs"></i> Gabung Sekarang
+                </button>
+            </div>
+        </div>
+
         <!-- HERO CONTENT -->
-        <div class="hero-content flex-1 flex flex-col items-center justify-center text-center px-6 -mt-8">
-            <div class="inline-flex items-center gap-2 bg-white/95 backdrop-blur-md border border-white/40 rounded-full px-4 py-1.5 mb-8 shadow-lg">
+        <div class="hero-content flex-1 flex flex-col items-center justify-center text-center px-5 sm:px-6 -mt-4 md:-mt-8">
+            <div class="inline-flex items-center gap-2 bg-white/95 backdrop-blur-md border border-white/40 rounded-full px-3 sm:px-4 py-1.5 mb-6 sm:mb-8 shadow-lg">
                 <span class="w-2 h-2 rounded-full bg-leaf animate-pulse"></span>
-                <span class="text-xs font-semibold text-ink">OSIS SMAN 1 Paciran · 2026/2027</span>
+                <span class="text-[10px] sm:text-xs font-semibold text-ink">OSIS SMAN 1 Paciran · 2026/2027</span>
             </div>
 
-            <h1 class="headline-shadow text-5xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-tight leading-[1.02] text-white mb-6 max-w-4xl">
+            <h1 class="headline-shadow text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-tight leading-[1.05] text-white mb-5 sm:mb-6 max-w-4xl">
                 Semangat Meraih <br>
                 <span class="text-honey">Prestasi.</span>
             </h1>
 
-            <p class="text-base md:text-lg text-white/90 max-w-xl leading-relaxed mb-10 font-light">
+            <p class="text-sm sm:text-base md:text-lg text-white/90 max-w-xl leading-relaxed mb-8 sm:mb-10 font-light px-2">
                 OSIS SMAN 1 Paciran — wadah siswa untuk tumbuh, berkarya, <br class="hidden md:block">
                 dan berkontribusi bagi sekolah dan masyarakat.
             </p>
 
-            <div class="flex flex-col sm:flex-row items-center gap-3">
-                <a href="#pengurus" class="btn-gold px-7 py-3.5 rounded-full text-sm flex items-center gap-2">
+            <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto px-4 sm:px-0">
+                <a href="#pengurus" class="btn-gold w-full sm:w-auto px-6 sm:px-7 py-3.5 rounded-full text-sm flex items-center justify-center gap-2">
                     Kenalan dengan Pengurus <i class="fa-solid fa-arrow-right text-xs"></i>
                 </a>
-                <a href="#program" class="btn-light px-7 py-3.5 rounded-full text-sm flex items-center gap-2">
+                <a href="#program" class="btn-light w-full sm:w-auto px-6 sm:px-7 py-3.5 rounded-full text-sm flex items-center justify-center gap-2">
                     <i class="fa-solid fa-list-check text-[10px]"></i> Lihat Program Kerja
                 </a>
             </div>
         </div>
 
-        <div class="hero-content pb-10 flex justify-center">
-            <div class="scroll-float inline-flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-4 py-2 shadow-sm">
-                <span class="text-[10px] font-semibold tracking-[0.2em] text-white uppercase">Scroll</span>
-                <i class="fa-solid fa-arrow-down text-[10px] text-white"></i>
+        <div class="hero-content pb-6 sm:pb-10 flex justify-center">
+            <div class="scroll-float inline-flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-sm">
+                <span class="text-[9px] sm:text-[10px] font-semibold tracking-[0.2em] text-white uppercase">Scroll</span>
+                <i class="fa-solid fa-arrow-down text-[9px] sm:text-[10px] text-white"></i>
             </div>
         </div>
     </section>
 
 
     <!-- ============== PROFIL SINGKAT ============== -->
-    <section id="profil" class="bg-ivory py-24 px-6">
+    <section id="profil" class="bg-ivory py-16 sm:py-20 md:py-24 px-5 sm:px-6">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <p class="text-[10px] font-bold tracking-[0.3em] text-terracotta uppercase mb-4">Tentang Kami</p>
-                <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-ink leading-tight max-w-2xl mx-auto">
+            <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
+                <p class="text-[10px] font-bold tracking-[0.3em] text-terracotta uppercase mb-3 sm:mb-4">Tentang Kami</p>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink leading-tight max-w-2xl mx-auto">
                     OSIS SMAN 1 Paciran
                 </h2>
-                <div class="ornament-line mt-8"></div>
+                <div class="ornament-line mt-6 sm:mt-8"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center p-8 bg-white rounded-3xl border border-honey/40 card-hover" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold to-honey flex items-center justify-center mx-auto mb-6 shadow-lg shadow-gold/30">
-                        <i class="fa-solid fa-eye text-white text-2xl"></i>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
+                <div class="text-center p-6 sm:p-8 bg-white rounded-3xl border border-honey/40 card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-gold to-honey flex items-center justify-center mx-auto mb-5 sm:mb-6 shadow-lg shadow-gold/30">
+                        <i class="fa-solid fa-eye text-white text-xl sm:text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-ink mb-3">Visi</h3>
-                    <p class="text-sm text-slate leading-relaxed">
+                    <h3 class="text-base sm:text-lg font-bold text-ink mb-2 sm:mb-3">Visi</h3>
+                    <p class="text-xs sm:text-sm text-slate leading-relaxed">
                         Menjadi organisasi siswa yang aktif, inovatif, dan berkarakter, serta mampu menjadi jembatan aspirasi siswa.
                     </p>
                 </div>
 
-                <div class="text-center p-8 bg-white rounded-3xl border border-honey/40 card-hover" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-terracotta to-rust flex items-center justify-center mx-auto mb-6 shadow-lg shadow-terracotta/30">
-                        <i class="fa-solid fa-bullseye text-white text-2xl"></i>
+                <div class="text-center p-6 sm:p-8 bg-white rounded-3xl border border-honey/40 card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-terracotta to-rust flex items-center justify-center mx-auto mb-5 sm:mb-6 shadow-lg shadow-terracotta/30">
+                        <i class="fa-solid fa-bullseye text-white text-xl sm:text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-ink mb-3">Misi</h3>
-                    <p class="text-sm text-slate leading-relaxed">
+                    <h3 class="text-base sm:text-lg font-bold text-ink mb-2 sm:mb-3">Misi</h3>
+                    <p class="text-xs sm:text-sm text-slate leading-relaxed">
                         Menumbuhkan kepemimpinan, kolaborasi, dan tanggung jawab siswa melalui kegiatan positif.
                     </p>
                 </div>
 
-                <div class="text-center p-8 bg-white rounded-3xl border border-honey/40 card-hover" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-leaf to-moss flex items-center justify-center mx-auto mb-6 shadow-lg shadow-leaf/30">
-                        <i class="fa-solid fa-heart text-white text-2xl"></i>
+                <div class="text-center p-6 sm:p-8 bg-white rounded-3xl border border-honey/40 card-hover sm:col-span-2 md:col-span-1" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-leaf to-moss flex items-center justify-center mx-auto mb-5 sm:mb-6 shadow-lg shadow-leaf/30">
+                        <i class="fa-solid fa-heart text-white text-xl sm:text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-ink mb-3">Nilai</h3>
-                    <p class="text-sm text-slate leading-relaxed">
+                    <h3 class="text-base sm:text-lg font-bold text-ink mb-2 sm:mb-3">Nilai</h3>
+                    <p class="text-xs sm:text-sm text-slate leading-relaxed">
                         Kepemimpinan, kolaborasi, dan kontribusi nyata untuk sekolah dan masyarakat.
                     </p>
                 </div>
@@ -360,48 +456,48 @@
 
 
     <!-- ============== PROGRAM KERJA ============== -->
-    <section id="program" class="bg-cream py-24 px-6">
+    <section id="program" class="bg-cream py-16 sm:py-20 md:py-24 px-5 sm:px-6">
         <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-14 gap-6" data-aos="fade-up">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-10 sm:mb-14 gap-4 sm:gap-6" data-aos="fade-up">
                 <div>
-                    <p class="text-[10px] font-bold tracking-[0.3em] text-terracotta uppercase mb-4">Program Kerja</p>
-                    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-ink leading-tight">
+                    <p class="text-[10px] font-bold tracking-[0.3em] text-terracotta uppercase mb-3 sm:mb-4">Program Kerja</p>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink leading-tight">
                         Kegiatan yang berdampak.
                     </h2>
                 </div>
                 <span class="text-sm font-semibold text-slate">2026/2027</span>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-5">
-                <div class="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden group h-72 md:h-auto md:min-h-[520px] card-hover" data-aos="fade-up">
+            <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 sm:gap-5">
+                <div class="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden group h-72 sm:h-80 md:h-auto md:min-h-[520px] card-hover" data-aos="fade-up">
                     <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2670&auto=format&fit=crop" alt="Pentas Seni" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/40 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                    <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-8 text-white">
                         <span class="inline-block bg-gold text-ink text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">Unggulan</span>
-                        <h3 class="text-2xl md:text-3xl font-bold mb-1">Pentas Seni & Drama Musical</h3>
-                        <p class="text-sm text-white/80 mb-3"><i class="fa-solid fa-calendar mr-1"></i> Setelah Lebaran · Aula SMAPA</p>
-                        <div class="flex items-center gap-6 text-sm text-white/90 flex-wrap">
+                        <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mb-1">Pentas Seni & Drama Musical</h3>
+                        <p class="text-xs sm:text-sm text-white/80 mb-3"><i class="fa-solid fa-calendar mr-1"></i> Setelah Lebaran · Aula SMAPA</p>
+                        <div class="flex items-center gap-3 sm:gap-6 text-xs sm:text-sm text-white/90 flex-wrap">
                             <span><i class="fa-solid fa-users mr-1"></i> Kelas X & XI</span>
                             <span><i class="fa-solid fa-masks-theater mr-1"></i> Drama Musical</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="relative rounded-3xl overflow-hidden group h-60 card-hover" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative rounded-3xl overflow-hidden group h-52 sm:h-60 card-hover" data-aos="fade-up" data-aos-delay="100">
                     <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=2670&auto=format&fit=crop" alt="Class Meeting" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-terracotta/90 via-rust/40 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                        <h3 class="text-lg font-bold mb-0.5">Class Meeting</h3>
+                    <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6 text-white">
+                        <h3 class="text-base sm:text-lg font-bold mb-0.5">Class Meeting</h3>
                         <p class="text-xs text-white/80 mb-2">Lomba antar kelas</p>
                         <span class="text-xs font-semibold text-honey">Desember</span>
                     </div>
                 </div>
 
-                <div class="relative rounded-3xl overflow-hidden group h-60 card-hover" data-aos="fade-up" data-aos-delay="200">
+                <div class="relative rounded-3xl overflow-hidden group h-52 sm:h-60 card-hover" data-aos="fade-up" data-aos-delay="200">
                     <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2670&auto=format&fit=crop" alt="Bakti Sosial" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-leaf/90 via-moss/40 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                        <h3 class="text-lg font-bold mb-0.5">Bakti Sosial</h3>
+                    <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6 text-white">
+                        <h3 class="text-base sm:text-lg font-bold mb-0.5">Bakti Sosial</h3>
                         <p class="text-xs text-white/80 mb-2">Panti Asuhan & Desa Binaan</p>
                         <span class="text-xs font-semibold text-honey">Semesteran</span>
                     </div>
@@ -409,30 +505,30 @@
             </div>
 
             <!-- Mading Digital -->
-            <div class="mt-14" data-aos="fade-up">
-                <div class="flex items-end justify-between mb-6">
+            <div class="mt-10 sm:mt-14" data-aos="fade-up">
+                <div class="flex items-end justify-between mb-5 sm:mb-6">
                     <div>
                         <p class="text-[10px] font-bold tracking-[0.3em] text-terracotta uppercase mb-2">Mading Digital</p>
-                        <h3 class="text-2xl font-bold text-ink">Poster kegiatan terbaru</h3>
+                        <h3 class="text-xl sm:text-2xl font-bold text-ink">Poster kegiatan terbaru</h3>
                     </div>
                     <span class="text-xs text-slate hidden md:block">Geser →</span>
                 </div>
-                <div class="flex gap-4 overflow-x-auto pb-4 mading-scroll">
-                    <div class="flex-shrink-0 w-72 h-44 rounded-2xl bg-gradient-to-br from-navy to-ocean p-6 text-white flex flex-col justify-between card-hover">
-                        <i class="fa-solid fa-music text-2xl text-honey"></i>
-                        <div><div class="text-xs text-white/70 mb-1">Seni</div><div class="font-bold">Audisi Band Sekolah</div></div>
+                <div class="flex gap-3 sm:gap-4 overflow-x-auto pb-4 mading-scroll -mx-5 px-5 sm:mx-0 sm:px-0">
+                    <div class="flex-shrink-0 w-60 sm:w-72 h-40 sm:h-44 rounded-2xl bg-gradient-to-br from-navy to-ocean p-5 sm:p-6 text-white flex flex-col justify-between card-hover">
+                        <i class="fa-solid fa-music text-xl sm:text-2xl text-honey"></i>
+                        <div><div class="text-xs text-white/70 mb-1">Seni</div><div class="font-bold text-sm sm:text-base">Audisi Band Sekolah</div></div>
                     </div>
-                    <div class="flex-shrink-0 w-72 h-44 rounded-2xl bg-gradient-to-br from-terracotta to-rust p-6 text-white flex flex-col justify-between card-hover">
-                        <i class="fa-solid fa-seedling text-2xl text-honey"></i>
-                        <div><div class="text-xs text-white/70 mb-1">Lingkungan</div><div class="font-bold">Bank Sampah SMAPA</div></div>
+                    <div class="flex-shrink-0 w-60 sm:w-72 h-40 sm:h-44 rounded-2xl bg-gradient-to-br from-terracotta to-rust p-5 sm:p-6 text-white flex flex-col justify-between card-hover">
+                        <i class="fa-solid fa-seedling text-xl sm:text-2xl text-honey"></i>
+                        <div><div class="text-xs text-white/70 mb-1">Lingkungan</div><div class="font-bold text-sm sm:text-base">Bank Sampah SMAPA</div></div>
                     </div>
-                    <div class="flex-shrink-0 w-72 h-44 rounded-2xl bg-gradient-to-br from-leaf to-moss p-6 text-white flex flex-col justify-between card-hover">
-                        <i class="fa-solid fa-book-open text-2xl text-honey"></i>
-                        <div><div class="text-xs text-white/70 mb-1">Literasi</div><div class="font-bold">Pekan Buku</div></div>
+                    <div class="flex-shrink-0 w-60 sm:w-72 h-40 sm:h-44 rounded-2xl bg-gradient-to-br from-leaf to-moss p-5 sm:p-6 text-white flex flex-col justify-between card-hover">
+                        <i class="fa-solid fa-book-open text-xl sm:text-2xl text-honey"></i>
+                        <div><div class="text-xs text-white/70 mb-1">Literasi</div><div class="font-bold text-sm sm:text-base">Pekan Buku</div></div>
                     </div>
-                    <div class="flex-shrink-0 w-72 h-44 rounded-2xl bg-gradient-to-br from-gold to-honey p-6 text-ink flex flex-col justify-between card-hover">
-                        <i class="fa-solid fa-laptop-code text-2xl text-terracotta"></i>
-                        <div><div class="text-xs text-ink/70 mb-1">Teknologi</div><div class="font-bold">Prodistik ITS Showcase</div></div>
+                    <div class="flex-shrink-0 w-60 sm:w-72 h-40 sm:h-44 rounded-2xl bg-gradient-to-br from-gold to-honey p-5 sm:p-6 text-ink flex flex-col justify-between card-hover">
+                        <i class="fa-solid fa-laptop-code text-xl sm:text-2xl text-terracotta"></i>
+                        <div><div class="text-xs text-ink/70 mb-1">Teknologi</div><div class="font-bold text-sm sm:text-base">Prodistik ITS Showcase</div></div>
                     </div>
                 </div>
             </div>
@@ -441,45 +537,45 @@
 
 
     <!-- ============== PROFIL PENGURUS ============== -->
-    <section id="pengurus" class="pengurus-bg py-28 px-6">
+    <section id="pengurus" class="pengurus-bg py-16 sm:py-20 md:py-28 px-5 sm:px-6">
         <div class="max-w-7xl mx-auto relative z-10">
 
-            <div class="text-center mb-20" data-aos="fade-up">
-                <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-md border border-terracotta/20 rounded-full px-5 py-2 mb-6 shadow-sm">
-                    <i class="fa-solid fa-crown text-terracotta"></i>
-                    <span class="text-[10px] font-bold tracking-[0.3em] text-rust uppercase">Kepengurusan 2026/2027</span>
+            <div class="text-center mb-12 sm:mb-16 md:mb-20" data-aos="fade-up">
+                <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-md border border-terracotta/20 rounded-full px-3 sm:px-5 py-1.5 sm:py-2 mb-4 sm:mb-6 shadow-sm">
+                    <i class="fa-solid fa-crown text-terracotta text-xs"></i>
+                    <span class="text-[9px] sm:text-[10px] font-bold tracking-[0.3em] text-rust uppercase">Kepengurusan 2026/2027</span>
                 </div>
-                <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight text-ink leading-tight mb-4">
+                <h2 class="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight text-ink leading-tight mb-3 sm:mb-4">
                     Kenalan dengan <br>
                     <span class="gradient-text-gold">Pengurus OSIS.</span>
                 </h2>
-                <p class="text-rust/80 max-w-xl mx-auto text-sm md:text-base font-medium">
+                <p class="text-rust/80 max-w-xl mx-auto text-xs sm:text-sm md:text-base font-medium px-2">
                     Generasi muda SMAPA yang siap mengabdi, berkarya, dan membawa perubahan positif.
                 </p>
-                <div class="ornament-line mt-8"></div>
+                <div class="ornament-line mt-6 sm:mt-8"></div>
             </div>
 
             <!-- BPH -->
-            <div class="mb-20">
-                <div class="text-center mb-10" data-aos="fade-up">
-                    <h3 class="text-2xl md:text-3xl font-bold text-ink mb-2">Badan Pengurus Harian</h3>
-                    <p class="text-sm text-rust/70 font-medium">Inti kepengurusan OSIS SMAPA</p>
+            <div class="mb-14 sm:mb-20">
+                <div class="text-center mb-8 sm:mb-10" data-aos="fade-up">
+                    <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-ink mb-2">Badan Pengurus Harian</h3>
+                    <p class="text-xs sm:text-sm text-rust/70 font-medium">Inti kepengurusan OSIS SMAPA</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="card-bph text-center" data-aos="fade-up" data-aos-delay="100">
-                        <div class="flex justify-center mb-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
+                    <div class="card-bph text-center sm:col-span-2 md:col-span-1" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex justify-center mb-5 sm:mb-6">
                             <div class="relative">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2564&auto=format&fit=crop" alt="Ketua OSIS" class="foto-pengurus" style="width: 120px; height: 120px;">
-                                <span class="absolute -bottom-2 -right-2 w-10 h-10 rounded-full bg-gradient-to-br from-gold to-honey flex items-center justify-center text-ink shadow-lg">
-                                    <i class="fa-solid fa-crown text-sm"></i>
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2564&auto=format&fit=crop" alt="Ketua OSIS" class="foto-pengurus">
+                                <span class="absolute -bottom-2 -right-2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-gold to-honey flex items-center justify-center text-ink shadow-lg">
+                                    <i class="fa-solid fa-crown text-xs sm:text-sm"></i>
                                 </span>
                             </div>
                         </div>
                         <span class="badge-jabatan gold">Ketua OSIS</span>
-                        <h4 class="text-xl font-bold text-ink mt-4 mb-1">Ahmad Rizki Pratama</h4>
-                        <p class="text-sm text-slate mb-4">Kelas XII MIPA 1</p>
-                        <p class="text-xs text-rust/70 italic mb-5 leading-relaxed">
+                        <h4 class="text-lg sm:text-xl font-bold text-ink mt-3 sm:mt-4 mb-1">Ahmad Rizki Pratama</h4>
+                        <p class="text-xs sm:text-sm text-slate mb-3 sm:mb-4">Kelas XII MIPA 1</p>
+                        <p class="text-xs text-rust/70 italic mb-4 sm:mb-5 leading-relaxed px-2">
                             "Memimpin dengan hati, bekerja dengan ilmu."
                         </p>
                         <div class="flex justify-center gap-2">
@@ -490,18 +586,18 @@
                     </div>
 
                     <div class="card-bph text-center" data-aos="fade-up" data-aos-delay="200">
-                        <div class="flex justify-center mb-6">
+                        <div class="flex justify-center mb-5 sm:mb-6">
                             <div class="relative">
-                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2574&auto=format&fit=crop" alt="Wakil Ketua" class="foto-pengurus" style="width: 120px; height: 120px;">
-                                <span class="absolute -bottom-2 -right-2 w-10 h-10 rounded-full bg-gradient-to-br from-navy to-ocean flex items-center justify-center text-white shadow-lg">
-                                    <i class="fa-solid fa-star text-sm"></i>
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2574&auto=format&fit=crop" alt="Wakil Ketua" class="foto-pengurus">
+                                <span class="absolute -bottom-2 -right-2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-navy to-ocean flex items-center justify-center text-white shadow-lg">
+                                    <i class="fa-solid fa-star text-xs sm:text-sm"></i>
                                 </span>
                             </div>
                         </div>
                         <span class="badge-jabatan">Wakil Ketua</span>
-                        <h4 class="text-xl font-bold text-ink mt-4 mb-1">Siti Nurhaliza</h4>
-                        <p class="text-sm text-slate mb-4">Kelas XI MIPA 2</p>
-                        <p class="text-xs text-rust/70 italic mb-5 leading-relaxed">
+                        <h4 class="text-lg sm:text-xl font-bold text-ink mt-3 sm:mt-4 mb-1">Siti Nurhaliza</h4>
+                        <p class="text-xs sm:text-sm text-slate mb-3 sm:mb-4">Kelas XI MIPA 2</p>
+                        <p class="text-xs text-rust/70 italic mb-4 sm:mb-5 leading-relaxed px-2">
                             "Bersama kita bisa, bersama kita kuat."
                         </p>
                         <div class="flex justify-center gap-2">
@@ -512,18 +608,18 @@
                     </div>
 
                     <div class="card-bph text-center" data-aos="fade-up" data-aos-delay="300">
-                        <div class="flex justify-center mb-6">
+                        <div class="flex justify-center mb-5 sm:mb-6">
                             <div class="relative">
-                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2574&auto=format&fit=crop" alt="Sekretaris" class="foto-pengurus" style="width: 120px; height: 120px;">
-                                <span class="absolute -bottom-2 -right-2 w-10 h-10 rounded-full bg-gradient-to-br from-leaf to-moss flex items-center justify-center text-white shadow-lg">
-                                    <i class="fa-solid fa-pen text-sm"></i>
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2574&auto=format&fit=crop" alt="Sekretaris" class="foto-pengurus">
+                                <span class="absolute -bottom-2 -right-2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-leaf to-moss flex items-center justify-center text-white shadow-lg">
+                                    <i class="fa-solid fa-pen text-xs sm:text-sm"></i>
                                 </span>
                             </div>
                         </div>
                         <span class="badge-jabatan">Sekretaris</span>
-                        <h4 class="text-xl font-bold text-ink mt-4 mb-1">Dimas Anggara</h4>
-                        <p class="text-sm text-slate mb-4">Kelas XI IPS 1</p>
-                        <p class="text-xs text-rust/70 italic mb-5 leading-relaxed">
+                        <h4 class="text-lg sm:text-xl font-bold text-ink mt-3 sm:mt-4 mb-1">Dimas Anggara</h4>
+                        <p class="text-xs sm:text-sm text-slate mb-3 sm:mb-4">Kelas XI IPS 1</p>
+                        <p class="text-xs text-rust/70 italic mb-4 sm:mb-5 leading-relaxed px-2">
                             "Detail adalah segalanya."
                         </p>
                         <div class="flex justify-center gap-2">
@@ -537,138 +633,138 @@
 
             <!-- Sekbid -->
             <div>
-                <div class="text-center mb-10" data-aos="fade-up">
-                    <h3 class="text-2xl md:text-3xl font-bold text-ink mb-2">Koordinator Seksi Bidang</h3>
-                    <p class="text-sm text-rust/70 font-medium">10 Sekbid yang siap bekerja untukmu</p>
+                <div class="text-center mb-8 sm:mb-10" data-aos="fade-up">
+                    <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-ink mb-2">Koordinator Seksi Bidang</h3>
+                    <p class="text-xs sm:text-sm text-rust/70 font-medium">10 Sekbid yang siap bekerja untukmu</p>
                 </div>
 
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5">
                     <div class="card-pengurus" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card-pengurus-inner text-center">
-                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=2564&auto=format&fit=crop" alt="Sekbid 1" class="foto-pengurus mx-auto mb-4">
-                            <span class="badge-jabatan">Sekbid 1</span>
-                            <h4 class="text-sm font-bold text-ink mt-3 mb-1">Rian Hidayat</h4>
-                            <p class="text-[10px] text-slate mb-3">Keimanan & Ketakwaan</p>
-                            <div class="flex justify-center gap-1.5">
-                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-solid fa-envelope"></i></a>
+                        <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=2564&auto=format&fit=crop" alt="Sekbid 1" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 1</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Rian Hidayat</h4>
+                            <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Keimanan & Ketakwaan</p>
+                            <div class="flex justify-center gap-1 sm:gap-1.5">
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-solid fa-envelope"></i></a>
                             </div>
                         </div>
                     </div>
 
                     <div class="card-pengurus" data-aos="fade-up" data-aos-delay="150">
-                        <div class="card-pengurus-inner text-center">
-                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2670&auto=format&fit=crop" alt="Sekbid 2" class="foto-pengurus mx-auto mb-4">
-                            <span class="badge-jabatan">Sekbid 2</span>
-                            <h4 class="text-sm font-bold text-ink mt-3 mb-1">Nabila Putri</h4>
-                            <p class="text-[10px] text-slate mb-3">Budi Pekerti & Akhlak</p>
-                            <div class="flex justify-center gap-1.5">
-                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-solid fa-envelope"></i></a>
+                        <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2670&auto=format&fit=crop" alt="Sekbid 2" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 2</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Nabila Putri</h4>
+                            <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Budi Pekerti & Akhlak</p>
+                            <div class="flex justify-center gap-1 sm:gap-1.5">
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-solid fa-envelope"></i></a>
                             </div>
                         </div>
                     </div>
 
                     <div class="card-pengurus" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card-pengurus-inner text-center">
-                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2574&auto=format&fit=crop" alt="Sekbid 3" class="foto-pengurus mx-auto mb-4">
-                            <span class="badge-jabatan">Sekbid 3</span>
-                            <h4 class="text-sm font-bold text-ink mt-3 mb-1">Bagas Saputra</h4>
-                            <p class="text-[10px] text-slate mb-3">Jasmani & Kesehatan</p>
-                            <div class="flex justify-center gap-1.5">
-                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-solid fa-envelope"></i></a>
+                        <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2574&auto=format&fit=crop" alt="Sekbid 3" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 3</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Bagas Saputra</h4>
+                            <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Jasmani & Kesehatan</p>
+                            <div class="flex justify-center gap-1 sm:gap-1.5">
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-solid fa-envelope"></i></a>
                             </div>
                         </div>
                     </div>
 
                     <div class="card-pengurus" data-aos="fade-up" data-aos-delay="250">
-                        <div class="card-pengurus-inner text-center">
-                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2574&auto=format&fit=crop" alt="Sekbid 4" class="foto-pengurus mx-auto mb-4">
-                            <span class="badge-jabatan">Sekbid 4</span>
-                            <h4 class="text-sm font-bold text-ink mt-3 mb-1">Ayu Lestari</h4>
-                            <p class="text-[10px] text-slate mb-3">Sastra & Budaya</p>
-                            <div class="flex justify-center gap-1.5">
-                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-solid fa-envelope"></i></a>
+                        <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2574&auto=format&fit=crop" alt="Sekbid 4" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 4</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Ayu Lestari</h4>
+                            <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Sastra & Budaya</p>
+                            <div class="flex justify-center gap-1 sm:gap-1.5">
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-solid fa-envelope"></i></a>
                             </div>
                         </div>
                     </div>
 
                     <div class="card-pengurus" data-aos="fade-up" data-aos-delay="300">
-                        <div class="card-pengurus-inner text-center">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2564&auto=format&fit=crop" alt="Sekbid 5" class="foto-pengurus mx-auto mb-4">
-                            <span class="badge-jabatan">Sekbid 5</span>
-                            <h4 class="text-sm font-bold text-ink mt-3 mb-1">Fajar Nugroho</h4>
-                            <p class="text-[10px] text-slate mb-3">Teknologi & Informasi</p>
-                            <div class="flex justify-center gap-1.5">
-                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-solid fa-envelope"></i></a>
+                        <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2564&auto=format&fit=crop" alt="Sekbid 5" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 5</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Fajar Nugroho</h4>
+                            <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Teknologi & Informasi</p>
+                            <div class="flex justify-center gap-1 sm:gap-1.5">
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-solid fa-envelope"></i></a>
                             </div>
                         </div>
                     </div>
 
                     <div class="card-pengurus" data-aos="fade-up" data-aos-delay="350">
-                        <div class="card-pengurus-inner text-center">
-                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=2574&auto=format&fit=crop" alt="Sekbid 6" class="foto-pengurus mx-auto mb-4">
-                            <span class="badge-jabatan">Sekbid 6</span>
-                            <h4 class="text-sm font-bold text-ink mt-3 mb-1">Dewi Anggraini</h4>
-                            <p class="text-[10px] text-slate mb-3">Komunikasi & Bahasa</p>
-                            <div class="flex justify-center gap-1.5">
-                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-solid fa-envelope"></i></a>
+                        <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=2574&auto=format&fit=crop" alt="Sekbid 6" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 6</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Dewi Anggraini</h4>
+                            <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Komunikasi & Bahasa</p>
+                            <div class="flex justify-center gap-1 sm:gap-1.5">
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-solid fa-envelope"></i></a>
                             </div>
                         </div>
                     </div>
 
                     <div class="card-pengurus" data-aos="fade-up" data-aos-delay="400">
-                        <div class="card-pengurus-inner text-center">
-                            <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=2574&auto=format&fit=crop" alt="Sekbid 7" class="foto-pengurus mx-auto mb-4">
-                            <span class="badge-jabatan">Sekbid 7</span>
-                            <h4 class="text-sm font-bold text-ink mt-3 mb-1">Yoga Pratama</h4>
-                            <p class="text-[10px] text-slate mb-3">Kewirausahaan</p>
-                            <div class="flex justify-center gap-1.5">
-                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-solid fa-envelope"></i></a>
+                        <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
+                            <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=2574&auto=format&fit=crop" alt="Sekbid 7" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 7</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Yoga Pratama</h4>
+                            <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Kewirausahaan</p>
+                            <div class="flex justify-center gap-1 sm:gap-1.5">
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-solid fa-envelope"></i></a>
                             </div>
                         </div>
                     </div>
 
                     <div class="card-pengurus" data-aos="fade-up" data-aos-delay="450">
-                        <div class="card-pengurus-inner text-center">
-                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=2670&auto=format&fit=crop" alt="Sekbid 8" class="foto-pengurus mx-auto mb-4">
-                            <span class="badge-jabatan">Sekbid 8</span>
-                            <h4 class="text-sm font-bold text-ink mt-3 mb-1">Intan Maharani</h4>
-                            <p class="text-[10px] text-slate mb-3">Sosial & Lingkungan</p>
-                            <div class="flex justify-center gap-1.5">
-                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-solid fa-envelope"></i></a>
+                        <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=2670&auto=format&fit=crop" alt="Sekbid 8" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 8</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Intan Maharani</h4>
+                            <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Sosial & Lingkungan</p>
+                            <div class="flex justify-center gap-1 sm:gap-1.5">
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-solid fa-envelope"></i></a>
                             </div>
                         </div>
                     </div>
 
                     <div class="card-pengurus" data-aos="fade-up" data-aos-delay="500">
-                        <div class="card-pengurus-inner text-center">
-                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=2598&auto=format&fit=crop" alt="Sekbid 9" class="foto-pengurus mx-auto mb-4">
-                            <span class="badge-jabatan">Sekbid 9</span>
-                            <h4 class="text-sm font-bold text-ink mt-3 mb-1">Arif Setiawan</h4>
-                            <p class="text-[10px] text-slate mb-3">Kreativitas & Seni</p>
-                            <div class="flex justify-center gap-1.5">
-                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-solid fa-envelope"></i></a>
+                        <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
+                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=2598&auto=format&fit=crop" alt="Sekbid 9" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 9</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Arif Setiawan</h4>
+                            <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Kreativitas & Seni</p>
+                            <div class="flex justify-center gap-1 sm:gap-1.5">
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-solid fa-envelope"></i></a>
                             </div>
                         </div>
                     </div>
 
                     <div class="card-pengurus" data-aos="fade-up" data-aos-delay="550">
-                        <div class="card-pengurus-inner text-center">
-                            <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=2574&auto=format&fit=crop" alt="Sekbid 10" class="foto-pengurus mx-auto mb-4">
-                            <span class="badge-jabatan">Sekbid 10</span>
-                            <h4 class="text-sm font-bold text-ink mt-3 mb-1">Maya Sari</h4>
-                            <p class="text-[10px] text-slate mb-3">Pendidikan & Literasi</p>
-                            <div class="flex justify-center gap-1.5">
-                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-solid fa-envelope"></i></a>
+                        <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
+                            <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=2574&auto=format&fit=crop" alt="Sekbid 10" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 10</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Maya Sari</h4>
+                            <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Pendidikan & Literasi</p>
+                            <div class="flex justify-center gap-1 sm:gap-1.5">
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-solid fa-envelope"></i></a>
                             </div>
                         </div>
                     </div>
@@ -680,31 +776,31 @@
 
 
     <!-- ============== PRESTASI ============== -->
-    <section id="prestasi" class="bg-navy text-white py-24 px-6 relative overflow-hidden">
+    <section id="prestasi" class="bg-navy text-white py-16 sm:py-20 md:py-24 px-5 sm:px-6 relative overflow-hidden">
         <div class="absolute inset-0 opacity-10">
             <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2574&auto=format&fit=crop" alt="Pattern" class="w-full h-full object-cover">
         </div>
         <div class="max-w-6xl mx-auto relative z-10">
-            <div class="text-center mb-14" data-aos="fade-up">
+            <div class="text-center mb-10 sm:mb-14" data-aos="fade-up">
                 <p class="text-[10px] font-bold tracking-[0.3em] text-honey uppercase mb-3">Pencapaian</p>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-white">SMAPA Semangat Meraih Prestasi</h2>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white">SMAPA Semangat Meraih Prestasi</h2>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-8 md:gap-10 text-center">
                 <div data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-5xl md:text-6xl font-extrabold mb-3 text-gold">87</div>
-                    <div class="text-[10px] font-bold tracking-[0.3em] uppercase text-white/60">Lolos PTN 2024</div>
+                    <div class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-2 sm:mb-3 text-gold">87</div>
+                    <div class="text-[9px] sm:text-[10px] font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase text-white/60">Lolos PTN 2024</div>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-5xl md:text-6xl font-extrabold mb-3 text-gold">20+</div>
-                    <div class="text-[10px] font-bold tracking-[0.3em] uppercase text-white/60">Ekstrakurikuler</div>
+                    <div class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-2 sm:mb-3 text-gold">20+</div>
+                    <div class="text-[9px] sm:text-[10px] font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase text-white/60">Ekstrakurikuler</div>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-5xl md:text-6xl font-extrabold mb-3 text-gold">15+</div>
-                    <div class="text-[10px] font-bold tracking-[0.3em] uppercase text-white/60">Prestasi 2025/2026</div>
+                    <div class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-2 sm:mb-3 text-gold">15+</div>
+                    <div class="text-[9px] sm:text-[10px] font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase text-white/60">Prestasi 2025/2026</div>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="400">
-                    <div class="text-5xl md:text-6xl font-extrabold mb-3 text-gold">7</div>
-                    <div class="text-[10px] font-bold tracking-[0.3em] uppercase text-white/60">Tahun Kerja Sama ITS</div>
+                    <div class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-2 sm:mb-3 text-gold">7</div>
+                    <div class="text-[9px] sm:text-[10px] font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase text-white/60">Tahun Kerja Sama ITS</div>
                 </div>
             </div>
         </div>
@@ -712,20 +808,20 @@
 
 
     <!-- ============== CTA ============== -->
-    <section class="bg-cream py-24 px-6">
+    <section class="bg-cream py-16 sm:py-20 md:py-24 px-5 sm:px-6">
         <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
-            <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight text-ink leading-[1.1] mb-6">
+            <h2 class="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight text-ink leading-[1.15] mb-4 sm:mb-6">
                 Mau jadi bagian <br>
                 <span class="gradient-text-gold">dari perubahan?</span>
             </h2>
-            <p class="text-slate max-w-lg mx-auto mb-10 text-base">
+            <p class="text-sm sm:text-base text-slate max-w-lg mx-auto mb-8 sm:mb-10 px-2">
                 Ikuti kegiatan OSIS SMAN 1 Paciran — dari Class Meeting, Pentas Seni, sampai Bakti Sosial.
             </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-                <a href="#" class="btn-gold px-8 py-4 rounded-full text-sm inline-flex items-center gap-2">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 px-4 sm:px-0">
+                <a href="#" class="btn-gold w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-sm inline-flex items-center justify-center gap-2">
                     <i class="fa-brands fa-instagram"></i> Follow Instagram OSIS
                 </a>
-                <a href="#" class="btn-light px-8 py-4 rounded-full text-sm inline-flex items-center gap-2 border border-slate/15">
+                <a href="#" class="btn-light w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-sm inline-flex items-center justify-center gap-2 border border-slate/15">
                     <i class="fa-solid fa-envelope"></i> Hubungi Pengurus
                 </a>
             </div>
@@ -734,11 +830,11 @@
 
 
     <!-- ============== FOOTER ============== -->
-    <footer class="bg-ink text-white pt-20 pb-10 px-6">
+    <footer class="bg-ink text-white pt-14 sm:pt-20 pb-8 sm:pb-10 px-5 sm:px-6">
         <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-                <div>
-                    <div class="flex items-center gap-2 mb-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-10 sm:mb-16">
+                <div class="sm:col-span-2 lg:col-span-1">
+                    <div class="flex items-center gap-2 mb-5 sm:mb-6">
                         <div class="w-9 h-9 rounded-full logo-osis flex items-center justify-center">
                             <i class="fa-solid fa-users text-white text-sm"></i>
                         </div>
@@ -747,7 +843,7 @@
                             <div class="text-[10px] text-white/60">SMAN 1 Paciran</div>
                         </div>
                     </div>
-                    <p class="text-white/60 text-sm leading-relaxed mb-6">
+                    <p class="text-white/60 text-sm leading-relaxed mb-5 sm:mb-6">
                         Wadah siswa untuk tumbuh, berkarya, dan berkontribusi bagi sekolah dan masyarakat.
                     </p>
                     <div class="flex space-x-3">
@@ -759,8 +855,8 @@
                 </div>
 
                 <div>
-                    <h4 class="font-bold text-sm tracking-wide mb-6 uppercase">Navigasi</h4>
-                    <ul class="space-y-3 text-white/60 text-sm">
+                    <h4 class="font-bold text-sm tracking-wide mb-5 sm:mb-6 uppercase">Navigasi</h4>
+                    <ul class="space-y-2.5 sm:space-y-3 text-white/60 text-sm">
                         <li><a href="#profil" class="hover:text-gold transition">Profil</a></li>
                         <li><a href="#program" class="hover:text-gold transition">Program Kerja</a></li>
                         <li><a href="#pengurus" class="hover:text-gold transition">Pengurus</a></li>
@@ -769,26 +865,26 @@
                 </div>
 
                 <div>
-                    <h4 class="font-bold text-sm tracking-wide mb-6 uppercase">Sekretariat</h4>
-                    <ul class="space-y-3 text-white/60 text-sm">
-                        <li class="flex items-start gap-2"><i class="fa-solid fa-location-dot mt-1 text-gold"></i> Jl. Raya Kandangsemangkon No. 587, Paciran, Lamongan</li>
-                        <li class="flex items-start gap-2"><i class="fa-solid fa-clock mt-1 text-gold"></i> Senin–Jumat, 14.00–16.00 WIB</li>
-                        <li class="flex items-start gap-2"><i class="fa-solid fa-envelope mt-1 text-gold"></i> sman1.paciran@yahoo.co.id</li>
-                        <li class="flex items-start gap-2"><i class="fa-solid fa-phone mt-1 text-gold"></i> (0322) 661632</li>
+                    <h4 class="font-bold text-sm tracking-wide mb-5 sm:mb-6 uppercase">Sekretariat</h4>
+                    <ul class="space-y-2.5 sm:space-y-3 text-white/60 text-sm">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-location-dot mt-1 text-gold flex-shrink-0"></i> <span>Jl. Raya Kandangsemangkon No. 587, Paciran, Lamongan</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-clock mt-1 text-gold flex-shrink-0"></i> <span>Senin–Jumat, 14.00–16.00 WIB</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-envelope mt-1 text-gold flex-shrink-0"></i> <span class="break-all">sman1.paciran@yahoo.co.id</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-phone mt-1 text-gold flex-shrink-0"></i> <span>(0322) 661632</span></li>
                     </ul>
                 </div>
 
-                <div>
-                    <h4 class="font-bold text-sm tracking-wide mb-6 uppercase">Ikuti Kami</h4>
+                <div class="sm:col-span-2 lg:col-span-1">
+                    <h4 class="font-bold text-sm tracking-wide mb-5 sm:mb-6 uppercase">Ikuti Kami</h4>
                     <p class="text-white/60 text-sm mb-4">Update kegiatan OSIS terbaru di sosmed.</p>
                     <div class="flex">
                         <input type="email" placeholder="Email kamu" class="bg-white/10 border border-white/20 rounded-l-full px-4 py-3 text-sm w-full focus:outline-none focus:border-gold text-white placeholder-white/40">
-                        <button class="bg-gold text-ink px-4 py-3 rounded-r-full text-sm font-bold hover:bg-honey transition"><i class="fa-solid fa-paper-plane"></i></button>
+                        <button class="bg-gold text-ink px-4 py-3 rounded-r-full text-sm font-bold hover:bg-honey transition flex-shrink-0"><i class="fa-solid fa-paper-plane"></i></button>
                     </div>
                 </div>
             </div>
 
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-white/50 max-w-6xl mx-auto gap-4">
+            <div class="border-t border-white/10 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-white/50 max-w-6xl mx-auto gap-3 sm:gap-4 text-center md:text-left">
                 <p>&copy; 2026 OSIS SMAN 1 Paciran. Dibuat oleh Sekbid Teknologi & Informasi.</p>
                 <div class="flex space-x-6">
                     <a href="#" class="hover:text-white transition">Kode Etik</a>
@@ -802,9 +898,12 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ once: true, offset: 80, duration: 800 });
+        AOS.init({ once: true, offset: 80, duration: 800, disable: window.innerWidth < 480 ? false : false });
 
         const ambient = document.getElementById('ambient');
+
+        // Kurangi partikel di mobile untuk performa
+        const particleCount = window.innerWidth < 640 ? 20 : 40;
 
         function createParticle() {
             const p = document.createElement('div');
@@ -820,13 +919,38 @@
             ambient.appendChild(p);
         }
 
-        for (let i = 0; i < 40; i++) createParticle();
+        for (let i = 0; i < particleCount; i++) createParticle();
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > window.innerHeight * 0.8) {
                 ambient.classList.add('dim');
             } else {
                 ambient.classList.remove('dim');
+            }
+        });
+
+        /* ============ MOBILE MENU ============ */
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerBtn.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Tutup menu saat link diklik
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburgerBtn.classList.remove('open');
+                mobileMenu.classList.remove('open');
+            });
+        });
+
+        // Tutup menu saat klik di luar
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+                hamburgerBtn.classList.remove('open');
+                mobileMenu.classList.remove('open');
             }
         });
     </script>

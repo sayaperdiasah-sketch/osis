@@ -4,11 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#0A2463">
-    <title>OSIS SMAN 1 Paciran — Semangat Meraih Prestasi</title>
+    
+    <!-- SEO Meta -->
+    <title>OSIS SMAN 1 Paciran — Semangat Meraih Prestasi | Organisasi Siswa Intra Sekolah</title>
+    <meta name="description" content="Website resmi OSIS SMAN 1 Paciran. Kenalan dengan pengurus, lihat program kerja, prestasi, dan kegiatan terbaru. Bergerak bersama, berkarya nyata.">
+    <meta name="keywords" content="OSIS SMAN 1 Paciran, OSIS SMAPA, Organisasi Siswa, SMAN 1 Paciran, Lamongan, Program Kerja OSIS">
+    <meta name="author" content="OSIS SMAN 1 Paciran">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="OSIS SMAN 1 Paciran — Semangat Meraih Prestasi">
+    <meta property="og:description" content="Wadah siswa untuk tumbuh, berkarya, dan berkontribusi bagi sekolah dan masyarakat.">
+    <meta property="og:image" content="sekolah.jpg">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OSIS SMAN 1 Paciran — Semangat Meraih Prestasi">
+    <meta name="twitter:description" content="Wadah siswa untuk tumbuh, berkarya, dan berkontribusi.">
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
@@ -30,15 +52,110 @@
                         ink: '#1C1917',
                         slate: '#78716C'
                     },
-                    fontFamily: { inter: ['Inter', 'sans-serif'] }
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif']
+                    },
+                    animation: {
+                        'gradient': 'gradient 8s ease infinite',
+                        'shimmer': 'shimmer 2s linear infinite',
+                        'pulse-slow': 'pulse 4s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' }
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' }
+                        }
+                    }
                 }
             }
         }
     </script>
     
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #FFFEF5; color: #1C1917; overflow-x: hidden; }
+        * { -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Plus Jakarta Sans', 'Inter', sans-serif; background-color: #FFFEF5; color: #1C1917; overflow-x: hidden; }
         
+        /* ============ PRELOADER ============ */
+        #preloader {
+            position: fixed; inset: 0; z-index: 9999;
+            background: linear-gradient(135deg, #0A2463 0%, #C2410C 100%);
+            display: flex; align-items: center; justify-content: center;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+        #preloader.hidden { opacity: 0; visibility: hidden; }
+        .loader-logo {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #F5C518, #FCD34D);
+            display: flex; align-items: center; justify-content: center;
+            animation: pulseLoader 1.5s ease-in-out infinite;
+            box-shadow: 0 0 60px rgba(245,197,24,0.5);
+        }
+        @keyframes pulseLoader {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 60px rgba(245,197,24,0.5); }
+            50% { transform: scale(1.1); box-shadow: 0 0 100px rgba(245,197,24,0.7); }
+        }
+        .loader-bar {
+            width: 200px; height: 3px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 999px; overflow: hidden;
+            margin-top: 24px;
+        }
+        .loader-bar-fill {
+            height: 100%; width: 0%;
+            background: linear-gradient(90deg, #F5C518, #FCD34D);
+            border-radius: 999px;
+            animation: loadFill 1.8s ease-out forwards;
+        }
+        @keyframes loadFill { 0% { width: 0%; } 100% { width: 100%; } }
+
+        /* ============ SCROLL PROGRESS ============ */
+        #scroll-progress {
+            position: fixed; top: 0; left: 0; right: 0;
+            height: 3px; z-index: 100;
+            background: transparent;
+        }
+        #scroll-progress-bar {
+            height: 100%; width: 0%;
+            background: linear-gradient(90deg, #F5C518, #C2410C);
+            transition: width 0.1s ease;
+            box-shadow: 0 0 10px rgba(245,197,24,0.6);
+        }
+
+        /* ============ CUSTOM CURSOR ============ */
+        @media (min-width: 1024px) {
+            .custom-cursor {
+                position: fixed; top: 0; left: 0;
+                width: 32px; height: 32px;
+                border: 2px solid rgba(245,197,24,0.8);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9998;
+                transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
+                transform: translate(-50%, -50%);
+                mix-blend-mode: difference;
+            }
+            .custom-cursor.hover {
+                width: 60px; height: 60px;
+                background: rgba(245,197,24,0.2);
+                border-color: rgba(245,197,24,1);
+            }
+            .custom-cursor-dot {
+                position: fixed; top: 0; left: 0;
+                width: 6px; height: 6px;
+                background: #F5C518;
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                transform: translate(-50%, -50%);
+            }
+        }
+
         /* ============ HERO BACKGROUND ============ */
         .hero-full {
             background-image: url('sekolah.jpg');
@@ -47,11 +164,9 @@
             background-position: center;
             background-repeat: no-repeat;
         }
-        
         .hero-full::after {
             content: '';
-            position: absolute;
-            inset: 0;
+            position: absolute; inset: 0;
             background: linear-gradient(
                 135deg,
                 rgba(10, 36, 99, 0.88) 0%,
@@ -59,8 +174,7 @@
                 rgba(194, 65, 12, 0.55) 70%,
                 rgba(245, 197, 24, 0.40) 100%
             );
-            pointer-events: none;
-            z-index: 2;
+            pointer-events: none; z-index: 2;
         }
 
         .nav-pill { background: rgba(255,255,255,0.96); backdrop-filter: blur(20px); box-shadow: 0 8px 30px rgba(10,36,99,0.12); }
@@ -69,30 +183,39 @@
         .btn-gold {
             background: linear-gradient(135deg, #F5C518, #FCD34D);
             color: #1C1917;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 8px 24px rgba(245,197,24,0.45);
             font-weight: 700;
+            position: relative; overflow: hidden;
         }
-        .btn-gold:hover { background: linear-gradient(135deg, #EAB308, #F5C518); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(245,197,24,0.55); }
+        .btn-gold::before {
+            content: ''; position: absolute; top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s ease;
+        }
+        .btn-gold:hover::before { left: 100%; }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(245,197,24,0.55); }
 
         .btn-light {
             background: rgba(255,255,255,0.95);
             color: #0A2463;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             font-weight: 600;
         }
-        .btn-light:hover { background: white; transform: translateY(-2px); }
+        .btn-light:hover { background: white; transform: translateY(-3px); }
 
         @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
         .scroll-float { animation: floatY 2s ease-in-out infinite; }
 
-        .card-hover { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .card-hover { transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .card-hover:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(194,65,12,0.15); }
 
-        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #FEF3C7; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(#C2410C, #F5C518); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(#C2410C, #F5C518); border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: linear-gradient(#9A3412, #EAB308); }
 
         /* ===== AMBIENT ANIMASI ===== */
         .ambient { position: absolute; inset: 0; pointer-events: none; z-index: 3; overflow: hidden; }
@@ -120,7 +243,29 @@
         .ambient.dim { opacity: 0.3; transition: opacity 0.6s ease; }
         .logo-osis { background: linear-gradient(135deg, #0A2463 0%, #C2410C 100%); }
 
-        /* ===== PROFIL PENGURUS ===== */
+        /* ===== GRADIENT TEXT ===== */
+        .gradient-text-gold {
+            background: linear-gradient(135deg, #C2410C 0%, #F5C518 50%, #FCD34D 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .gradient-text-animated {
+            background: linear-gradient(135deg, #C2410C, #F5C518, #FCD34D, #C2410C);
+            background-size: 300% 300%;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            animation: gradient 6s ease infinite;
+        }
+
+        .ornament-line {
+            width: 60px; height: 3px;
+            background: linear-gradient(90deg, transparent, #C2410C, transparent);
+            border-radius: 999px; margin: 0 auto;
+        }
+
+        .mading-scroll { scrollbar-width: thin; scrollbar-color: #C2410C #FEF3C7; }
+        .mading-scroll::-webkit-scrollbar { height: 6px; }
+        .mading-scroll::-webkit-scrollbar-thumb { background: #C2410C; border-radius: 3px; }
+
+        /* ===== PENGURUS CARD ===== */
         .pengurus-bg {
             background: linear-gradient(135deg, #FEFCE8 0%, #FEF3C7 25%, #FDE68A 50%, #FCD34D 75%, #F5C518 100%);
             position: relative; overflow: hidden;
@@ -214,26 +359,7 @@
             color: white; transform: translateY(-2px);
         }
 
-        .gradient-text-gold {
-            background: linear-gradient(135deg, #C2410C 0%, #F5C518 50%, #FCD34D 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-        }
-
-        .ornament-line {
-            width: 60px; height: 3px;
-            background: linear-gradient(90deg, transparent, #C2410C, transparent);
-            border-radius: 999px; margin: 0 auto;
-        }
-
-        .mading-scroll { scrollbar-width: thin; scrollbar-color: #C2410C #FEF3C7; }
-        .mading-scroll::-webkit-scrollbar { height: 6px; }
-        .mading-scroll::-webkit-scrollbar-thumb { background: #C2410C; border-radius: 3px; }
-
-        /* ========================================= */
-        /* RESPONSIVE — MOBILE OPTIMIZATION          */
-        /* ========================================= */
-
-        /* Mobile menu */
+        /* ===== MOBILE MENU ===== */
         .mobile-menu {
             transform: translateY(-100%);
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -243,13 +369,9 @@
             transform: translateY(0);
             pointer-events: auto;
         }
-
-        /* Hamburger animation */
         .hamburger span {
-            display: block;
-            width: 20px; height: 2px;
-            background: #1C1917;
-            border-radius: 2px;
+            display: block; width: 20px; height: 2px;
+            background: #1C1917; border-radius: 2px;
             transition: all 0.3s ease;
         }
         .hamburger span + span { margin-top: 4px; }
@@ -257,39 +379,105 @@
         .hamburger.open span:nth-child(2) { opacity: 0; }
         .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
 
-        /* Reduce ambient animation on mobile for performance */
+        /* ===== FLOATING WHATSAPP ===== */
+        .wa-float {
+            position: fixed; bottom: 24px; right: 24px; z-index: 90;
+            width: 56px; height: 56px; border-radius: 50%;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 24px;
+            box-shadow: 0 8px 30px rgba(37,211,102,0.4);
+            transition: all 0.3s ease;
+            animation: waPulse 2s ease-in-out infinite;
+        }
+        .wa-float:hover { transform: scale(1.1); box-shadow: 0 12px 40px rgba(37,211,102,0.6); }
+        @keyframes waPulse {
+            0%, 100% { box-shadow: 0 8px 30px rgba(37,211,102,0.4); }
+            50% { box-shadow: 0 8px 40px rgba(37,211,102,0.7); }
+        }
+
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed; bottom: 90px; right: 24px; z-index: 90;
+            width: 44px; height: 44px; border-radius: 50%;
+            background: linear-gradient(135deg, #0A2463, #C2410C);
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 16px;
+            box-shadow: 0 8px 24px rgba(10,36,99,0.3);
+            opacity: 0; visibility: hidden; transform: translateY(20px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+        .back-to-top:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(10,36,99,0.4); }
+
+        /* ===== GALLERY ===== */
+        .gallery-item { transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .gallery-item:hover { transform: scale(1.05); z-index: 10; }
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        /* ===== FAQ ===== */
+        details > summary { list-style: none; cursor: pointer; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] .faq-icon { transform: rotate(45deg); }
+        details[open] summary ~ * { animation: sweep 0.5s ease-in-out; }
+        @keyframes sweep { 0% { opacity: 0; transform: translateY(-10px); } 100% { opacity: 1; transform: translateY(0); } }
+
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 640px) {
             .cloud { filter: blur(15px); opacity: 0.35; }
             .cloud-1 { width: 280px; height: 90px; }
             .cloud-2 { width: 220px; height: 75px; }
             .cloud-3 { width: 340px; height: 110px; }
             .cloud-4 { width: 180px; height: 60px; }
-            .light-sweep { opacity: 0.6; }
-            .fog { height: 20%; }
-        }
-
-        /* Prevent text overflow on mobile */
-        @media (max-width: 640px) {
             h1 { word-break: break-word; hyphens: auto; }
             .foto-pengurus { width: 72px !important; height: 72px !important; }
             .card-bph .foto-pengurus { width: 100px !important; height: 100px !important; }
+            .wa-float { width: 48px; height: 48px; font-size: 20px; bottom: 16px; right: 16px; }
+            .back-to-top { bottom: 76px; right: 16px; width: 40px; height: 40px; }
         }
 
-        /* Safe area untuk iPhone notch */
         @supports (padding: env(safe-area-inset-top)) {
             .nav-pill { margin-top: env(safe-area-inset-top); }
         }
 
-        /* Touch-friendly tap targets di mobile */
         @media (hover: none) {
             .card-hover:hover { transform: none; }
             .card-hover:active { transform: scale(0.98); }
             .card-pengurus:active { transform: scale(0.98); }
             .card-bph:active { transform: scale(0.98); }
         }
+
+        /* ===== DARK MODE ===== */
+        body.dark-mode {
+            background-color: #0F172A !important;
+            color: #E2E8F0;
+        }
+        body.dark-mode .bg-ivory, body.dark-mode .bg-cream, body.dark-mode .bg-white { background-color: #1E293B !important; }
+        body.dark-mode .text-ink { color: #F1F5F9 !important; }
+        body.dark-mode .text-slate { color: #94A3B8 !important; }
+        body.dark-mode .border-honey\/40 { border-color: #334155 !important; }
     </style>
 </head>
 <body>
+
+    <!-- ============== PRELOADER ============== -->
+    <div id="preloader">
+        <div class="flex flex-col items-center">
+            <div class="loader-logo">
+                <i class="fa-solid fa-users text-navy text-2xl"></i>
+            </div>
+            <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+            <p class="text-white/70 text-xs mt-4 tracking-[0.3em] uppercase">Loading</p>
+        </div>
+    </div>
+
+    <!-- ============== SCROLL PROGRESS ============== -->
+    <div id="scroll-progress"><div id="scroll-progress-bar"></div></div>
+
+    <!-- ============== CUSTOM CURSOR ============== -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+    <div class="custom-cursor-dot" id="custom-cursor-dot"></div>
 
     <!-- ============== HERO ============== -->
     <section class="relative min-h-[100svh] md:min-h-screen hero-full flex flex-col overflow-hidden">
@@ -303,7 +491,7 @@
             <div class="fog"></div>
         </div>
 
-        <!-- NAVBAR — Desktop pill -->
+        <!-- NAVBAR Desktop -->
         <div class="relative z-30 w-full hidden md:flex justify-center pt-6 px-4">
             <nav class="nav-pill rounded-full px-2 py-2 flex items-center gap-2 w-full max-w-6xl">
                 <a href="#" class="flex items-center gap-2 px-4 py-2">
@@ -319,11 +507,15 @@
                 <div class="hidden lg:flex items-center gap-1 ml-2">
                     <a href="#profil" class="px-3 py-2 text-sm text-ink/70 hover:text-ink rounded-full hover:bg-black/5 transition">Profil</a>
                     <a href="#program" class="px-3 py-2 text-sm text-ink/70 hover:text-ink rounded-full hover:bg-black/5 transition">Program</a>
+                    <a href="#galeri" class="px-3 py-2 text-sm text-ink/70 hover:text-ink rounded-full hover:bg-black/5 transition">Galeri</a>
                     <a href="#pengurus" class="px-3 py-2 text-sm text-ink/70 hover:text-ink rounded-full hover:bg-black/5 transition">Pengurus</a>
-                    <a href="#prestasi" class="px-3 py-2 text-sm text-ink/70 hover:text-ink rounded-full hover:bg-black/5 transition">Prestasi</a>
+                    <a href="#faq" class="px-3 py-2 text-sm text-ink/70 hover:text-ink rounded-full hover:bg-black/5 transition">FAQ</a>
                 </div>
 
-                <div class="ml-auto">
+                <div class="ml-auto flex items-center gap-2">
+                    <button id="dark-toggle" class="w-9 h-9 rounded-full hover:bg-black/5 flex items-center justify-center text-ink/70 transition" aria-label="Toggle dark mode">
+                        <i class="fa-solid fa-moon text-sm"></i>
+                    </button>
                     <button class="btn-gold text-sm px-5 py-2.5 rounded-full flex items-center gap-2">
                         <i class="fa-solid fa-user-plus text-xs"></i> Gabung
                     </button>
@@ -331,7 +523,7 @@
             </nav>
         </div>
 
-        <!-- NAVBAR — Mobile -->
+        <!-- NAVBAR Mobile -->
         <div class="relative z-30 w-full md:hidden pt-4 px-4">
             <nav class="nav-pill rounded-2xl px-3 py-2.5 flex items-center justify-between">
                 <a href="#" class="flex items-center gap-2">
@@ -352,7 +544,7 @@
             </nav>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
+        <!-- Mobile Menu -->
         <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 right-0 z-40 md:hidden bg-white/98 backdrop-blur-xl shadow-2xl rounded-b-3xl pt-20 pb-6 px-6">
             <div class="flex flex-col gap-1">
                 <a href="#profil" class="mobile-link px-4 py-3 rounded-2xl text-ink font-medium hover:bg-butter transition flex items-center gap-3">
@@ -361,11 +553,14 @@
                 <a href="#program" class="mobile-link px-4 py-3 rounded-2xl text-ink font-medium hover:bg-butter transition flex items-center gap-3">
                     <i class="fa-solid fa-list-check text-terracotta w-5"></i> Program Kerja
                 </a>
+                <a href="#galeri" class="mobile-link px-4 py-3 rounded-2xl text-ink font-medium hover:bg-butter transition flex items-center gap-3">
+                    <i class="fa-solid fa-images text-terracotta w-5"></i> Galeri
+                </a>
                 <a href="#pengurus" class="mobile-link px-4 py-3 rounded-2xl text-ink font-medium hover:bg-butter transition flex items-center gap-3">
                     <i class="fa-solid fa-users text-terracotta w-5"></i> Pengurus
                 </a>
-                <a href="#prestasi" class="mobile-link px-4 py-3 rounded-2xl text-ink font-medium hover:bg-butter transition flex items-center gap-3">
-                    <i class="fa-solid fa-trophy text-terracotta w-5"></i> Prestasi
+                <a href="#faq" class="mobile-link px-4 py-3 rounded-2xl text-ink font-medium hover:bg-butter transition flex items-center gap-3">
+                    <i class="fa-solid fa-circle-question text-terracotta w-5"></i> FAQ
                 </a>
                 <button class="btn-gold mt-3 px-5 py-3.5 rounded-2xl text-sm flex items-center justify-center gap-2">
                     <i class="fa-solid fa-user-plus text-xs"></i> Gabung Sekarang
@@ -409,7 +604,7 @@
     </section>
 
 
-    <!-- ============== PROFIL SINGKAT ============== -->
+    <!-- ============== PROFIL ============== -->
     <section id="profil" class="bg-ivory py-16 sm:py-20 md:py-24 px-5 sm:px-6">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
@@ -455,7 +650,7 @@
     </section>
 
 
-    <!-- ============== PROGRAM KERJA ============== -->
+    <!-- ============== PROGRAM ============== -->
     <section id="program" class="bg-cream py-16 sm:py-20 md:py-24 px-5 sm:px-6">
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-10 sm:mb-14 gap-4 sm:gap-6" data-aos="fade-up">
@@ -536,7 +731,42 @@
     </section>
 
 
-    <!-- ============== PROFIL PENGURUS ============== -->
+    <!-- ============== GALERI ============== -->
+    <section id="galeri" class="bg-ivory py-16 sm:py-20 md:py-24 px-5 sm:px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
+                <p class="text-[10px] font-bold tracking-[0.3em] text-terracotta uppercase mb-3">Galeri</p>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink leading-tight max-w-2xl mx-auto">
+                    Momen kebersamaan kami.
+                </h2>
+                <div class="ornament-line mt-6 sm:mt-8"></div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+                <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square md:col-span-2 md:row-span-2" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2670&auto=format&fit=crop" alt="Galeri 1" class="w-full h-full object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <span class="text-white text-sm font-semibold">Pentas Seni 2025</span>
+                    </div>
+                </div>
+                <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2670&auto=format&fit=crop" alt="Galeri 2" class="w-full h-full object-cover transition-transform duration-700">
+                </div>
+                <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square" data-aos="fade-up" data-aos-delay="150">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2574&auto=format&fit=crop" alt="Galeri 3" class="w-full h-full object-cover transition-transform duration-700">
+                </div>
+                <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2670&auto=format&fit=crop" alt="Galeri 4" class="w-full h-full object-cover transition-transform duration-700">
+                </div>
+                <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square" data-aos="fade-up" data-aos-delay="250">
+                    <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=2574&auto=format&fit=crop" alt="Galeri 5" class="w-full h-full object-cover transition-transform duration-700">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============== PENGURUS ============== -->
     <section id="pengurus" class="pengurus-bg py-16 sm:py-20 md:py-28 px-5 sm:px-6">
         <div class="max-w-7xl mx-auto relative z-10">
 
@@ -547,7 +777,7 @@
                 </div>
                 <h2 class="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight text-ink leading-tight mb-3 sm:mb-4">
                     Kenalan dengan <br>
-                    <span class="gradient-text-gold">Pengurus OSIS.</span>
+                    <span class="gradient-text-animated">Pengurus OSIS.</span>
                 </h2>
                 <p class="text-rust/80 max-w-xl mx-auto text-xs sm:text-sm md:text-base font-medium px-2">
                     Generasi muda SMAPA yang siap mengabdi, berkarya, dan membawa perubahan positif.
@@ -807,12 +1037,78 @@
     </section>
 
 
+    <!-- ============== FAQ ============== -->
+    <section id="faq" class="bg-cream py-16 sm:py-20 md:py-24 px-5 sm:px-6">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
+                <p class="text-[10px] font-bold tracking-[0.3em] text-terracotta uppercase mb-3">FAQ</p>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink leading-tight">
+                    Pertanyaan umum.
+                </h2>
+                <div class="ornament-line mt-6 sm:mt-8"></div>
+            </div>
+
+            <div class="space-y-3 sm:space-y-4">
+                <details class="bg-white rounded-2xl p-5 sm:p-6 border border-honey/40 hover:border-gold transition" data-aos="fade-up">
+                    <summary class="flex justify-between items-center font-bold text-ink text-sm sm:text-base gap-4">
+                        Siapa saja yang boleh jadi anggota OSIS?
+                        <i class="fa-solid fa-plus text-terracotta faq-icon transition-transform duration-300 flex-shrink-0"></i>
+                    </summary>
+                    <p class="text-slate text-xs sm:text-sm mt-3 leading-relaxed">
+                        Semua siswa aktif SMAN 1 Paciran kelas X dan XI boleh mendaftar. Kami mencari siswa yang punya semangat berkarya, komitmen, dan mau belajar hal baru.
+                    </p>
+                </details>
+
+                <details class="bg-white rounded-2xl p-5 sm:p-6 border border-honey/40 hover:border-gold transition" data-aos="fade-up" data-aos-delay="100">
+                    <summary class="flex justify-between items-center font-bold text-ink text-sm sm:text-base gap-4">
+                        Bagaimana cara mendaftar jadi pengurus OSIS?
+                        <i class="fa-solid fa-plus text-terracotta faq-icon transition-transform duration-300 flex-shrink-0"></i>
+                    </summary>
+                    <p class="text-slate text-xs sm:text-sm mt-3 leading-relaxed">
+                        Cukup ikuti 3 langkah: (1) isi formulir online, (2) wawancara singkat dengan pengurus, (3) dilantik dan mulai bertugas di divisi pilihanmu. Pendaftaran dibuka setiap awal tahun ajaran.
+                    </p>
+                </details>
+
+                <details class="bg-white rounded-2xl p-5 sm:p-6 border border-honey/40 hover:border-gold transition" data-aos="fade-up" data-aos-delay="200">
+                    <summary class="flex justify-between items-center font-bold text-ink text-sm sm:text-base gap-4">
+                        Apa saja program kerja OSIS tahun ini?
+                        <i class="fa-solid fa-plus text-terracotta faq-icon transition-transform duration-300 flex-shrink-0"></i>
+                    </summary>
+                    <p class="text-slate text-xs sm:text-sm mt-3 leading-relaxed">
+                        Ada 50+ program kerja, di antaranya Pentas Seni & Drama Musical, Class Meeting, Bakti Sosial, Pekan Buku, Bank Sampah, dan Prodistik ITS Showcase. Semua terbagi dalam 10 seksi bidang.
+                    </p>
+                </details>
+
+                <details class="bg-white rounded-2xl p-5 sm:p-6 border border-honey/40 hover:border-gold transition" data-aos="fade-up" data-aos-delay="300">
+                    <summary class="flex justify-between items-center font-bold text-ink text-sm sm:text-base gap-4">
+                        Apakah kegiatan OSIS mengganggu jam belajar?
+                        <i class="fa-solid fa-plus text-terracotta faq-icon transition-transform duration-300 flex-shrink-0"></i>
+                    </summary>
+                    <p class="text-slate text-xs sm:text-sm mt-3 leading-relaxed">
+                        Tidak. Kegiatan OSIS dirancang agar tidak mengganggu jam pelajaran. Rapat dan kegiatan biasanya diadakan setelah pulang sekolah atau hari libur, dengan persetujuan pembina dan kepala sekolah.
+                    </p>
+                </details>
+
+                <details class="bg-white rounded-2xl p-5 sm:p-6 border border-honey/40 hover:border-gold transition" data-aos="fade-up" data-aos-delay="400">
+                    <summary class="flex justify-between items-center font-bold text-ink text-sm sm:text-base gap-4">
+                        Bagaimana cara menghubungi pengurus OSIS?
+                        <i class="fa-solid fa-plus text-terracotta faq-icon transition-transform duration-300 flex-shrink-0"></i>
+                    </summary>
+                    <p class="text-slate text-xs sm:text-sm mt-3 leading-relaxed">
+                        Kamu bisa datang ke sekretariat OSIS di Ruang OSIS, Gedung B Lt. 1 (Senin–Jumat, 14.00–16.00 WIB), atau hubungi kami lewat Instagram @osis.smapani, WhatsApp, atau email sman1.paciran@yahoo.co.id.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+
     <!-- ============== CTA ============== -->
-    <section class="bg-cream py-16 sm:py-20 md:py-24 px-5 sm:px-6">
+    <section class="bg-ivory py-16 sm:py-20 md:py-24 px-5 sm:px-6">
         <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
             <h2 class="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight text-ink leading-[1.15] mb-4 sm:mb-6">
                 Mau jadi bagian <br>
-                <span class="gradient-text-gold">dari perubahan?</span>
+                <span class="gradient-text-animated">dari perubahan?</span>
             </h2>
             <p class="text-sm sm:text-base text-slate max-w-lg mx-auto mb-8 sm:mb-10 px-2">
                 Ikuti kegiatan OSIS SMAN 1 Paciran — dari Class Meeting, Pentas Seni, sampai Bakti Sosial.
@@ -859,8 +1155,9 @@
                     <ul class="space-y-2.5 sm:space-y-3 text-white/60 text-sm">
                         <li><a href="#profil" class="hover:text-gold transition">Profil</a></li>
                         <li><a href="#program" class="hover:text-gold transition">Program Kerja</a></li>
+                        <li><a href="#galeri" class="hover:text-gold transition">Galeri</a></li>
                         <li><a href="#pengurus" class="hover:text-gold transition">Pengurus</a></li>
-                        <li><a href="#prestasi" class="hover:text-gold transition">Prestasi</a></li>
+                        <li><a href="#faq" class="hover:text-gold transition">FAQ</a></li>
                     </ul>
                 </div>
 
@@ -895,14 +1192,81 @@
     </footer>
 
 
+    <!-- ============== FLOATING BUTTONS ============== -->
+    <a href="https://wa.me/6281234567890" target="_blank" class="wa-float" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ once: true, offset: 80, duration: 800, disable: window.innerWidth < 480 ? false : false });
+        /* ============ PRELOADER ============ */
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hidden');
+            }, 1200);
+        });
 
+        /* ============ AOS ============ */
+        AOS.init({ once: true, offset: 80, duration: 800 });
+
+        /* ============ CUSTOM CURSOR (Desktop only) ============ */
+        if (window.innerWidth >= 1024) {
+            const cursor = document.getElementById('custom-cursor');
+            const dot = document.getElementById('custom-cursor-dot');
+            let mouseX = 0, mouseY = 0;
+            let cursorX = 0, cursorY = 0;
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                dot.style.left = mouseX + 'px';
+                dot.style.top = mouseY + 'px';
+            });
+
+            function animateCursor() {
+                cursorX += (mouseX - cursorX) * 0.15;
+                cursorY += (mouseY - cursorY) * 0.15;
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+
+            // Hover effect pada elemen interaktif
+            document.querySelectorAll('a, button, .card-hover, .card-pengurus, .card-bph, .gallery-item').forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+            });
+        }
+
+        /* ============ SCROLL PROGRESS ============ */
+        const progressBar = document.getElementById('scroll-progress-bar');
+        const backToTop = document.getElementById('back-to-top');
         const ambient = document.getElementById('ambient');
 
-        // Kurangi partikel di mobile untuk performa
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            progressBar.style.width = scrollPercent + '%';
+
+            if (scrollTop > 400) backToTop.classList.add('show');
+            else backToTop.classList.remove('show');
+
+            if (scrollTop > window.innerHeight * 0.8) ambient.classList.add('dim');
+            else ambient.classList.remove('dim');
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        /* ============ AMBIENT PARTICLES ============ */
         const particleCount = window.innerWidth < 640 ? 20 : 40;
 
         function createParticle() {
@@ -921,14 +1285,6 @@
 
         for (let i = 0; i < particleCount; i++) createParticle();
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > window.innerHeight * 0.8) {
-                ambient.classList.add('dim');
-            } else {
-                ambient.classList.remove('dim');
-            }
-        });
-
         /* ============ MOBILE MENU ============ */
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -938,7 +1294,6 @@
             mobileMenu.classList.toggle('open');
         });
 
-        // Tutup menu saat link diklik
         document.querySelectorAll('.mobile-link').forEach(link => {
             link.addEventListener('click', () => {
                 hamburgerBtn.classList.remove('open');
@@ -946,12 +1301,49 @@
             });
         });
 
-        // Tutup menu saat klik di luar
         document.addEventListener('click', (e) => {
             if (!mobileMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
                 hamburgerBtn.classList.remove('open');
                 mobileMenu.classList.remove('open');
             }
+        });
+
+        /* ============ DARK MODE TOGGLE ============ */
+        const darkToggle = document.getElementById('dark-toggle');
+        const darkIcon = darkToggle.querySelector('i');
+
+        // Cek preferensi tersimpan
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            darkIcon.classList.remove('fa-moon');
+            darkIcon.classList.add('fa-sun');
+        }
+
+        darkToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDark);
+
+            if (isDark) {
+                darkIcon.classList.remove('fa-moon');
+                darkIcon.classList.add('fa-sun');
+            } else {
+                darkIcon.classList.remove('fa-sun');
+                darkIcon.classList.add('fa-moon');
+            }
+        });
+
+        /* ============ SMOOTH SCROLL untuk anchor ============ */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    const offset = 20;
+                    const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                }
+            });
         });
     </script>
 

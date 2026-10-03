@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSIS SMAN 1 Paciran — Semangat Meraih Prestasi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Palet dari foto sekolah SMAN 1 Paciran
+                        gold: '#F5C518',        // Kuning bangunan sekolah
+                        honey: '#FCD34D',       // Kuning madu lembut
+                        butter: '#FEF3C7',      // Kuning krem
+                        terracotta: '#C2410C',  // Jingga atap sekolah
+                        rust: '#9A3412',        // Cokelat kemerahan
+                        leaf: '#16A34A',        // Hijau daun
+                        moss: '#15803D',        // Hijau tua
+                        sky: '#0EA5E9',         // Biru langit
+                        ocean: '#0369A1',       // Biru laut dalam
+                        navy: '#0A2463',        // Navy korporat
+                        cream: '#FEFCE8',       // Krem background
+                        ivory: '#FFFEF5',       // Ivory
+                        ink: '#1C1917',         // Hampir hitam
+                        slate: '#78716C'        // Abu cokelat
+                    },
+                    fontFamily: { inter: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #FFFEF5; color: #1C1917; overflow-x: hidden; }
+        
+        /* Hero background - pakai foto sekolah */
+        .hero-full {
+            background-image: url('https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=2670&auto=format&fit=crop');
+            background-size: cover; background-position: center;
+        }
+        .hero-full::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(10,36,99,0.85) 0%, rgba(194,65,12,0.65) 50%, rgba(245,197,24,0.55) 100%);
+            pointer-events: none; z-index: 2;
+        }
+
+        .nav-pill { background: rgba(255,255,255,0.96); backdrop-filter: blur(20px); box-shadow: 0 8px 30px rgba(10,36,99,0.12); }
+        .headline-shadow { text-shadow: 0 4px 40px rgba(0,0,0,0.4); }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #F5C518, #FCD34D);
+            color: #1C1917;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(245,197,24,0.45);
+            font-weight: 700;
+        }
+        .btn-gold:hover { background: linear-gradient(135deg, #EAB308, #F5C518); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(245,197,24,0.55); }
+
+        .btn-light {
+            background: rgba(255,255,255,0.95);
+            color: #0A2463;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            font-weight: 600;
+        }
+        .btn-light:hover { background: white; transform: translateY(-2px); }
+
+        @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+        .scroll-float { animation: floatY 2s ease-in-out infinite; }
+
+        .card-hover { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(194,65,12,0.15); }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #FEF3C7; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(#C2410C, #F5C518); border-radius: 4px; }
+
+        /* ===== AMBIENT ANIMASI ===== */
+        .ambient { position: absolute; inset: 0; pointer-events: none; z-index: 3; overflow: hidden; }
+        .cloud { position: absolute; background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.5) 40%, rgba(255,255,255,0) 70%); border-radius: 50%; filter: blur(20px); opacity: 0.6; will-change: transform; }
+        .cloud::before, .cloud::after { content: ''; position: absolute; background: inherit; border-radius: 50%; }
+        .cloud::before { width: 60%; height: 60%; top: -20%; left: 10%; }
+        .cloud::after { width: 50%; height: 50%; top: -10%; right: 5%; }
+        @keyframes driftRight { 0%{transform:translateX(-40vw)} 100%{transform:translateX(140vw)} }
+        @keyframes driftLeft { 0%{transform:translateX(140vw)} 100%{transform:translateX(-40vw)} }
+        .cloud-1 { width: 420px; height: 140px; top: 8%; animation: driftRight 100s linear infinite; }
+        .cloud-2 { width: 320px; height: 110px; top: 22%; animation: driftRight 130s linear infinite; animation-delay: -30s; opacity: 0.4; }
+        .cloud-3 { width: 520px; height: 170px; top: 3%; animation: driftLeft 150s linear infinite; opacity: 0.35; }
+        .cloud-4 { width: 260px; height: 90px; top: 35%; animation: driftRight 110s linear infinite; animation-delay: -60s; opacity: 0.35; }
+
+        .particle { position: absolute; width: 4px; height: 4px; background: radial-gradient(circle, rgba(252,211,77,0.95) 0%, rgba(252,211,77,0) 70%); border-radius: 50%; bottom: -10px; animation: particleRise linear infinite; opacity: 0; }
+        @keyframes particleRise { 0%{transform:translateY(0) translateX(0) scale(0.4);opacity:0} 15%{opacity:0.9} 50%{transform:translateY(-50vh) translateX(20px) scale(1)} 100%{transform:translateY(-110vh) translateX(-20px) scale(0.3);opacity:0} }
+
+        .fog { position: absolute; bottom: 0; left: -20%; width: 140%; height: 30%; background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(254,243,199,0.4) 100%); filter: blur(30px); animation: fogMove 40s ease-in-out infinite alternate; }
+        @keyframes fogMove { 0%{transform:translateX(-4%);opacity:0.5} 100%{transform:translateX(4%);opacity:0.8} }
+
+        .light-sweep { position: absolute; top: -20%; left: 30%; width: 60%; height: 140%; background: linear-gradient(120deg, rgba(245,197,24,0) 30%, rgba(245,197,24,0.18) 50%, rgba(245,197,24,0) 70%); transform: rotate(-15deg); animation: sweepMove 18s ease-in-out infinite alternate; filter: blur(12px); }
+        @keyframes sweepMove { 0%{transform:translateX(-8%) rotate(-15deg);opacity:0.4} 100%{transform:translateX(8%) rotate(-15deg);opacity:0.8} }
+
+        .hero-content { position: relative; z-index: 10; }
+        .ambient.dim { opacity: 0.3; transition: opacity 0.6s ease; }
+        .countdown-box { background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3); }
+        .logo-osis { background: linear-gradient(135deg, #0A2463 0%, #C2410C 100%); }
+
+        /* ===== PROFIL PENGURUS ===== */
+        .pengurus-bg {
+            background: linear-gradient(135deg, #FEFCE8 0%, #FEF3C7 25%, #FDE68A 50%, #FCD34D 75%, #F5C518 100%);
+            position: relative; overflow: hidden;
+        }
+        .pengurus-bg::before {
+            content: ''; position: absolute; top: -20%; left: -10%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(194,65,12,0.20) 0%, transparent 70%);
+            border-radius: 50%; animation: glowPulse 8s ease-in-out infinite alternate;
+        }
+        .pengurus-bg::after {
+            content: ''; position: absolute; bottom: -20%; right: -10%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(245,197,24,0.35) 0%, transparent 70%);
+            border-radius: 50%; animation: glowPulse 10s ease-in-out infinite alternate-reverse;
+        }
+        @keyframes glowPulse { 0%{transform:scale(1);opacity:0.6} 100%{transform:scale(1.2);opacity:0.9} }
+
+        .card-bph {
+            background: linear-gradient(160deg, #FFFFFF 0%, #FFFEF5 100%);
+            border-radius: 2rem; padding: 2.5rem 2rem;
+            position: relative; overflow: hidden;
+            box-shadow: 0 20px 50px rgba(194,65,12,0.15);
+            transition: all 0.4s ease;
+        }
+        .card-bph::before {
+            content: ''; position: absolute; inset: 0; border-radius: 2rem; padding: 2px;
+            background: linear-gradient(135deg, #F5C518, #C2410C, #FCD34D, #C2410C);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+        }
+        .card-bph:hover { transform: translateY(-8px); box-shadow: 0 35px 70px rgba(194,65,12,0.25); }
+
+        .card-pengurus {
+            position: relative; background: linear-gradient(145deg, #FFFFFF 0%, #FFFEF5 100%);
+            border-radius: 1.75rem; padding: 2px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(194,65,12,0.10);
+        }
+        .card-pengurus::before {
+            content: ''; position: absolute; inset: 0; border-radius: 1.75rem; padding: 2px;
+            background: linear-gradient(135deg, #FCD34D, #F5C518, #C2410C, #FCD34D);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0.6; transition: opacity 0.4s ease;
+        }
+        .card-pengurus:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(194,65,12,0.25); }
+        .card-pengurus:hover::before { opacity: 1; }
+
+        .card-pengurus-inner {
+            background: linear-gradient(160deg, #FFFFFF 0%, #FFFEF5 100%);
+            border-radius: 1.6rem; padding: 1.75rem 1.5rem; height: 100%;
+            position: relative; overflow: hidden;
+        }
+        .card-pengurus-inner::before {
+            content: ''; position: absolute; top: -30px; right: -30px;
+            width: 100px; height: 100px;
+            background: radial-gradient(circle, rgba(245,197,24,0.25) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .foto-pengurus {
+            width: 96px; height: 96px; border-radius: 50%; object-fit: cover;
+            padding: 3px; background: linear-gradient(135deg, #FCD34D, #F5C518, #C2410C);
+            box-shadow: 0 8px 24px rgba(194,65,12,0.3); transition: transform 0.4s ease;
+        }
+        .card-pengurus:hover .foto-pengurus, .card-bph:hover .foto-pengurus {
+            transform: scale(1.05) rotate(-2deg);
+        }
+
+        .badge-jabatan {
+            display: inline-block;
+            background: linear-gradient(135deg, #0A2463, #0369A1);
+            color: white; font-size: 10px; font-weight: 700;
+            letter-spacing: 0.05em; text-transform: uppercase;
+            padding: 4px 12px; border-radius: 999px;
+            box-shadow: 0 4px 12px rgba(10,36,99,0.25);
+        }
+        .badge-jabatan.gold {
+            background: linear-gradient(135deg, #C2410C, #F5C518);
+            box-shadow: 0 4px 12px rgba(194,65,12,0.35);
+        }
+
+        .social-icon {
+            width: 32px; height: 32px; border-radius: 50%;
+            background: rgba(10,36,99,0.06); display: inline-flex;
+            align-items: center; justify-content: center;
+            color: #0A2463; font-size: 12px; transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            background: linear-gradient(135deg, #C2410C, #F5C518);
+            color: white; transform: translateY(-2px);
+        }
+
+        .gradient-text-gold {
+            background: linear-gradient(135deg, #C2410C 0%, #F5C518 50%, #FCD34D 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        .ornament-line {
+            width: 60px; height: 3px;
+            background: linear-gradient(90deg, transparent, #C2410C, transparent);
+            border-radius: 999px; margin: 0 auto;
+        }
+
+        .mading-scroll { scrollbar-width: thin; scrollbar-color: #C2410C #FEF3C7; }
+        .mading-scroll::-webkit-scrollbar { height: 6px; }
+        .mading-scroll::-webkit-scrollbar-thumb { background: #C2410C; border-radius: 3px; }
+    </style>
+</head>
+<body>
+
+    <!-- ============== HERO ============== -->
+    <section class="relative min-h-screen hero-full flex flex-col overflow-hidden">
+
+        <div class="ambient" id="ambient">
+            <div class="cloud cloud-1"></div>
+            <div class="cloud cloud-2"></div>
+            <div class="cloud cloud-3"></div>
+            <div class="cloud cloud-4"></div>
+            <div class="light-sweep"></div>
+            <div class="fog"></div>
+        </div>
+
+        <!-- NAVBAR -->
+        <div class="relative z-20 w-full flex justify-center pt-6 px-4">
+            <nav class="nav-pill rounded-full px-2 py-2 flex items-center gap-2 w-full max-w-6xl">
+                <a href="#" class="flex items-center gap-2 px-4 py-2">
+                    <div class="w-9 h-9 rounded-full logo-osis flex items-center justify-center">
+                        <i class="fa-solid fa-users text-white text-sm"></i>
+                    </div>
+                    <div class="leading-tight">
+                        <div class="font-bold text-ink text-sm tracking-tight">OSIS SMAPA</div>
+                        <div class="text-[9px] text-slate font-medium">SMAN 1 Paciran</div>
+                    </div>
+                </a>
+
+                <div class="hidden lg:flex items-center gap-1 ml-2">
+                    <a href="#profil" class="px-3 py-2 text-sm text-ink/70 hover:text-ink rounded-full hover:bg-black/5 transition">Profil</a>
+                    <a href="#program" class="px-3 py-2 text-sm text-ink/70 hover:text-ink rounded-full hover:bg-black/5 transition">Program</a>
+                    <a href="#pengurus" class="px-3 py-2 text-sm text-ink/70 hover:text-ink rounded-full hover:bg-black/5 transition">Pengurus</a>
+                    <a href="#prestasi" class="px-3 py-2 text-sm text-ink/70 hover:text-ink rounded-full hover:bg-black/5 transition">Prestasi</a>
+                </div>
+
+                <div class="ml-auto">
+                    <button class="btn-gold text-sm px-5 py-2.5 rounded-full flex items-center gap-2">
+                        <i class="fa-solid fa-user-plus text-xs"></i> Gabung
+                    </button>
+                </div>
+            </nav>
+        </div>
+
+        <!-- HERO CONTENT -->
+        <div class="hero-content flex-1 flex flex-col items-center justify-center text-center px-6 -mt-8">
+            <div class="inline-flex items-center gap-2 bg-white/95 backdrop-blur-md border border-white/40 rounded-full px-4 py-1.5 mb-8 shadow-lg">
+                <span class="w-2 h-2 rounded-full bg-leaf animate-pulse"></span>
+                <span class="text-xs font-semibold text-ink">OSIS SMAN 1 Paciran · 2026/2027</span>
+            </div>
+
+            <h1 class="headline-shadow text-5xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-tight leading-[1.02] text-white mb-6 max-w-4xl">
+                Semangat Meraih <br>
+                <span class="text-honey">Prestasi.</span>
+            </h1>
+
+            <p class="text-base md:text-lg text-white/90 max-w-xl leading-relaxed mb-10 font-light">
+                OSIS SMAN 1 Paciran — wadah siswa untuk tumbuh, berkarya, <br class="hidden md:block">
+                dan berkontribusi bagi sekolah dan masyarakat.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center gap-3">
+                <a href="#pengurus" class="btn-gold px-7 py-3.5 rounded-full text-sm flex items-center gap-2">
+                    Kenalan dengan Pengurus <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+                <a href="#program" class="btn-light px-7 py-3.5 rounded-full text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-list-check text-[10px]"></i> Lihat Program Kerja
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-content pb-10 flex justify-center">
+            <div class="scroll-float inline-flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-4 py-2 shadow-sm">
+                <span class="text-[10px] font-semibold tracking-[0.2em] text-white uppercase">Scroll</span>
+                <i class="fa-solid fa-arrow-down text-[10px] text-white"></i>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============== PROFIL SINGKAT ============== -->
+    <section id="profil" class="bg-ivory py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <p class="text-[10px] font-bold tracking-[0.3em] text-terracotta uppercase mb-4">Tentang Kami</p>
+                <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-ink leading-tight max-w-2xl mx-auto">
+                    OSIS SMAN 1 Paciran
+                </h2>
+                <div class="ornament-line mt-8"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-8 bg-white rounded-3xl border border-honey/40 card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold to-honey flex items-center justify-center mx-auto mb-6 shadow-lg shadow-gold/30">
+                        <i class="fa-solid fa-eye text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-ink mb-3">Visi</h3>
+                    <p class="text-sm text-slate leading-relaxed">
+                        Menjadi organisasi siswa yang aktif, inovatif, dan berkarakter, serta mampu menjadi jembatan aspirasi siswa.
+                    </p>
+                </div>
+
+                <div class="text-center p-8 bg-white rounded-3xl border border-honey/40 card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-terracotta to-rust flex items-center justify-center mx-auto mb-6 shadow-lg shadow-terracotta/30">
+                        <i class="fa-solid fa-bullseye text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-ink mb-3">Misi</h3>
+                    <p class="text-sm text-slate leading-relaxed">
+                        Menumbuhkan kepemimpinan, kolaborasi, dan tanggung jawab siswa melalui kegiatan positif.
+                    </p>
+                </div>
+
+                <div class="text-center p-8 bg-white rounded-3xl border border-honey/40 card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-leaf to-moss flex items-center justify-center mx-auto mb-6 shadow-lg shadow-leaf/30">
+                        <i class="fa-solid fa-heart text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-ink mb-3">Nilai</h3>
+                    <p class="text-sm text-slate leading-relaxed">
+                        Kepemimpinan, kolaborasi, dan kontribusi nyata untuk sekolah dan masyarakat.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============== PROGRAM KERJA ============== -->
+    <section id="program" class="bg-cream py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-14 gap-6" data-aos="fade-up">
+                <div>
+                    <p class="text-[10px] font-bold tracking-[0.3em] text-terracotta uppercase mb-4">Program Kerja</p>
+                    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-ink leading-tight">
+                        Kegiatan yang berdampak.
+                    </h2>
+                </div>
+                <span class="text-sm font-semibold text-slate">2026/2027</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-5">
+                <div class="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden group h-72 md:h-auto md:min-h-[520px] card-hover" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2670&auto=format&fit=crop" alt="Pentas Seni" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                        <span class="inline-block bg-gold text-ink text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">Unggulan</span>
+                        <h3 class="text-2xl md:text-3xl font-bold mb-1">Pentas Seni & Drama Musical</h3>
+                        <p class="text-sm text-white/80 mb-3"><i class="fa-solid fa-calendar mr-1"></i> Setelah Lebaran · Aula SMAPA</p>
+                        <div class="flex items-center gap-6 text-sm text-white/90 flex-wrap">
+                            <span><i class="fa-solid fa-users mr-1"></i> Kelas X & XI</span>
+                            <span><i class="fa-solid fa-masks-theater mr-1"></i> Drama Musical</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative rounded-3xl overflow-hidden group h-60 card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=2670&auto=format&fit=crop" alt="Class Meeting" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-terracotta/90 via-rust/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                        <h3 class="text-lg font-bold mb-0.5">Class Meeting</h3>
+                        <p class="text-xs text-white/80 mb-2">Lomba antar kelas</p>
+                        <span class="text-xs font-semibold text-honey">Desember</span>
+                    </div>
+                </div>
+
+                <div class="relative rounded-3xl overflow-hidden group h-60 card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2670&auto=format&fit=crop" alt="Bakti Sosial" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-leaf/90 via-moss/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                        <h3 class="text-lg font-bold mb-0.5">Bakti Sosial</h3>
+                        <p class="text-xs text-white/80 mb-2">Panti Asuhan & Desa Binaan</p>
+                        <span class="text-xs font-semibold text-honey">Semesteran</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mading Digital -->
+            <div class="mt-14" data-aos="fade-up">
+                <div class="flex items-end justify-between mb-6">
+                    <div>
+                        <p class="text-[10px] font-bold tracking-[0.3em] text-terracotta uppercase mb-2">Mading Digital</p>
+                        <h3 class="text-2xl font-bold text-ink">Poster kegiatan terbaru</h3>
+                    </div>
+                    <span class="text-xs text-slate hidden md:block">Geser →</span>
+                </div>
+                <div class="flex gap-4 overflow-x-auto pb-4 mading-scroll">
+                    <div class="flex-shrink-0 w-72 h-44 rounded-2xl bg-gradient-to-br from-navy to-ocean p-6 text-white flex flex-col justify-between card-hover">
+                        <i class="fa-solid fa-music text-2xl text-honey"></i>
+                        <div><div class="text-xs text-white/70 mb-1">Seni</div><div class="font-bold">Audisi Band Sekolah</div></div>
+                    </div>
+                    <div class="flex-shrink-0 w-72 h-44 rounded-2xl bg-gradient-to-br from-terracotta to-rust p-6 text-white flex flex-col justify-between card-hover">
+                        <i class="fa-solid fa-seedling text-2xl text-honey"></i>
+                        <div><div class="text-xs text-white/70 mb-1">Lingkungan</div><div class="font-bold">Bank Sampah SMAPA</div></div>
+                    </div>
+                    <div class="flex-shrink-0 w-72 h-44 rounded-2xl bg-gradient-to-br from-leaf to-moss p-6 text-white flex flex-col justify-between card-hover">
+                        <i class="fa-solid fa-book-open text-2xl text-honey"></i>
+                        <div><div class="text-xs text-white/70 mb-1">Literasi</div><div class="font-bold">Pekan Buku</div></div>
+                    </div>
+                    <div class="flex-shrink-0 w-72 h-44 rounded-2xl bg-gradient-to-br from-gold to-honey p-6 text-ink flex flex-col justify-between card-hover">
+                        <i class="fa-solid fa-laptop-code text-2xl text-terracotta"></i>
+                        <div><div class="text-xs text-ink/70 mb-1">Teknologi</div><div class="font-bold">Prodistik ITS Showcase</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============== PROFIL PENGURUS ============== -->
+    <section id="pengurus" class="pengurus-bg py-28 px-6">
+        <div class="max-w-7xl mx-auto relative z-10">
+
+            <div class="text-center mb-20" data-aos="fade-up">
+                <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-md border border-terracotta/20 rounded-full px-5 py-2 mb-6 shadow-sm">
+                    <i class="fa-solid fa-crown text-terracotta"></i>
+                    <span class="text-[10px] font-bold tracking-[0.3em] text-rust uppercase">Kepengurusan 2026/2027</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight text-ink leading-tight mb-4">
+                    Kenalan dengan <br>
+                    <span class="gradient-text-gold">Pengurus OSIS.</span>
+                </h2>
+                <p class="text-rust/80 max-w-xl mx-auto text-sm md:text-base font-medium">
+                    Generasi muda SMAPA yang siap mengabdi, berkarya, dan membawa perubahan positif.
+                </p>
+                <div class="ornament-line mt-8"></div>
+            </div>
+
+            <!-- BPH -->
+            <div class="mb-20">
+                <div class="text-center mb-10" data-aos="fade-up">
+                    <h3 class="text-2xl md:text-3xl font-bold text-ink mb-2">Badan Pengurus Harian</h3>
+                    <p class="text-sm text-rust/70 font-medium">Inti kepengurusan OSIS SMAPA</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Ketua -->
+                    <div class="card-bph text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex justify-center mb-6">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2564&auto=format&fit=crop" alt="Ketua OSIS" class="foto-pengurus" style="width: 120px; height: 120px;">
+                                <span class="absolute -bottom-2 -right-2 w-10 h-10 rounded-full bg-gradient-to-br from-gold to-honey flex items-center justify-center text-ink shadow-lg">
+                                    <i class="fa-solid fa-crown text-sm"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <span class="badge-jabatan gold">Ketua OSIS</span>
+                        <h4 class="text-xl font-bold text-ink mt-4 mb-1">Ahmad Rizki Pratama</h4>
+                        <p class="text-sm text-slate mb-4">Kelas XII MIPA 1</p>
+                        <p class="text-xs text-rust/70 italic mb-5 leading-relaxed">
+                            "Memimpin dengan hati, bekerja dengan ilmu."
+                        </p>
+                        <div class="flex justify-center gap-2">
+                            <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+                            <a href="#" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Wakil -->
+                    <div class="card-bph text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex justify-center mb-6">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2574&auto=format&fit=crop" alt="Wakil Ketua" class="foto-pengurus" style="width: 120px; height: 120px;">
+                                <span class="absolute -bottom-2 -right-2 w-10 h-10 rounded-full bg-gradient-to-br from-navy to-ocean flex items-center justify-center text-white shadow-lg">
+                                    <i class="fa-solid fa-star text-sm"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <span class="badge-jabatan">Wakil Ketua</span>
+                        <h4 class="text-xl font-bold text-ink mt-4 mb-1">Siti Nurhaliza</h4>
+                        <p class="text-sm text-slate mb-4">Kelas XI MIPA 2</p>
+                        <p class="text-xs text-rust/70 italic mb-5 leading-relaxed">
+                            "Bersama kita bisa, bersama kita kuat."
+                        </p>
+                        <div class="flex justify-center gap-2">
+                            <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+                            <a href="#" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Sekretaris -->
+                    <div class="card-bph text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex justify-center mb-6">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2574&auto=format&fit=crop" alt="Sekretaris" class="foto-pengurus" style="width: 120px; height: 120px;">
+                                <span class="absolute -bottom-2 -right-2 w-10 h-10 rounded-full bg-gradient-to-br from-leaf to-moss flex items-center justify-center text-white shadow-lg">
+                                    <i class="fa-solid fa-pen text-sm"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <span class="badge-jabatan">Sekretaris</span>
+                        <h4 class="text-xl font-bold text-ink mt-4 mb-1">Dimas Anggara</h4>
+                        <p class="text-sm text-slate mb-4">Kelas XI IPS 1</p>
+                        <p class="text-xs text-rust/70 italic mb-5 leading-relaxed">
+                            "Detail adalah segalanya."
+                        </p>
+                        <div class="flex justify-center gap-2">
+                            <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+                            <a href="#" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sekbid -->
+            <div>
+                <div class="text-center mb-10" data-aos="fade-up">
+                    <h3 class="text-2xl md:text-3xl font-bold text-ink mb-2">Koordinator Seksi Bidang</h3>
+                    <p class="text-sm text-rust/70 font-medium">10 Sekbid yang siap bekerja untukmu</p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+                    <div class="card-pengurus" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-pengurus-inner text-center">
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=2564&auto=format&fit=crop" alt="Sekbid 1" class="foto-pengurus mx-auto mb-4">
+                            <span class="badge-jabatan">Sekbid 1</span>
+                            <h4 class="text-sm font-bold text-ink mt-3 mb-1">Rian Hidayat</h4>
+                            <p class="text-[10px] text-slate mb-3">Keimanan & Ketakwaan</p>
+                            <div class="flex justify-center gap-1.5">
+                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-solid fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-pengurus" data-aos="fade-up" data-aos-delay="150">
+                        <div class="card-pengurus-inner text-center">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2670&auto=format&fit=crop" alt="Sekbid 2" class="foto-pengurus mx-auto mb-4">
+                            <span class="badge-jabatan">Sekbid 2</span>
+                            <h4 class="text-sm font-bold text-ink mt-3 mb-1">Nabila Putri</h4>
+                            <p class="text-[10px] text-slate mb-3">Budi Pekerti & Akhlak</p>
+                            <div class="flex justify-center gap-1.5">
+                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-solid fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-pengurus" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-pengurus-inner text-center">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2574&auto=format&fit=crop" alt="Sekbid 3" class="foto-pengurus mx-auto mb-4">
+                            <span class="badge-jabatan">Sekbid 3</span>
+                            <h4 class="text-sm font-bold text-ink mt-3 mb-1">Bagas Saputra</h4>
+                            <p class="text-[10px] text-slate mb-3">Jasmani & Kesehatan</p>
+                            <div class="flex justify-center gap-1.5">
+                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-solid fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-pengurus" data-aos="fade-up" data-aos-delay="250">
+                        <div class="card-pengurus-inner text-center">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2574&auto=format&fit=crop" alt="Sekbid 4" class="foto-pengurus mx-auto mb-4">
+                            <span class="badge-jabatan">Sekbid 4</span>
+                            <h4 class="text-sm font-bold text-ink mt-3 mb-1">Ayu Lestari</h4>
+                            <p class="text-[10px] text-slate mb-3">Sastra & Budaya</p>
+                            <div class="flex justify-center gap-1.5">
+                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-solid fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-pengurus" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card-pengurus-inner text-center">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2564&auto=format&fit=crop" alt="Sekbid 5" class="foto-pengurus mx-auto mb-4">
+                            <span class="badge-jabatan">Sekbid 5</span>
+                            <h4 class="text-sm font-bold text-ink mt-3 mb-1">Fajar Nugroho</h4>
+                            <p class="text-[10px] text-slate mb-3">Teknologi & Informasi</p>
+                            <div class="flex justify-center gap-1.5">
+                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-solid fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-pengurus" data-aos="fade-up" data-aos-delay="350">
+                        <div class="card-pengurus-inner text-center">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=2574&auto=format&fit=crop" alt="Sekbid 6" class="foto-pengurus mx-auto mb-4">
+                            <span class="badge-jabatan">Sekbid 6</span>
+                            <h4 class="text-sm font-bold text-ink mt-3 mb-1">Dewi Anggraini</h4>
+                            <p class="text-[10px] text-slate mb-3">Komunikasi & Bahasa</p>
+                            <div class="flex justify-center gap-1.5">
+                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-solid fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-pengurus" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card-pengurus-inner text-center">
+                            <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=2574&auto=format&fit=crop" alt="Sekbid 7" class="foto-pengurus mx-auto mb-4">
+                            <span class="badge-jabatan">Sekbid 7</span>
+                            <h4 class="text-sm font-bold text-ink mt-3 mb-1">Yoga Pratama</h4>
+                            <p class="text-[10px] text-slate mb-3">Kewirausahaan</p>
+                            <div class="flex justify-center gap-1.5">
+                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-solid fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-pengurus" data-aos="fade-up" data-aos-delay="450">
+                        <div class="card-pengurus-inner text-center">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=2670&auto=format&fit=crop" alt="Sekbid 8" class="foto-pengurus mx-auto mb-4">
+                            <span class="badge-jabatan">Sekbid 8</span>
+                            <h4 class="text-sm font-bold text-ink mt-3 mb-1">Intan Maharani</h4>
+                            <p class="text-[10px] text-slate mb-3">Sosial & Lingkungan</p>
+                            <div class="flex justify-center gap-1.5">
+                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-solid fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-pengurus" data-aos="fade-up" data-aos-delay="500">
+                        <div class="card-pengurus-inner text-center">
+                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=2598&auto=format&fit=crop" alt="Sekbid 9" class="foto-pengurus mx-auto mb-4">
+                            <span class="badge-jabatan">Sekbid 9</span>
+                            <h4 class="text-sm font-bold text-ink mt-3 mb-1">Arif Setiawan</h4>
+                            <p class="text-[10px] text-slate mb-3">Kreativitas & Seni</p>
+                            <div class="flex justify-center gap-1.5">
+                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-solid fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-pengurus" data-aos="fade-up" data-aos-delay="550">
+                        <div class="card-pengurus-inner text-center">
+                            <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=2574&auto=format&fit=crop" alt="Sekbid 10" class="foto-pengurus mx-auto mb-4">
+                            <span class="badge-jabatan">Sekbid 10</span>
+                            <h4 class="text-sm font-bold text-ink mt-3 mb-1">Maya Sari</h4>
+                            <p class="text-[10px] text-slate mb-3">Pendidikan & Literasi</p>
+                            <div class="flex justify-center gap-1.5">
+                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:26px;height:26px;font-size:10px;"><i class="fa-solid fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ============== PRESTASI ============== -->
+    <section id="prestasi" class="bg-navy text-white py-24 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2574&auto=format&fit=crop" alt="Pattern" class="w-full h-full object-cover">
+        </div>
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-14" data-aos="fade-up">
+                <p class="text-[10px] font-bold tracking-[0.3em] text-honey uppercase mb-3">Pencapaian</p>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white">SMAPA Semangat Meraih Prestasi</h2>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-5xl md:text-6xl font-extrabold mb-3 text-gold">87</div>
+                    <div class="text-[10px] font-bold tracking-[0.3em] uppercase text-white/60">Lolos PTN 2024</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-5xl md:text-6xl font-extrabold mb-3 text-gold">20+</div>
+                    <div class="text-[10px] font-bold tracking-[0.3em] uppercase text-white/60">Ekstrakurikuler</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-5xl md:text-6xl font-extrabold mb-3 text-gold">15+</div>
+                    <div class="text-[10px] font-bold tracking-[0.3em] uppercase text-white/60">Prestasi 2025/2026</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-5xl md:text-6xl font-extrabold mb-3 text-gold">7</div>
+                    <div class="text-[10px] font-bold tracking-[0.3em] uppercase text-white/60">Tahun Kerja Sama ITS</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============== CTA ============== -->
+    <section class="bg-cream py-24 px-6">
+        <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+            <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight text-ink leading-[1.1] mb-6">
+                Mau jadi bagian <br>
+                <span class="gradient-text-gold">dari perubahan?</span>
+            </h2>
+            <p class="text-slate max-w-lg mx-auto mb-10 text-base">
+                Ikuti kegiatan OSIS SMAN 1 Paciran — dari Class Meeting, Pentas Seni, sampai Bakti Sosial.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a href="#" class="btn-gold px-8 py-4 rounded-full text-sm inline-flex items-center gap-2">
+                    <i class="fa-brands fa-instagram"></i> Follow Instagram OSIS
+                </a>
+                <a href="#" class="btn-light px-8 py-4 rounded-full text-sm inline-flex items-center gap-2 border border-slate/15">
+                    <i class="fa-solid fa-envelope"></i> Hubungi Pengurus
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============== FOOTER ============== -->
+    <footer class="bg-ink text-white pt-20 pb-10 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-9 h-9 rounded-full logo-osis flex items-center justify-center">
+                            <i class="fa-solid fa-users text-white text-sm"></i>
+                        </div>
+                        <div class="leading-tight">
+                            <div class="font-bold text-base tracking-tight">OSIS SMAPA</div>
+                            <div class="text-[10px] text-white/60">SMAN 1 Paciran</div>
+                        </div>
+                    </div>
+                    <p class="text-white/60 text-sm leading-relaxed mb-6">
+                        Wadah siswa untuk tumbuh, berkarya, dan berkontribusi bagi sekolah dan masyarakat.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-ink transition"><i class="fa-brands fa-instagram text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-ink transition"><i class="fa-brands fa-tiktok text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-ink transition"><i class="fa-brands fa-youtube text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-ink transition"><i class="fa-brands fa-whatsapp text-sm"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm tracking-wide mb-6 uppercase">Navigasi</h4>
+                    <ul class="space-y-3 text-white/60 text-sm">
+                        <li><a href="#profil" class="hover:text-gold transition">Profil</a></li>
+                        <li><a href="#program" class="hover:text-gold transition">Program Kerja</a></li>
+                        <li><a href="#pengurus" class="hover:text-gold transition">Pengurus</a></li>
+                        <li><a href="#prestasi" class="hover:text-gold transition">Prestasi</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm tracking-wide mb-6 uppercase">Sekretariat</h4>
+                    <ul class="space-y-3 text-white/60 text-sm">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-location-dot mt-1 text-gold"></i> Jl. Raya Kandangsemangkon No. 587, Paciran, Lamongan</li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-clock mt-1 text-gold"></i> Senin–Jumat, 14.00–16.00 WIB</li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-envelope mt-1 text-gold"></i> sman1.paciran@yahoo.co.id</li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-phone mt-1 text-gold"></i> (0322) 661632</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm tracking-wide mb-6 uppercase">Ikuti Kami</h4>
+                    <p class="text-white/60 text-sm mb-4">Update kegiatan OSIS terbaru di sosmed.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Email kamu" class="bg-white/10 border border-white/20 rounded-l-full px-4 py-3 text-sm w-full focus:outline-none focus:border-gold text-white placeholder-white/40">
+                        <button class="bg-gold text-ink px-4 py-3 rounded-r-full text-sm font-bold hover:bg-honey transition"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-white/50 max-w-6xl mx-auto gap-4">
+                <p>&copy; 2026 OSIS SMAN 1 Paciran. Dibuat oleh Sekbid Teknologi & Informasi.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition">Kode Etik</a>
+                    <a href="#" class="hover:text-white transition">AD/ART</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, offset: 80, duration: 800 });
+
+        const ambient = document.getElementById('ambient');
+
+        function createParticle() {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.bottom = '-10px';
+            const duration = 6 + Math.random() * 8;
+            p.style.animation = `particleRise ${duration}s linear infinite`;
+            p.style.animationDelay = `-${Math.random() * duration}s`;
+            const size = 2 + Math.random() * 4;
+            p.style.width = size + 'px';
+            p.style.height = size + 'px';
+            ambient.appendChild(p);
+        }
+
+        for (let i = 0; i < 40; i++) createParticle();
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > window.innerHeight * 0.8) {
+                ambient.classList.add('dim');
+            } else {
+                ambient.classList.remove('dim');
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -6,23 +6,22 @@
     <meta name="theme-color" content="#0A2463">
     
     <!-- SEO Meta -->
-    <title>OSIS SMAN 1 Paciran — Semangat Meraih Prestasi | Organisasi Siswa Intra Sekolah</title>
-    <meta name="description" content="Website resmi OSIS SMAN 1 Paciran. Kenalan dengan pengurus, lihat program kerja, prestasi, dan kegiatan terbaru. Bergerak bersama, berkarya nyata.">
-    <meta name="keywords" content="OSIS SMAN 1 Paciran, OSIS SMAPA, Organisasi Siswa, SMAN 1 Paciran, Lamongan, Program Kerja OSIS">
+    <title>OSIS SMAN 1 Paciran — Semangat Meraih Prestasi</title>
+    <meta name="description" content="Website resmi OSIS SMAN 1 Paciran. Kenalan dengan pengurus, lihat program kerja, prestasi, dan kegiatan terbaru.">
+    <meta name="keywords" content="OSIS SMAN 1 Paciran, OSIS SMAPA, SMAN 1 Paciran, Lamongan">
     <meta name="author" content="OSIS SMAN 1 Paciran">
     
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="OSIS SMAN 1 Paciran — Semangat Meraih Prestasi">
-    <meta property="og:description" content="Wadah siswa untuk tumbuh, berkarya, dan berkontribusi bagi sekolah dan masyarakat.">
-    <meta property="og:image" content="sekolah.jpg">
+    <meta property="og:description" content="Wadah siswa untuk tumbuh, berkarya, dan berkontribusi.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1200&auto=format&fit=crop">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="OSIS SMAN 1 Paciran — Semangat Meraih Prestasi">
     <meta name="twitter:description" content="Wadah siswa untuk tumbuh, berkarya, dan berkontribusi.">
     
-    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -37,39 +36,16 @@
             theme: {
                 extend: {
                     colors: {
-                        gold: '#F5C518',
-                        honey: '#FCD34D',
-                        butter: '#FEF3C7',
-                        terracotta: '#C2410C',
-                        rust: '#9A3412',
-                        leaf: '#16A34A',
-                        moss: '#15803D',
-                        sky: '#0EA5E9',
-                        ocean: '#0369A1',
-                        navy: '#0A2463',
-                        cream: '#FEFCE8',
-                        ivory: '#FFFEF5',
-                        ink: '#1C1917',
-                        slate: '#78716C'
+                        gold: '#F5C518', honey: '#FCD34D', butter: '#FEF3C7',
+                        terracotta: '#C2410C', rust: '#9A3412',
+                        leaf: '#16A34A', moss: '#15803D',
+                        sky: '#0EA5E9', ocean: '#0369A1',
+                        navy: '#0A2463', cream: '#FEFCE8', ivory: '#FFFEF5',
+                        ink: '#1C1917', slate: '#78716C'
                     },
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
                         display: ['Plus Jakarta Sans', 'sans-serif']
-                    },
-                    animation: {
-                        'gradient': 'gradient 8s ease infinite',
-                        'shimmer': 'shimmer 2s linear infinite',
-                        'pulse-slow': 'pulse 4s ease-in-out infinite'
-                    },
-                    keyframes: {
-                        gradient: {
-                            '0%, 100%': { backgroundPosition: '0% 50%' },
-                            '50%': { backgroundPosition: '100% 50%' }
-                        },
-                        shimmer: {
-                            '0%': { backgroundPosition: '-200% 0' },
-                            '100%': { backgroundPosition: '200% 0' }
-                        }
                     }
                 }
             }
@@ -80,7 +56,7 @@
         * { -webkit-tap-highlight-color: transparent; }
         body { font-family: 'Plus Jakarta Sans', 'Inter', sans-serif; background-color: #FFFEF5; color: #1C1917; overflow-x: hidden; }
         
-        /* ============ PRELOADER ============ */
+        /* PRELOADER */
         #preloader {
             position: fixed; inset: 0; z-index: 9999;
             background: linear-gradient(135deg, #0A2463 0%, #C2410C 100%);
@@ -89,8 +65,7 @@
         }
         #preloader.hidden { opacity: 0; visibility: hidden; }
         .loader-logo {
-            width: 80px; height: 80px;
-            border-radius: 50%;
+            width: 80px; height: 80px; border-radius: 50%;
             background: linear-gradient(135deg, #F5C518, #FCD34D);
             display: flex; align-items: center; justify-content: center;
             animation: pulseLoader 1.5s ease-in-out infinite;
@@ -100,110 +75,44 @@
             0%, 100% { transform: scale(1); box-shadow: 0 0 60px rgba(245,197,24,0.5); }
             50% { transform: scale(1.1); box-shadow: 0 0 100px rgba(245,197,24,0.7); }
         }
-        .loader-bar {
-            width: 200px; height: 3px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 999px; overflow: hidden;
-            margin-top: 24px;
-        }
-        .loader-bar-fill {
-            height: 100%; width: 0%;
-            background: linear-gradient(90deg, #F5C518, #FCD34D);
-            border-radius: 999px;
-            animation: loadFill 1.8s ease-out forwards;
-        }
+        .loader-bar { width: 200px; height: 3px; background: rgba(255,255,255,0.2); border-radius: 999px; overflow: hidden; margin-top: 24px; }
+        .loader-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #F5C518, #FCD34D); border-radius: 999px; animation: loadFill 1.8s ease-out forwards; }
         @keyframes loadFill { 0% { width: 0%; } 100% { width: 100%; } }
 
-        /* ============ SCROLL PROGRESS ============ */
-        #scroll-progress {
-            position: fixed; top: 0; left: 0; right: 0;
-            height: 3px; z-index: 100;
-            background: transparent;
-        }
-        #scroll-progress-bar {
-            height: 100%; width: 0%;
-            background: linear-gradient(90deg, #F5C518, #C2410C);
-            transition: width 0.1s ease;
-            box-shadow: 0 0 10px rgba(245,197,24,0.6);
-        }
+        /* SCROLL PROGRESS */
+        #scroll-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 100; }
+        #scroll-progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, #F5C518, #C2410C); transition: width 0.1s ease; box-shadow: 0 0 10px rgba(245,197,24,0.6); }
 
-        /* ============ CUSTOM CURSOR ============ */
+        /* CUSTOM CURSOR */
         @media (min-width: 1024px) {
-            .custom-cursor {
-                position: fixed; top: 0; left: 0;
-                width: 32px; height: 32px;
-                border: 2px solid rgba(245,197,24,0.8);
-                border-radius: 50%;
-                pointer-events: none;
-                z-index: 9998;
-                transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
-                transform: translate(-50%, -50%);
-                mix-blend-mode: difference;
-            }
-            .custom-cursor.hover {
-                width: 60px; height: 60px;
-                background: rgba(245,197,24,0.2);
-                border-color: rgba(245,197,24,1);
-            }
-            .custom-cursor-dot {
-                position: fixed; top: 0; left: 0;
-                width: 6px; height: 6px;
-                background: #F5C518;
-                border-radius: 50%;
-                pointer-events: none;
-                z-index: 9999;
-                transform: translate(-50%, -50%);
-            }
+            .custom-cursor { position: fixed; top: 0; left: 0; width: 32px; height: 32px; border: 2px solid rgba(245,197,24,0.8); border-radius: 50%; pointer-events: none; z-index: 9998; transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease; transform: translate(-50%, -50%); mix-blend-mode: difference; }
+            .custom-cursor.hover { width: 60px; height: 60px; background: rgba(245,197,24,0.2); border-color: rgba(245,197,24,1); }
+            .custom-cursor-dot { position: fixed; top: 0; left: 0; width: 6px; height: 6px; background: #F5C518; border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); }
         }
 
-        /* ============ HERO BACKGROUND ============ */
+        /* HERO */
         .hero-full {
-            background-image: url('sekolah.jpg');
+            background-image: url('https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=2686&auto=format&fit=crop');
             background-color: #0A2463;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
         .hero-full::after {
-            content: '';
-            position: absolute; inset: 0;
-            background: linear-gradient(
-                135deg,
-                rgba(10, 36, 99, 0.88) 0%,
-                rgba(10, 36, 99, 0.70) 35%,
-                rgba(194, 65, 12, 0.55) 70%,
-                rgba(245, 197, 24, 0.40) 100%
-            );
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(10,36,99,0.88) 0%, rgba(10,36,99,0.70) 35%, rgba(194,65,12,0.55) 70%, rgba(245,197,24,0.40) 100%);
             pointer-events: none; z-index: 2;
         }
 
         .nav-pill { background: rgba(255,255,255,0.96); backdrop-filter: blur(20px); box-shadow: 0 8px 30px rgba(10,36,99,0.12); }
         .headline-shadow { text-shadow: 0 4px 40px rgba(0,0,0,0.45); }
 
-        .btn-gold {
-            background: linear-gradient(135deg, #F5C518, #FCD34D);
-            color: #1C1917;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 8px 24px rgba(245,197,24,0.45);
-            font-weight: 700;
-            position: relative; overflow: hidden;
-        }
-        .btn-gold::before {
-            content: ''; position: absolute; top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.6s ease;
-        }
+        .btn-gold { background: linear-gradient(135deg, #F5C518, #FCD34D); color: #1C1917; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 8px 24px rgba(245,197,24,0.45); font-weight: 700; position: relative; overflow: hidden; }
+        .btn-gold::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); transition: left 0.6s ease; }
         .btn-gold:hover::before { left: 100%; }
         .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(245,197,24,0.55); }
 
-        .btn-light {
-            background: rgba(255,255,255,0.95);
-            color: #0A2463;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            font-weight: 600;
-        }
+        .btn-light { background: rgba(255,255,255,0.95); color: #0A2463; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 4px 20px rgba(0,0,0,0.1); font-weight: 600; }
         .btn-light:hover { background: white; transform: translateY(-3px); }
 
         @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
@@ -215,9 +124,8 @@
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #FEF3C7; }
         ::-webkit-scrollbar-thumb { background: linear-gradient(#C2410C, #F5C518); border-radius: 5px; }
-        ::-webkit-scrollbar-thumb:hover { background: linear-gradient(#9A3412, #EAB308); }
 
-        /* ===== AMBIENT ANIMASI ===== */
+        /* AMBIENT */
         .ambient { position: absolute; inset: 0; pointer-events: none; z-index: 3; overflow: hidden; }
         .cloud { position: absolute; background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.5) 40%, rgba(255,255,255,0) 70%); border-radius: 50%; filter: blur(20px); opacity: 0.55; will-change: transform; }
         .cloud::before, .cloud::after { content: ''; position: absolute; background: inherit; border-radius: 50%; }
@@ -243,194 +151,85 @@
         .ambient.dim { opacity: 0.3; transition: opacity 0.6s ease; }
         .logo-osis { background: linear-gradient(135deg, #0A2463 0%, #C2410C 100%); }
 
-        /* ===== GRADIENT TEXT ===== */
-        .gradient-text-gold {
-            background: linear-gradient(135deg, #C2410C 0%, #F5C518 50%, #FCD34D 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-        }
         .gradient-text-animated {
             background: linear-gradient(135deg, #C2410C, #F5C518, #FCD34D, #C2410C);
             background-size: 300% 300%;
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
             animation: gradient 6s ease infinite;
         }
+        @keyframes gradient { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
 
-        .ornament-line {
-            width: 60px; height: 3px;
-            background: linear-gradient(90deg, transparent, #C2410C, transparent);
-            border-radius: 999px; margin: 0 auto;
-        }
+        .ornament-line { width: 60px; height: 3px; background: linear-gradient(90deg, transparent, #C2410C, transparent); border-radius: 999px; margin: 0 auto; }
 
         .mading-scroll { scrollbar-width: thin; scrollbar-color: #C2410C #FEF3C7; }
         .mading-scroll::-webkit-scrollbar { height: 6px; }
         .mading-scroll::-webkit-scrollbar-thumb { background: #C2410C; border-radius: 3px; }
 
-        /* ===== PENGURUS CARD ===== */
-        .pengurus-bg {
-            background: linear-gradient(135deg, #FEFCE8 0%, #FEF3C7 25%, #FDE68A 50%, #FCD34D 75%, #F5C518 100%);
-            position: relative; overflow: hidden;
-        }
-        .pengurus-bg::before {
-            content: ''; position: absolute; top: -20%; left: -10%;
-            width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(194,65,12,0.20) 0%, transparent 70%);
-            border-radius: 50%; animation: glowPulse 8s ease-in-out infinite alternate;
-        }
-        .pengurus-bg::after {
-            content: ''; position: absolute; bottom: -20%; right: -10%;
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(245,197,24,0.35) 0%, transparent 70%);
-            border-radius: 50%; animation: glowPulse 10s ease-in-out infinite alternate-reverse;
-        }
+        /* PENGURUS */
+        .pengurus-bg { background: linear-gradient(135deg, #FEFCE8 0%, #FEF3C7 25%, #FDE68A 50%, #FCD34D 75%, #F5C518 100%); position: relative; overflow: hidden; }
+        .pengurus-bg::before { content: ''; position: absolute; top: -20%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(194,65,12,0.20) 0%, transparent 70%); border-radius: 50%; animation: glowPulse 8s ease-in-out infinite alternate; }
+        .pengurus-bg::after { content: ''; position: absolute; bottom: -20%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(245,197,24,0.35) 0%, transparent 70%); border-radius: 50%; animation: glowPulse 10s ease-in-out infinite alternate-reverse; }
         @keyframes glowPulse { 0%{transform:scale(1);opacity:0.6} 100%{transform:scale(1.2);opacity:0.9} }
 
-        .card-bph {
-            background: linear-gradient(160deg, #FFFFFF 0%, #FFFEF5 100%);
-            border-radius: 2rem; padding: 2.5rem 2rem;
-            position: relative; overflow: hidden;
-            box-shadow: 0 20px 50px rgba(194,65,12,0.15);
-            transition: all 0.4s ease;
-        }
-        .card-bph::before {
-            content: ''; position: absolute; inset: 0; border-radius: 2rem; padding: 2px;
-            background: linear-gradient(135deg, #F5C518, #C2410C, #FCD34D, #C2410C);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
-        }
+        .card-bph { background: linear-gradient(160deg, #FFFFFF 0%, #FFFEF5 100%); border-radius: 2rem; padding: 2.5rem 2rem; position: relative; overflow: hidden; box-shadow: 0 20px 50px rgba(194,65,12,0.15); transition: all 0.4s ease; }
+        .card-bph::before { content: ''; position: absolute; inset: 0; border-radius: 2rem; padding: 2px; background: linear-gradient(135deg, #F5C518, #C2410C, #FCD34D, #C2410C); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
         .card-bph:hover { transform: translateY(-8px); box-shadow: 0 35px 70px rgba(194,65,12,0.25); }
 
-        .card-pengurus {
-            position: relative; background: linear-gradient(145deg, #FFFFFF 0%, #FFFEF5 100%);
-            border-radius: 1.75rem; padding: 2px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(194,65,12,0.10);
-        }
-        .card-pengurus::before {
-            content: ''; position: absolute; inset: 0; border-radius: 1.75rem; padding: 2px;
-            background: linear-gradient(135deg, #FCD34D, #F5C518, #C2410C, #FCD34D);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0.6; transition: opacity 0.4s ease;
-        }
+        .card-pengurus { position: relative; background: linear-gradient(145deg, #FFFFFF 0%, #FFFEF5 100%); border-radius: 1.75rem; padding: 2px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 10px 30px rgba(194,65,12,0.10); }
+        .card-pengurus::before { content: ''; position: absolute; inset: 0; border-radius: 1.75rem; padding: 2px; background: linear-gradient(135deg, #FCD34D, #F5C518, #C2410C, #FCD34D); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0.6; transition: opacity 0.4s ease; }
         .card-pengurus:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(194,65,12,0.25); }
         .card-pengurus:hover::before { opacity: 1; }
 
-        .card-pengurus-inner {
-            background: linear-gradient(160deg, #FFFFFF 0%, #FFFEF5 100%);
-            border-radius: 1.6rem; padding: 1.75rem 1.5rem; height: 100%;
-            position: relative; overflow: hidden;
-        }
-        .card-pengurus-inner::before {
-            content: ''; position: absolute; top: -30px; right: -30px;
-            width: 100px; height: 100px;
-            background: radial-gradient(circle, rgba(245,197,24,0.25) 0%, transparent 70%);
-            border-radius: 50%;
-        }
+        .card-pengurus-inner { background: linear-gradient(160deg, #FFFFFF 0%, #FFFEF5 100%); border-radius: 1.6rem; padding: 1.75rem 1.5rem; height: 100%; position: relative; overflow: hidden; }
+        .card-pengurus-inner::before { content: ''; position: absolute; top: -30px; right: -30px; width: 100px; height: 100px; background: radial-gradient(circle, rgba(245,197,24,0.25) 0%, transparent 70%); border-radius: 50%; }
 
-        .foto-pengurus {
-            width: 96px; height: 96px; border-radius: 50%; object-fit: cover;
-            padding: 3px; background: linear-gradient(135deg, #FCD34D, #F5C518, #C2410C);
-            box-shadow: 0 8px 24px rgba(194,65,12,0.3); transition: transform 0.4s ease;
-        }
-        .card-pengurus:hover .foto-pengurus, .card-bph:hover .foto-pengurus {
-            transform: scale(1.05) rotate(-2deg);
-        }
+        .foto-pengurus { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; padding: 3px; background: linear-gradient(135deg, #FCD34D, #F5C518, #C2410C); box-shadow: 0 8px 24px rgba(194,65,12,0.3); transition: transform 0.4s ease; }
+        .card-pengurus:hover .foto-pengurus, .card-bph:hover .foto-pengurus { transform: scale(1.05) rotate(-2deg); }
 
-        .badge-jabatan {
-            display: inline-block;
-            background: linear-gradient(135deg, #0A2463, #0369A1);
-            color: white; font-size: 10px; font-weight: 700;
-            letter-spacing: 0.05em; text-transform: uppercase;
-            padding: 4px 12px; border-radius: 999px;
-            box-shadow: 0 4px 12px rgba(10,36,99,0.25);
-        }
-        .badge-jabatan.gold {
-            background: linear-gradient(135deg, #C2410C, #F5C518);
-            box-shadow: 0 4px 12px rgba(194,65,12,0.35);
-        }
+        .badge-jabatan { display: inline-block; background: linear-gradient(135deg, #0A2463, #0369A1); color: white; font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 4px 12px; border-radius: 999px; box-shadow: 0 4px 12px rgba(10,36,99,0.25); }
+        .badge-jabatan.gold { background: linear-gradient(135deg, #C2410C, #F5C518); box-shadow: 0 4px 12px rgba(194,65,12,0.35); }
 
-        .social-icon {
-            width: 32px; height: 32px; border-radius: 50%;
-            background: rgba(10,36,99,0.06); display: inline-flex;
-            align-items: center; justify-content: center;
-            color: #0A2463; font-size: 12px; transition: all 0.3s ease;
-        }
-        .social-icon:hover {
-            background: linear-gradient(135deg, #C2410C, #F5C518);
-            color: white; transform: translateY(-2px);
-        }
+        .social-icon { width: 32px; height: 32px; border-radius: 50%; background: rgba(10,36,99,0.06); display: inline-flex; align-items: center; justify-content: center; color: #0A2463; font-size: 12px; transition: all 0.3s ease; }
+        .social-icon:hover { background: linear-gradient(135deg, #C2410C, #F5C518); color: white; transform: translateY(-2px); }
 
-        /* ===== MOBILE MENU ===== */
-        .mobile-menu {
-            transform: translateY(-100%);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            pointer-events: none;
-        }
-        .mobile-menu.open {
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-        .hamburger span {
-            display: block; width: 20px; height: 2px;
-            background: #1C1917; border-radius: 2px;
-            transition: all 0.3s ease;
-        }
+        /* MOBILE MENU */
+        .mobile-menu { transform: translateY(-100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); pointer-events: none; }
+        .mobile-menu.open { transform: translateY(0); pointer-events: auto; }
+        .hamburger span { display: block; width: 20px; height: 2px; background: #1C1917; border-radius: 2px; transition: all 0.3s ease; }
         .hamburger span + span { margin-top: 4px; }
         .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
         .hamburger.open span:nth-child(2) { opacity: 0; }
         .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
 
-        /* ===== FLOATING WHATSAPP ===== */
-        .wa-float {
-            position: fixed; bottom: 24px; right: 24px; z-index: 90;
-            width: 56px; height: 56px; border-radius: 50%;
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            display: flex; align-items: center; justify-content: center;
-            color: white; font-size: 24px;
-            box-shadow: 0 8px 30px rgba(37,211,102,0.4);
-            transition: all 0.3s ease;
-            animation: waPulse 2s ease-in-out infinite;
-        }
+        /* WA FLOAT */
+        .wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 90; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #25D366, #128C7E); display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; box-shadow: 0 8px 30px rgba(37,211,102,0.4); transition: all 0.3s ease; animation: waPulse 2s ease-in-out infinite; }
         .wa-float:hover { transform: scale(1.1); box-shadow: 0 12px 40px rgba(37,211,102,0.6); }
-        @keyframes waPulse {
-            0%, 100% { box-shadow: 0 8px 30px rgba(37,211,102,0.4); }
-            50% { box-shadow: 0 8px 40px rgba(37,211,102,0.7); }
-        }
+        @keyframes waPulse { 0%, 100% { box-shadow: 0 8px 30px rgba(37,211,102,0.4); } 50% { box-shadow: 0 8px 40px rgba(37,211,102,0.7); } }
 
-        /* ===== BACK TO TOP ===== */
-        .back-to-top {
-            position: fixed; bottom: 90px; right: 24px; z-index: 90;
-            width: 44px; height: 44px; border-radius: 50%;
-            background: linear-gradient(135deg, #0A2463, #C2410C);
-            display: flex; align-items: center; justify-content: center;
-            color: white; font-size: 16px;
-            box-shadow: 0 8px 24px rgba(10,36,99,0.3);
-            opacity: 0; visibility: hidden; transform: translateY(20px);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
+        /* BACK TO TOP */
+        .back-to-top { position: fixed; bottom: 90px; right: 24px; z-index: 90; width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #0A2463, #C2410C); display: flex; align-items: center; justify-content: center; color: white; font-size: 16px; box-shadow: 0 8px 24px rgba(10,36,99,0.3); opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s ease; cursor: pointer; }
         .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
-        .back-to-top:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(10,36,99,0.4); }
+        .back-to-top:hover { transform: translateY(-4px); }
 
-        /* ===== GALLERY ===== */
-        .gallery-item { transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        /* GALLERY */
+        .gallery-item { transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
         .gallery-item:hover { transform: scale(1.05); z-index: 10; }
         .gallery-item:hover img { transform: scale(1.1); }
 
-        /* ===== FAQ ===== */
+        /* FAQ */
         details > summary { list-style: none; cursor: pointer; }
         details > summary::-webkit-details-marker { display: none; }
         details[open] .faq-icon { transform: rotate(45deg); }
         details[open] summary ~ * { animation: sweep 0.5s ease-in-out; }
         @keyframes sweep { 0% { opacity: 0; transform: translateY(-10px); } 100% { opacity: 1; transform: translateY(0); } }
 
-        /* ===== RESPONSIVE ===== */
+        /* RESPONSIVE */
         @media (max-width: 640px) {
             .cloud { filter: blur(15px); opacity: 0.35; }
             .cloud-1 { width: 280px; height: 90px; }
             .cloud-2 { width: 220px; height: 75px; }
             .cloud-3 { width: 340px; height: 110px; }
             .cloud-4 { width: 180px; height: 60px; }
-            h1 { word-break: break-word; hyphens: auto; }
             .foto-pengurus { width: 72px !important; height: 72px !important; }
             .card-bph .foto-pengurus { width: 100px !important; height: 100px !important; }
             .wa-float { width: 48px; height: 48px; font-size: 20px; bottom: 16px; right: 16px; }
@@ -448,20 +247,28 @@
             .card-bph:active { transform: scale(0.98); }
         }
 
-        /* ===== DARK MODE ===== */
-        body.dark-mode {
-            background-color: #0F172A !important;
-            color: #E2E8F0;
-        }
+        /* DARK MODE */
+        body.dark-mode { background-color: #0F172A !important; color: #E2E8F0; }
         body.dark-mode .bg-ivory, body.dark-mode .bg-cream, body.dark-mode .bg-white { background-color: #1E293B !important; }
         body.dark-mode .text-ink { color: #F1F5F9 !important; }
         body.dark-mode .text-slate { color: #94A3B8 !important; }
         body.dark-mode .border-honey\/40 { border-color: #334155 !important; }
+
+        /* LIGHTBOX */
+        .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 10000; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
+        .lightbox.active { display: flex; opacity: 1; }
+        .lightbox img { max-width: 90vw; max-height: 85vh; border-radius: 12px; box-shadow: 0 0 80px rgba(245,197,24,0.3); animation: zoomIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        @keyframes zoomIn { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .lightbox-close, .lightbox-prev, .lightbox-next { position: absolute; color: white; font-size: 3rem; cursor: pointer; background: none; border: none; transition: color 0.3s ease; }
+        .lightbox-close { top: 20px; right: 30px; }
+        .lightbox-prev { left: 20px; top: 50%; transform: translateY(-50%); }
+        .lightbox-next { right: 20px; top: 50%; transform: translateY(-50%); }
+        .lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover { color: #F5C518; }
     </style>
 </head>
 <body>
 
-    <!-- ============== PRELOADER ============== -->
+    <!-- PRELOADER -->
     <div id="preloader">
         <div class="flex flex-col items-center">
             <div class="loader-logo">
@@ -472,16 +279,15 @@
         </div>
     </div>
 
-    <!-- ============== SCROLL PROGRESS ============== -->
+    <!-- SCROLL PROGRESS -->
     <div id="scroll-progress"><div id="scroll-progress-bar"></div></div>
 
-    <!-- ============== CUSTOM CURSOR ============== -->
+    <!-- CUSTOM CURSOR -->
     <div class="custom-cursor" id="custom-cursor"></div>
     <div class="custom-cursor-dot" id="custom-cursor-dot"></div>
 
-    <!-- ============== HERO ============== -->
+    <!-- HERO -->
     <section class="relative min-h-[100svh] md:min-h-screen hero-full flex flex-col overflow-hidden">
-
         <div class="ambient" id="ambient">
             <div class="cloud cloud-1"></div>
             <div class="cloud cloud-2"></div>
@@ -503,7 +309,6 @@
                         <div class="text-[9px] text-slate font-medium">SMAN 1 Paciran</div>
                     </div>
                 </a>
-
                 <div class="hidden lg:flex items-center gap-1 ml-2">
                     <a href="#profil" class="px-3 py-2 text-sm text-ink/70 hover:text-ink rounded-full hover:bg-black/5 transition">Profil</a>
                     <a href="#program" class="px-3 py-2 text-sm text-ink/70 hover:text-ink rounded-full hover:bg-black/5 transition">Program</a>
@@ -511,7 +316,6 @@
                     <a href="#pengurus" class="px-3 py-2 text-sm text-ink/70 hover:text-ink rounded-full hover:bg-black/5 transition">Pengurus</a>
                     <a href="#faq" class="px-3 py-2 text-sm text-ink/70 hover:text-ink rounded-full hover:bg-black/5 transition">FAQ</a>
                 </div>
-
                 <div class="ml-auto flex items-center gap-2">
                     <button id="dark-toggle" class="w-9 h-9 rounded-full hover:bg-black/5 flex items-center justify-center text-ink/70 transition" aria-label="Toggle dark mode">
                         <i class="fa-solid fa-moon text-sm"></i>
@@ -535,7 +339,6 @@
                         <div class="text-[8px] text-slate font-medium">SMAN 1 Paciran</div>
                     </div>
                 </a>
-
                 <button id="hamburger-btn" class="hamburger w-9 h-9 rounded-full flex flex-col items-center justify-center gap-0 active:bg-black/5 transition" aria-label="Menu">
                     <span></span>
                     <span></span>
@@ -574,17 +377,14 @@
                 <span class="w-2 h-2 rounded-full bg-leaf animate-pulse"></span>
                 <span class="text-[10px] sm:text-xs font-semibold text-ink">OSIS SMAN 1 Paciran · 2026/2027</span>
             </div>
-
             <h1 class="headline-shadow text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-tight leading-[1.05] text-white mb-5 sm:mb-6 max-w-4xl">
                 Semangat Meraih <br>
                 <span class="text-honey">Prestasi.</span>
             </h1>
-
             <p class="text-sm sm:text-base md:text-lg text-white/90 max-w-xl leading-relaxed mb-8 sm:mb-10 font-light px-2">
                 OSIS SMAN 1 Paciran — wadah siswa untuk tumbuh, berkarya, <br class="hidden md:block">
                 dan berkontribusi bagi sekolah dan masyarakat.
             </p>
-
             <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto px-4 sm:px-0">
                 <a href="#pengurus" class="btn-gold w-full sm:w-auto px-6 sm:px-7 py-3.5 rounded-full text-sm flex items-center justify-center gap-2">
                     Kenalan dengan Pengurus <i class="fa-solid fa-arrow-right text-xs"></i>
@@ -603,8 +403,7 @@
         </div>
     </section>
 
-
-    <!-- ============== PROFIL ============== -->
+    <!-- PROFIL -->
     <section id="profil" class="bg-ivory py-16 sm:py-20 md:py-24 px-5 sm:px-6">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
@@ -614,59 +413,46 @@
                 </h2>
                 <div class="ornament-line mt-6 sm:mt-8"></div>
             </div>
-
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
                 <div class="text-center p-6 sm:p-8 bg-white rounded-3xl border border-honey/40 card-hover" data-aos="fade-up" data-aos-delay="100">
                     <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-gold to-honey flex items-center justify-center mx-auto mb-5 sm:mb-6 shadow-lg shadow-gold/30">
                         <i class="fa-solid fa-eye text-white text-xl sm:text-2xl"></i>
                     </div>
                     <h3 class="text-base sm:text-lg font-bold text-ink mb-2 sm:mb-3">Visi</h3>
-                    <p class="text-xs sm:text-sm text-slate leading-relaxed">
-                        Menjadi organisasi siswa yang aktif, inovatif, dan berkarakter, serta mampu menjadi jembatan aspirasi siswa.
-                    </p>
+                    <p class="text-xs sm:text-sm text-slate leading-relaxed">Menjadi organisasi siswa yang aktif, inovatif, dan berkarakter, serta mampu menjadi jembatan aspirasi siswa.</p>
                 </div>
-
                 <div class="text-center p-6 sm:p-8 bg-white rounded-3xl border border-honey/40 card-hover" data-aos="fade-up" data-aos-delay="200">
                     <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-terracotta to-rust flex items-center justify-center mx-auto mb-5 sm:mb-6 shadow-lg shadow-terracotta/30">
                         <i class="fa-solid fa-bullseye text-white text-xl sm:text-2xl"></i>
                     </div>
                     <h3 class="text-base sm:text-lg font-bold text-ink mb-2 sm:mb-3">Misi</h3>
-                    <p class="text-xs sm:text-sm text-slate leading-relaxed">
-                        Menumbuhkan kepemimpinan, kolaborasi, dan tanggung jawab siswa melalui kegiatan positif.
-                    </p>
+                    <p class="text-xs sm:text-sm text-slate leading-relaxed">Menumbuhkan kepemimpinan, kolaborasi, dan tanggung jawab siswa melalui kegiatan positif.</p>
                 </div>
-
                 <div class="text-center p-6 sm:p-8 bg-white rounded-3xl border border-honey/40 card-hover sm:col-span-2 md:col-span-1" data-aos="fade-up" data-aos-delay="300">
                     <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-leaf to-moss flex items-center justify-center mx-auto mb-5 sm:mb-6 shadow-lg shadow-leaf/30">
                         <i class="fa-solid fa-heart text-white text-xl sm:text-2xl"></i>
                     </div>
                     <h3 class="text-base sm:text-lg font-bold text-ink mb-2 sm:mb-3">Nilai</h3>
-                    <p class="text-xs sm:text-sm text-slate leading-relaxed">
-                        Kepemimpinan, kolaborasi, dan kontribusi nyata untuk sekolah dan masyarakat.
-                    </p>
+                    <p class="text-xs sm:text-sm text-slate leading-relaxed">Kepemimpinan, kolaborasi, dan kontribusi nyata untuk sekolah dan masyarakat.</p>
                 </div>
             </div>
         </div>
     </section>
 
-
-    <!-- ============== PROGRAM ============== -->
+    <!-- PROGRAM -->
     <section id="program" class="bg-cream py-16 sm:py-20 md:py-24 px-5 sm:px-6">
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-10 sm:mb-14 gap-4 sm:gap-6" data-aos="fade-up">
                 <div>
                     <p class="text-[10px] font-bold tracking-[0.3em] text-terracotta uppercase mb-3 sm:mb-4">Program Kerja</p>
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink leading-tight">
-                        Kegiatan yang berdampak.
-                    </h2>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink leading-tight">Kegiatan yang berdampak.</h2>
                 </div>
                 <span class="text-sm font-semibold text-slate">2026/2027</span>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 sm:gap-5">
-                <!-- GANTI: pentas-seni.jpg -->
+                <!-- Pentas Seni -->
                 <div class="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden group h-72 sm:h-80 md:h-auto md:min-h-[520px] card-hover" data-aos="fade-up">
-                    <img src="pentas-seni.jpg" alt="Pentas Seni" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2670&auto=format&fit=crop" alt="Pentas Seni" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/40 to-transparent"></div>
                     <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-8 text-white">
                         <span class="inline-block bg-gold text-ink text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">Unggulan</span>
@@ -678,10 +464,9 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- GANTI: class-meeting.jpg -->
+                <!-- Class Meeting -->
                 <div class="relative rounded-3xl overflow-hidden group h-52 sm:h-60 card-hover" data-aos="fade-up" data-aos-delay="100">
-                    <img src="class-meeting.jpg" alt="Class Meeting" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=2670&auto=format&fit=crop" alt="Class Meeting" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-terracotta/90 via-rust/40 to-transparent"></div>
                     <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6 text-white">
                         <h3 class="text-base sm:text-lg font-bold mb-0.5">Class Meeting</h3>
@@ -689,10 +474,9 @@
                         <span class="text-xs font-semibold text-honey">Desember</span>
                     </div>
                 </div>
-
-                <!-- GANTI: bakti-sosial.jpg -->
+                <!-- Bakti Sosial -->
                 <div class="relative rounded-3xl overflow-hidden group h-52 sm:h-60 card-hover" data-aos="fade-up" data-aos-delay="200">
-                    <img src="bakti-sosial.jpg" alt="Bakti Sosial" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2670&auto=format&fit=crop" alt="Bakti Sosial" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-leaf/90 via-moss/40 to-transparent"></div>
                     <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6 text-white">
                         <h3 class="text-base sm:text-lg font-bold mb-0.5">Bakti Sosial</h3>
@@ -733,51 +517,40 @@
         </div>
     </section>
 
-
-    <!-- ============== GALERI ============== -->
+    <!-- GALERI -->
     <section id="galeri" class="bg-ivory py-16 sm:py-20 md:py-24 px-5 sm:px-6">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
                 <p class="text-[10px] font-bold tracking-[0.3em] text-terracotta uppercase mb-3">Galeri</p>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink leading-tight max-w-2xl mx-auto">
-                    Momen kebersamaan kami.
-                </h2>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink leading-tight max-w-2xl mx-auto">Momen kebersamaan kami.</h2>
                 <div class="ornament-line mt-6 sm:mt-8"></div>
             </div>
-
             <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-                <!-- GANTI: galeri-1.jpg (BESAR) -->
                 <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square md:col-span-2 md:row-span-2" data-aos="fade-up">
-                    <img src="galeri-1.jpg" alt="Galeri 1" class="w-full h-full object-cover transition-transform duration-700">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2670&auto=format&fit=crop" alt="Galeri 1" class="w-full h-full object-cover transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-navy/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                         <span class="text-white text-sm font-semibold">Pentas Seni 2025</span>
                     </div>
                 </div>
-                <!-- GANTI: galeri-2.jpg -->
                 <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square" data-aos="fade-up" data-aos-delay="100">
-                    <img src="galeri-2.jpg" alt="Galeri 2" class="w-full h-full object-cover transition-transform duration-700">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2670&auto=format&fit=crop" alt="Galeri 2" class="w-full h-full object-cover transition-transform duration-700">
                 </div>
-                <!-- GANTI: galeri-3.jpg -->
                 <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square" data-aos="fade-up" data-aos-delay="150">
-                    <img src="galeri-3.jpg" alt="Galeri 3" class="w-full h-full object-cover transition-transform duration-700">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2574&auto=format&fit=crop" alt="Galeri 3" class="w-full h-full object-cover transition-transform duration-700">
                 </div>
-                <!-- GANTI: galeri-4.jpg -->
                 <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square" data-aos="fade-up" data-aos-delay="200">
-                    <img src="galeri-4.jpg" alt="Galeri 4" class="w-full h-full object-cover transition-transform duration-700">
+                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2670&auto=format&fit=crop" alt="Galeri 4" class="w-full h-full object-cover transition-transform duration-700">
                 </div>
-                <!-- GANTI: galeri-5.jpg -->
                 <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square" data-aos="fade-up" data-aos-delay="250">
-                    <img src="galeri-5.jpg" alt="Galeri 5" class="w-full h-full object-cover transition-transform duration-700">
+                    <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=2574&auto=format&fit=crop" alt="Galeri 5" class="w-full h-full object-cover transition-transform duration-700">
                 </div>
             </div>
         </div>
     </section>
 
-
-    <!-- ============== PENGURUS ============== -->
+    <!-- PENGURUS -->
     <section id="pengurus" class="pengurus-bg py-16 sm:py-20 md:py-28 px-5 sm:px-6">
         <div class="max-w-7xl mx-auto relative z-10">
-
             <div class="text-center mb-12 sm:mb-16 md:mb-20" data-aos="fade-up">
                 <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-md border border-terracotta/20 rounded-full px-3 sm:px-5 py-1.5 sm:py-2 mb-4 sm:mb-6 shadow-sm">
                     <i class="fa-solid fa-crown text-terracotta text-xs"></i>
@@ -787,9 +560,7 @@
                     Kenalan dengan <br>
                     <span class="gradient-text-animated">Pengurus OSIS.</span>
                 </h2>
-                <p class="text-rust/80 max-w-xl mx-auto text-xs sm:text-sm md:text-base font-medium px-2">
-                    Generasi muda SMAPA yang siap mengabdi, berkarya, dan membawa perubahan positif.
-                </p>
+                <p class="text-rust/80 max-w-xl mx-auto text-xs sm:text-sm md:text-base font-medium px-2">Generasi muda SMAPA yang siap mengabdi, berkarya, dan membawa perubahan positif.</p>
                 <div class="ornament-line mt-6 sm:mt-8"></div>
             </div>
 
@@ -799,13 +570,12 @@
                     <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-ink mb-2">Badan Pengurus Harian</h3>
                     <p class="text-xs sm:text-sm text-rust/70 font-medium">Inti kepengurusan OSIS SMAPA</p>
                 </div>
-
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
-                    <!-- GANTI: ketua.jpg -->
+                    <!-- Ketua -->
                     <div class="card-bph text-center sm:col-span-2 md:col-span-1" data-aos="fade-up" data-aos-delay="100">
                         <div class="flex justify-center mb-5 sm:mb-6">
                             <div class="relative">
-                                <img src="ketua.jpg" alt="Ketua OSIS" class="foto-pengurus">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2564&auto=format&fit=crop" alt="Ketua OSIS" class="foto-pengurus">
                                 <span class="absolute -bottom-2 -right-2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-gold to-honey flex items-center justify-center text-ink shadow-lg">
                                     <i class="fa-solid fa-crown text-xs sm:text-sm"></i>
                                 </span>
@@ -814,21 +584,18 @@
                         <span class="badge-jabatan gold">Ketua OSIS</span>
                         <h4 class="text-lg sm:text-xl font-bold text-ink mt-3 sm:mt-4 mb-1">Ahmad Rizki Pratama</h4>
                         <p class="text-xs sm:text-sm text-slate mb-3 sm:mb-4">Kelas XII MIPA 1</p>
-                        <p class="text-xs text-rust/70 italic mb-4 sm:mb-5 leading-relaxed px-2">
-                            "Memimpin dengan hati, bekerja dengan ilmu."
-                        </p>
+                        <p class="text-xs text-rust/70 italic mb-4 sm:mb-5 leading-relaxed px-2">"Memimpin dengan hati, bekerja dengan ilmu."</p>
                         <div class="flex justify-center gap-2">
                             <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
                             <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
                             <a href="#" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
                         </div>
                     </div>
-
-                    <!-- GANTI: wakil.jpg -->
+                    <!-- Wakil -->
                     <div class="card-bph text-center" data-aos="fade-up" data-aos-delay="200">
                         <div class="flex justify-center mb-5 sm:mb-6">
                             <div class="relative">
-                                <img src="wakil.jpg" alt="Wakil Ketua" class="foto-pengurus">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2574&auto=format&fit=crop" alt="Wakil Ketua" class="foto-pengurus">
                                 <span class="absolute -bottom-2 -right-2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-navy to-ocean flex items-center justify-center text-white shadow-lg">
                                     <i class="fa-solid fa-star text-xs sm:text-sm"></i>
                                 </span>
@@ -837,21 +604,18 @@
                         <span class="badge-jabatan">Wakil Ketua</span>
                         <h4 class="text-lg sm:text-xl font-bold text-ink mt-3 sm:mt-4 mb-1">Siti Nurhaliza</h4>
                         <p class="text-xs sm:text-sm text-slate mb-3 sm:mb-4">Kelas XI MIPA 2</p>
-                        <p class="text-xs text-rust/70 italic mb-4 sm:mb-5 leading-relaxed px-2">
-                            "Bersama kita bisa, bersama kita kuat."
-                        </p>
+                        <p class="text-xs text-rust/70 italic mb-4 sm:mb-5 leading-relaxed px-2">"Bersama kita bisa, bersama kita kuat."</p>
                         <div class="flex justify-center gap-2">
                             <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
                             <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
                             <a href="#" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
                         </div>
                     </div>
-
-                    <!-- GANTI: sekretaris.jpg -->
+                    <!-- Sekretaris -->
                     <div class="card-bph text-center" data-aos="fade-up" data-aos-delay="300">
                         <div class="flex justify-center mb-5 sm:mb-6">
                             <div class="relative">
-                                <img src="sekretaris.jpg" alt="Sekretaris" class="foto-pengurus">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2574&auto=format&fit=crop" alt="Sekretaris" class="foto-pengurus">
                                 <span class="absolute -bottom-2 -right-2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-leaf to-moss flex items-center justify-center text-white shadow-lg">
                                     <i class="fa-solid fa-pen text-xs sm:text-sm"></i>
                                 </span>
@@ -860,9 +624,7 @@
                         <span class="badge-jabatan">Sekretaris</span>
                         <h4 class="text-lg sm:text-xl font-bold text-ink mt-3 sm:mt-4 mb-1">Dimas Anggara</h4>
                         <p class="text-xs sm:text-sm text-slate mb-3 sm:mb-4">Kelas XI IPS 1</p>
-                        <p class="text-xs text-rust/70 italic mb-4 sm:mb-5 leading-relaxed px-2">
-                            "Detail adalah segalanya."
-                        </p>
+                        <p class="text-xs text-rust/70 italic mb-4 sm:mb-5 leading-relaxed px-2">"Detail adalah segalanya."</p>
                         <div class="flex justify-center gap-2">
                             <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
                             <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
@@ -878,12 +640,11 @@
                     <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-ink mb-2">Koordinator Seksi Bidang</h3>
                     <p class="text-xs sm:text-sm text-rust/70 font-medium">10 Sekbid yang siap bekerja untukmu</p>
                 </div>
-
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5">
-                    <!-- SEKBID 1 -->
+                    <!-- Sekbid 1 -->
                     <div class="card-pengurus" data-aos="fade-up" data-aos-delay="100">
                         <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
-                            <img src="sekbid-1.jpg" alt="Sekbid 1" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=2564&auto=format&fit=crop" alt="Sekbid 1" class="foto-pengurus mx-auto mb-3 sm:mb-4">
                             <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 1</span>
                             <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Rian Hidayat</h4>
                             <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Keimanan & Ketakwaan</p>
@@ -893,11 +654,10 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- SEKBID 2 -->
+                    <!-- Sekbid 2 -->
                     <div class="card-pengurus" data-aos="fade-up" data-aos-delay="150">
                         <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
-                            <img src="sekbid-2.jpg" alt="Sekbid 2" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2670&auto=format&fit=crop" alt="Sekbid 2" class="foto-pengurus mx-auto mb-3 sm:mb-4">
                             <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 2</span>
                             <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Nabila Putri</h4>
                             <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Budi Pekerti & Akhlak</p>
@@ -907,11 +667,10 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- SEKBID 3 -->
+                    <!-- Sekbid 3 -->
                     <div class="card-pengurus" data-aos="fade-up" data-aos-delay="200">
                         <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
-                            <img src="sekbid-3.jpg" alt="Sekbid 3" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2574&auto=format&fit=crop" alt="Sekbid 3" class="foto-pengurus mx-auto mb-3 sm:mb-4">
                             <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 3</span>
                             <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Bagas Saputra</h4>
                             <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Jasmani & Kesehatan</p>
@@ -921,11 +680,10 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- SEKBID 4 -->
+                    <!-- Sekbid 4 -->
                     <div class="card-pengurus" data-aos="fade-up" data-aos-delay="250">
                         <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
-                            <img src="sekbid-4.jpg" alt="Sekbid 4" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2574&auto=format&fit=crop" alt="Sekbid 4" class="foto-pengurus mx-auto mb-3 sm:mb-4">
                             <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 4</span>
                             <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Ayu Lestari</h4>
                             <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Sastra & Budaya</p>
@@ -935,11 +693,10 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- SEKBID 5 -->
+                    <!-- Sekbid 5 -->
                     <div class="card-pengurus" data-aos="fade-up" data-aos-delay="300">
                         <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
-                            <img src="sekbid-5.jpg" alt="Sekbid 5" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2564&auto=format&fit=crop" alt="Sekbid 5" class="foto-pengurus mx-auto mb-3 sm:mb-4">
                             <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 5</span>
                             <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Fajar Nugroho</h4>
                             <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Teknologi & Informasi</p>
@@ -949,11 +706,10 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- SEKBID 6 -->
+                    <!-- Sekbid 6 -->
                     <div class="card-pengurus" data-aos="fade-up" data-aos-delay="350">
                         <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
-                            <img src="sekbid-6.jpg" alt="Sekbid 6" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=2574&auto=format&fit=crop" alt="Sekbid 6" class="foto-pengurus mx-auto mb-3 sm:mb-4">
                             <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 6</span>
                             <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Dewi Anggraini</h4>
                             <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Komunikasi & Bahasa</p>
@@ -963,11 +719,10 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- SEKBID 7 -->
+                    <!-- Sekbid 7 -->
                     <div class="card-pengurus" data-aos="fade-up" data-aos-delay="400">
                         <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
-                            <img src="sekbid-7.jpg" alt="Sekbid 7" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=2574&auto=format&fit=crop" alt="Sekbid 7" class="foto-pengurus mx-auto mb-3 sm:mb-4">
                             <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 7</span>
                             <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Yoga Pratama</h4>
                             <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Kewirausahaan</p>
@@ -977,11 +732,10 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- SEKBID 8 -->
+                    <!-- Sekbid 8 -->
                     <div class="card-pengurus" data-aos="fade-up" data-aos-delay="450">
                         <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
-                            <img src="sekbid-8.jpg" alt="Sekbid 8" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=2670&auto=format&fit=crop" alt="Sekbid 8" class="foto-pengurus mx-auto mb-3 sm:mb-4">
                             <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 8</span>
                             <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Intan Maharani</h4>
                             <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Sosial & Lingkungan</p>
@@ -991,11 +745,10 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- SEKBID 9 -->
+                    <!-- Sekbid 9 -->
                     <div class="card-pengurus" data-aos="fade-up" data-aos-delay="500">
                         <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
-                            <img src="sekbid-9.jpg" alt="Sekbid 9" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=2598&auto=format&fit=crop" alt="Sekbid 9" class="foto-pengurus mx-auto mb-3 sm:mb-4">
                             <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 9</span>
                             <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Arif Setiawan</h4>
                             <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Kreativitas & Seni</p>
@@ -1005,11 +758,10 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- SEKBID 10 -->
+                    <!-- Sekbid 10 -->
                     <div class="card-pengurus" data-aos="fade-up" data-aos-delay="550">
                         <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
-                            <img src="sekbid-10.jpg" alt="Sekbid 10" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=2574&auto=format&fit=crop" alt="Sekbid 10" class="foto-pengurus mx-auto mb-3 sm:mb-4">
                             <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 10</span>
                             <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Maya Sari</h4>
                             <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Pendidikan & Literasi</p>
@@ -1021,16 +773,13 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
-
-    <!-- ============== PRESTASI ============== -->
+    <!-- PRESTASI -->
     <section id="prestasi" class="bg-navy text-white py-16 sm:py-20 md:py-24 px-5 sm:px-6 relative overflow-hidden">
         <div class="absolute inset-0 opacity-10">
-            <!-- GANTI: pattern.jpg -->
-            <img src="pattern.jpg" alt="Pattern" class="w-full h-full object-cover">
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2574&auto=format&fit=crop" alt="Pattern" class="w-full h-full object-cover">
         </div>
         <div class="max-w-6xl mx-auto relative z-10">
             <div class="text-center mb-10 sm:mb-14" data-aos="fade-up">
@@ -1058,83 +807,62 @@
         </div>
     </section>
 
-
-    <!-- ============== FAQ ============== -->
+    <!-- FAQ -->
     <section id="faq" class="bg-cream py-16 sm:py-20 md:py-24 px-5 sm:px-6">
         <div class="max-w-3xl mx-auto">
             <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
                 <p class="text-[10px] font-bold tracking-[0.3em] text-terracotta uppercase mb-3">FAQ</p>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink leading-tight">
-                    Pertanyaan umum.
-                </h2>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink leading-tight">Pertanyaan umum.</h2>
                 <div class="ornament-line mt-6 sm:mt-8"></div>
             </div>
-
             <div class="space-y-3 sm:space-y-4">
                 <details class="bg-white rounded-2xl p-5 sm:p-6 border border-honey/40 hover:border-gold transition" data-aos="fade-up">
                     <summary class="flex justify-between items-center font-bold text-ink text-sm sm:text-base gap-4">
                         Siapa saja yang boleh jadi anggota OSIS?
                         <i class="fa-solid fa-plus text-terracotta faq-icon transition-transform duration-300 flex-shrink-0"></i>
                     </summary>
-                    <p class="text-slate text-xs sm:text-sm mt-3 leading-relaxed">
-                        Semua siswa aktif SMAN 1 Paciran kelas X dan XI boleh mendaftar. Kami mencari siswa yang punya semangat berkarya, komitmen, dan mau belajar hal baru.
-                    </p>
+                    <p class="text-slate text-xs sm:text-sm mt-3 leading-relaxed">Semua siswa aktif SMAN 1 Paciran kelas X dan XI boleh mendaftar. Kami mencari siswa yang punya semangat berkarya, komitmen, dan mau belajar hal baru.</p>
                 </details>
-
                 <details class="bg-white rounded-2xl p-5 sm:p-6 border border-honey/40 hover:border-gold transition" data-aos="fade-up" data-aos-delay="100">
                     <summary class="flex justify-between items-center font-bold text-ink text-sm sm:text-base gap-4">
                         Bagaimana cara mendaftar jadi pengurus OSIS?
                         <i class="fa-solid fa-plus text-terracotta faq-icon transition-transform duration-300 flex-shrink-0"></i>
                     </summary>
-                    <p class="text-slate text-xs sm:text-sm mt-3 leading-relaxed">
-                        Cukup ikuti 3 langkah: (1) isi formulir online, (2) wawancara singkat dengan pengurus, (3) dilantik dan mulai bertugas di divisi pilihanmu. Pendaftaran dibuka setiap awal tahun ajaran.
-                    </p>
+                    <p class="text-slate text-xs sm:text-sm mt-3 leading-relaxed">Cukup ikuti 3 langkah: (1) isi formulir online, (2) wawancara singkat dengan pengurus, (3) dilantik dan mulai bertugas di divisi pilihanmu. Pendaftaran dibuka setiap awal tahun ajaran.</p>
                 </details>
-
                 <details class="bg-white rounded-2xl p-5 sm:p-6 border border-honey/40 hover:border-gold transition" data-aos="fade-up" data-aos-delay="200">
                     <summary class="flex justify-between items-center font-bold text-ink text-sm sm:text-base gap-4">
                         Apa saja program kerja OSIS tahun ini?
                         <i class="fa-solid fa-plus text-terracotta faq-icon transition-transform duration-300 flex-shrink-0"></i>
                     </summary>
-                    <p class="text-slate text-xs sm:text-sm mt-3 leading-relaxed">
-                        Ada 50+ program kerja, di antaranya Pentas Seni & Drama Musical, Class Meeting, Bakti Sosial, Pekan Buku, Bank Sampah, dan Prodistik ITS Showcase. Semua terbagi dalam 10 seksi bidang.
-                    </p>
+                    <p class="text-slate text-xs sm:text-sm mt-3 leading-relaxed">Ada 50+ program kerja, di antaranya Pentas Seni & Drama Musical, Class Meeting, Bakti Sosial, Pekan Buku, Bank Sampah, dan Prodistik ITS Showcase. Semua terbagi dalam 10 seksi bidang.</p>
                 </details>
-
                 <details class="bg-white rounded-2xl p-5 sm:p-6 border border-honey/40 hover:border-gold transition" data-aos="fade-up" data-aos-delay="300">
                     <summary class="flex justify-between items-center font-bold text-ink text-sm sm:text-base gap-4">
                         Apakah kegiatan OSIS mengganggu jam belajar?
                         <i class="fa-solid fa-plus text-terracotta faq-icon transition-transform duration-300 flex-shrink-0"></i>
                     </summary>
-                    <p class="text-slate text-xs sm:text-sm mt-3 leading-relaxed">
-                        Tidak. Kegiatan OSIS dirancang agar tidak mengganggu jam pelajaran. Rapat dan kegiatan biasanya diadakan setelah pulang sekolah atau hari libur, dengan persetujuan pembina dan kepala sekolah.
-                    </p>
+                    <p class="text-slate text-xs sm:text-sm mt-3 leading-relaxed">Tidak. Kegiatan OSIS dirancang agar tidak mengganggu jam pelajaran. Rapat dan kegiatan biasanya diadakan setelah pulang sekolah atau hari libur, dengan persetujuan pembina dan kepala sekolah.</p>
                 </details>
-
                 <details class="bg-white rounded-2xl p-5 sm:p-6 border border-honey/40 hover:border-gold transition" data-aos="fade-up" data-aos-delay="400">
                     <summary class="flex justify-between items-center font-bold text-ink text-sm sm:text-base gap-4">
                         Bagaimana cara menghubungi pengurus OSIS?
                         <i class="fa-solid fa-plus text-terracotta faq-icon transition-transform duration-300 flex-shrink-0"></i>
                     </summary>
-                    <p class="text-slate text-xs sm:text-sm mt-3 leading-relaxed">
-                        Kamu bisa datang ke sekretariat OSIS di Ruang OSIS, Gedung B Lt. 1 (Senin–Jumat, 14.00–16.00 WIB), atau hubungi kami lewat Instagram @osis.smapani, WhatsApp, atau email sman1.paciran@yahoo.co.id.
-                    </p>
+                    <p class="text-slate text-xs sm:text-sm mt-3 leading-relaxed">Kamu bisa datang ke sekretariat OSIS di Ruang OSIS, Gedung B Lt. 1 (Senin–Jumat, 14.00–16.00 WIB), atau hubungi kami lewat Instagram @osis.smapani, WhatsApp, atau email sman1.paciran@yahoo.co.id.</p>
                 </details>
             </div>
         </div>
     </section>
 
-
-    <!-- ============== CTA ============== -->
+    <!-- CTA -->
     <section class="bg-ivory py-16 sm:py-20 md:py-24 px-5 sm:px-6">
         <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
             <h2 class="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight text-ink leading-[1.15] mb-4 sm:mb-6">
                 Mau jadi bagian <br>
                 <span class="gradient-text-animated">dari perubahan?</span>
             </h2>
-            <p class="text-sm sm:text-base text-slate max-w-lg mx-auto mb-8 sm:mb-10 px-2">
-                Ikuti kegiatan OSIS SMAN 1 Paciran — dari Class Meeting, Pentas Seni, sampai Bakti Sosial.
-            </p>
+            <p class="text-sm sm:text-base text-slate max-w-lg mx-auto mb-8 sm:mb-10 px-2">Ikuti kegiatan OSIS SMAN 1 Paciran — dari Class Meeting, Pentas Seni, sampai Bakti Sosial.</p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-3 px-4 sm:px-0">
                 <a href="#" class="btn-gold w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-sm inline-flex items-center justify-center gap-2">
                     <i class="fa-brands fa-instagram"></i> Follow Instagram OSIS
@@ -1146,8 +874,7 @@
         </div>
     </section>
 
-
-    <!-- ============== FOOTER ============== -->
+    <!-- FOOTER -->
     <footer class="bg-ink text-white pt-14 sm:pt-20 pb-8 sm:pb-10 px-5 sm:px-6">
         <div class="max-w-6xl mx-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-10 sm:mb-16">
@@ -1161,9 +888,7 @@
                             <div class="text-[10px] text-white/60">SMAN 1 Paciran</div>
                         </div>
                     </div>
-                    <p class="text-white/60 text-sm leading-relaxed mb-5 sm:mb-6">
-                        Wadah siswa untuk tumbuh, berkarya, dan berkontribusi bagi sekolah dan masyarakat.
-                    </p>
+                    <p class="text-white/60 text-sm leading-relaxed mb-5 sm:mb-6">Wadah siswa untuk tumbuh, berkarya, dan berkontribusi bagi sekolah dan masyarakat.</p>
                     <div class="flex space-x-3">
                         <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-ink transition"><i class="fa-brands fa-instagram text-sm"></i></a>
                         <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-ink transition"><i class="fa-brands fa-tiktok text-sm"></i></a>
@@ -1171,7 +896,6 @@
                         <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-ink transition"><i class="fa-brands fa-whatsapp text-sm"></i></a>
                     </div>
                 </div>
-
                 <div>
                     <h4 class="font-bold text-sm tracking-wide mb-5 sm:mb-6 uppercase">Navigasi</h4>
                     <ul class="space-y-2.5 sm:space-y-3 text-white/60 text-sm">
@@ -1182,7 +906,6 @@
                         <li><a href="#faq" class="hover:text-gold transition">FAQ</a></li>
                     </ul>
                 </div>
-
                 <div>
                     <h4 class="font-bold text-sm tracking-wide mb-5 sm:mb-6 uppercase">Sekretariat</h4>
                     <ul class="space-y-2.5 sm:space-y-3 text-white/60 text-sm">
@@ -1192,7 +915,6 @@
                         <li class="flex items-start gap-2"><i class="fa-solid fa-phone mt-1 text-gold flex-shrink-0"></i> <span>(0322) 661632</span></li>
                     </ul>
                 </div>
-
                 <div class="sm:col-span-2 lg:col-span-1">
                     <h4 class="font-bold text-sm tracking-wide mb-5 sm:mb-6 uppercase">Ikuti Kami</h4>
                     <p class="text-white/60 text-sm mb-4">Update kegiatan OSIS terbaru di sosmed.</p>
@@ -1202,7 +924,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="border-t border-white/10 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-white/50 max-w-6xl mx-auto gap-3 sm:gap-4 text-center md:text-left">
                 <p>&copy; 2026 OSIS SMAN 1 Paciran. Dibuat oleh Sekbid Teknologi & Informasi.</p>
                 <div class="flex space-x-6">
@@ -1213,8 +934,15 @@
         </div>
     </footer>
 
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-close">&times;</button>
+        <button class="lightbox-prev">&#10094;</button>
+        <img id="lightbox-img" src="" alt="">
+        <button class="lightbox-next">&#10095;</button>
+    </div>
 
-    <!-- ============== FLOATING BUTTONS ============== -->
+    <!-- FLOATING BUTTONS -->
     <a href="https://wa.me/6281234567890" target="_blank" class="wa-float" aria-label="WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
@@ -1222,30 +950,27 @@
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
-
-    <!-- Scripts -->
+    <!-- SCRIPTS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        /* ============ PRELOADER ============ */
+        /* PRELOADER */
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('preloader').classList.add('hidden');
             }, 1200);
         });
 
-        /* ============ AOS ============ */
+        /* AOS */
         AOS.init({ once: true, offset: 80, duration: 800 });
 
-        /* ============ CUSTOM CURSOR (Desktop only) ============ */
+        /* CUSTOM CURSOR */
         if (window.innerWidth >= 1024) {
             const cursor = document.getElementById('custom-cursor');
             const dot = document.getElementById('custom-cursor-dot');
-            let mouseX = 0, mouseY = 0;
-            let cursorX = 0, cursorY = 0;
+            let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
 
             document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
+                mouseX = e.clientX; mouseY = e.clientY;
                 dot.style.left = mouseX + 'px';
                 dot.style.top = mouseY + 'px';
             });
@@ -1265,7 +990,7 @@
             });
         }
 
-        /* ============ SCROLL PROGRESS ============ */
+        /* SCROLL PROGRESS */
         const progressBar = document.getElementById('scroll-progress-bar');
         const backToTop = document.getElementById('back-to-top');
         const ambient = document.getElementById('ambient');
@@ -1273,23 +998,17 @@
         window.addEventListener('scroll', () => {
             const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
-            progressBar.style.width = scrollPercent + '%';
-
+            progressBar.style.width = (scrollTop / docHeight) * 100 + '%';
             if (scrollTop > 400) backToTop.classList.add('show');
             else backToTop.classList.remove('show');
-
             if (scrollTop > window.innerHeight * 0.8) ambient.classList.add('dim');
             else ambient.classList.remove('dim');
         });
 
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-        /* ============ AMBIENT PARTICLES ============ */
+        /* PARTICLES */
         const particleCount = window.innerWidth < 640 ? 20 : 40;
-
         function createParticle() {
             const p = document.createElement('div');
             p.className = 'particle';
@@ -1303,25 +1022,21 @@
             p.style.height = size + 'px';
             ambient.appendChild(p);
         }
-
         for (let i = 0; i < particleCount; i++) createParticle();
 
-        /* ============ MOBILE MENU ============ */
+        /* MOBILE MENU */
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-
         hamburgerBtn.addEventListener('click', () => {
             hamburgerBtn.classList.toggle('open');
             mobileMenu.classList.toggle('open');
         });
-
         document.querySelectorAll('.mobile-link').forEach(link => {
             link.addEventListener('click', () => {
                 hamburgerBtn.classList.remove('open');
                 mobileMenu.classList.remove('open');
             });
         });
-
         document.addEventListener('click', (e) => {
             if (!mobileMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
                 hamburgerBtn.classList.remove('open');
@@ -1329,41 +1044,76 @@
             }
         });
 
-        /* ============ DARK MODE TOGGLE ============ */
+        /* DARK MODE */
         const darkToggle = document.getElementById('dark-toggle');
         const darkIcon = darkToggle.querySelector('i');
-
         if (localStorage.getItem('darkMode') === 'true') {
             document.body.classList.add('dark-mode');
             darkIcon.classList.remove('fa-moon');
             darkIcon.classList.add('fa-sun');
         }
-
         darkToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
             const isDark = document.body.classList.contains('dark-mode');
             localStorage.setItem('darkMode', isDark);
-
-            if (isDark) {
-                darkIcon.classList.remove('fa-moon');
-                darkIcon.classList.add('fa-sun');
-            } else {
-                darkIcon.classList.remove('fa-sun');
-                darkIcon.classList.add('fa-moon');
-            }
+            darkIcon.classList.toggle('fa-moon', !isDark);
+            darkIcon.classList.toggle('fa-sun', isDark);
         });
 
-        /* ============ SMOOTH SCROLL ============ */
+        /* SMOOTH SCROLL */
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     e.preventDefault();
-                    const offset = 20;
-                    const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
+                    const targetPosition = target.getBoundingClientRect().top + window.scrollY - 20;
                     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
                 }
             });
+        });
+
+        /* LIGHTBOX GALLERY */
+        const galleryItems = document.querySelectorAll('.gallery-item img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        let currentIndex = 0;
+
+        galleryItems.forEach((img, index) => {
+            img.parentElement.addEventListener('click', () => {
+                currentIndex = index;
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        document.querySelector('.lightbox-next').addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex + 1) % galleryItems.length;
+            lightboxImg.src = galleryItems[currentIndex].src;
+        });
+
+        document.querySelector('.lightbox-prev').addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+            lightboxImg.src = galleryItems[currentIndex].src;
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') document.querySelector('.lightbox-next').click();
+            if (e.key === 'ArrowLeft') document.querySelector('.lightbox-prev').click();
         });
     </script>
 

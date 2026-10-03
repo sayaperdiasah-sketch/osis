@@ -2,31 +2,74 @@
 <html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poulls - Premium Eco-Friendly Real Estate</title>
-    <!-- Tailwind CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0A2463">
+    
+    <!-- SEO Meta -->
+    <title>OSIS SMAN 1 Paciran — Semangat Meraih Prestasi | Organisasi Siswa Intra Sekolah</title>
+    <meta name="description" content="Website resmi OSIS SMAN 1 Paciran. Kenalan dengan pengurus, lihat program kerja, prestasi, dan kegiatan terbaru. Bergerak bersama, berkarya nyata.">
+    <meta name="keywords" content="OSIS SMAN 1 Paciran, OSIS SMAPA, Organisasi Siswa, SMAN 1 Paciran, Lamongan, Program Kerja OSIS">
+    <meta name="author" content="OSIS SMAN 1 Paciran">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="OSIS SMAN 1 Paciran — Semangat Meraih Prestasi">
+    <meta property="og:description" content="Wadah siswa untuk tumbuh, berkarya, dan berkontribusi bagi sekolah dan masyarakat.">
+    <meta property="og:image" content="sekolah.jpg">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OSIS SMAN 1 Paciran — Semangat Meraih Prestasi">
+    <meta name="twitter:description" content="Wadah siswa untuk tumbuh, berkarya, dan berkontribusi.">
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        forest: '#1A3A32',
-                        sage: '#8B9D83',
-                        cream: '#F9F8F6',
-                        terracotta: '#D4A373',
-                        charcoal: '#2D2D2D'
+                        gold: '#F5C518',
+                        honey: '#FCD34D',
+                        butter: '#FEF3C7',
+                        terracotta: '#C2410C',
+                        rust: '#9A3412',
+                        leaf: '#16A34A',
+                        moss: '#15803D',
+                        sky: '#0EA5E9',
+                        ocean: '#0369A1',
+                        navy: '#0A2463',
+                        cream: '#FEFCE8',
+                        ivory: '#FFFEF5',
+                        ink: '#1C1917',
+                        slate: '#78716C'
                     },
                     fontFamily: {
-                        playfair: ['"Playfair Display"', 'serif'],
-                        inter: ['Inter', 'sans-serif']
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif']
+                    },
+                    animation: {
+                        'gradient': 'gradient 8s ease infinite',
+                        'shimmer': 'shimmer 2s linear infinite',
+                        'pulse-slow': 'pulse 4s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' }
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' }
+                        }
                     }
                 }
             }
@@ -34,610 +77,1295 @@
     </script>
     
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #F9F8F6; color: #2D2D2D; overflow-x: hidden; }
-        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        * { -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Plus Jakarta Sans', 'Inter', sans-serif; background-color: #FFFEF5; color: #1C1917; overflow-x: hidden; }
         
-        /* Glassmorphism Search Bar */
-        .glass-search { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.6); }
-        
-        /* Premium Card Hover */
-        .property-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .property-card:hover { transform: translateY(-12px); box-shadow: 0 30px 60px rgba(26, 58, 50, 0.15); }
-        
-        /* Hero Parallax */
-        .hero-bg { background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #F9F8F6; }
-        ::-webkit-scrollbar-thumb { background: #1A3A32; border-radius: 4px; }
-        
-        /* Button Shine Effect */
-        .btn-shine { position: relative; overflow: hidden; }
-        .btn-shine::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: all 0.6s ease; }
-        .btn-shine:hover::before { left: 100%; }
-        
-        /* FAQ Accordion */
-        details[open] summary ~ * { animation: sweep .5s ease-in-out; }
-        @keyframes sweep { 0% { opacity: 0; transform: translateY(-10px); } 100% { opacity: 1; transform: translateY(0); } }
-        details > summary { list-style: none; }
+        /* ============ PRELOADER ============ */
+        #preloader {
+            position: fixed; inset: 0; z-index: 9999;
+            background: linear-gradient(135deg, #0A2463 0%, #C2410C 100%);
+            display: flex; align-items: center; justify-content: center;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+        #preloader.hidden { opacity: 0; visibility: hidden; }
+        .loader-logo {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #F5C518, #FCD34D);
+            display: flex; align-items: center; justify-content: center;
+            animation: pulseLoader 1.5s ease-in-out infinite;
+            box-shadow: 0 0 60px rgba(245,197,24,0.5);
+        }
+        @keyframes pulseLoader {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 60px rgba(245,197,24,0.5); }
+            50% { transform: scale(1.1); box-shadow: 0 0 100px rgba(245,197,24,0.7); }
+        }
+        .loader-bar {
+            width: 200px; height: 3px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 999px; overflow: hidden;
+            margin-top: 24px;
+        }
+        .loader-bar-fill {
+            height: 100%; width: 0%;
+            background: linear-gradient(90deg, #F5C518, #FCD34D);
+            border-radius: 999px;
+            animation: loadFill 1.8s ease-out forwards;
+        }
+        @keyframes loadFill { 0% { width: 0%; } 100% { width: 100%; } }
+
+        /* ============ SCROLL PROGRESS ============ */
+        #scroll-progress {
+            position: fixed; top: 0; left: 0; right: 0;
+            height: 3px; z-index: 100;
+            background: transparent;
+        }
+        #scroll-progress-bar {
+            height: 100%; width: 0%;
+            background: linear-gradient(90deg, #F5C518, #C2410C);
+            transition: width 0.1s ease;
+            box-shadow: 0 0 10px rgba(245,197,24,0.6);
+        }
+
+        /* ============ CUSTOM CURSOR ============ */
+        @media (min-width: 1024px) {
+            .custom-cursor {
+                position: fixed; top: 0; left: 0;
+                width: 32px; height: 32px;
+                border: 2px solid rgba(245,197,24,0.8);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9998;
+                transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
+                transform: translate(-50%, -50%);
+                mix-blend-mode: difference;
+            }
+            .custom-cursor.hover {
+                width: 60px; height: 60px;
+                background: rgba(245,197,24,0.2);
+                border-color: rgba(245,197,24,1);
+            }
+            .custom-cursor-dot {
+                position: fixed; top: 0; left: 0;
+                width: 6px; height: 6px;
+                background: #F5C518;
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        /* ============ HERO BACKGROUND ============ */
+        .hero-full {
+            background-image: url('sekolah.jpg');
+            background-color: #0A2463;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .hero-full::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(10, 36, 99, 0.88) 0%,
+                rgba(10, 36, 99, 0.70) 35%,
+                rgba(194, 65, 12, 0.55) 70%,
+                rgba(245, 197, 24, 0.40) 100%
+            );
+            pointer-events: none; z-index: 2;
+        }
+
+        .nav-pill { background: rgba(255,255,255,0.96); backdrop-filter: blur(20px); box-shadow: 0 8px 30px rgba(10,36,99,0.12); }
+        .headline-shadow { text-shadow: 0 4px 40px rgba(0,0,0,0.45); }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #F5C518, #FCD34D);
+            color: #1C1917;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 24px rgba(245,197,24,0.45);
+            font-weight: 700;
+            position: relative; overflow: hidden;
+        }
+        .btn-gold::before {
+            content: ''; position: absolute; top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s ease;
+        }
+        .btn-gold:hover::before { left: 100%; }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(245,197,24,0.55); }
+
+        .btn-light {
+            background: rgba(255,255,255,0.95);
+            color: #0A2463;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            font-weight: 600;
+        }
+        .btn-light:hover { background: white; transform: translateY(-3px); }
+
+        @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+        .scroll-float { animation: floatY 2s ease-in-out infinite; }
+
+        .card-hover { transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(194,65,12,0.15); }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #FEF3C7; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(#C2410C, #F5C518); border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: linear-gradient(#9A3412, #EAB308); }
+
+        /* ===== AMBIENT ANIMASI ===== */
+        .ambient { position: absolute; inset: 0; pointer-events: none; z-index: 3; overflow: hidden; }
+        .cloud { position: absolute; background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.5) 40%, rgba(255,255,255,0) 70%); border-radius: 50%; filter: blur(20px); opacity: 0.55; will-change: transform; }
+        .cloud::before, .cloud::after { content: ''; position: absolute; background: inherit; border-radius: 50%; }
+        .cloud::before { width: 60%; height: 60%; top: -20%; left: 10%; }
+        .cloud::after { width: 50%; height: 50%; top: -10%; right: 5%; }
+        @keyframes driftRight { 0%{transform:translateX(-40vw)} 100%{transform:translateX(140vw)} }
+        @keyframes driftLeft { 0%{transform:translateX(140vw)} 100%{transform:translateX(-40vw)} }
+        .cloud-1 { width: 420px; height: 140px; top: 8%; animation: driftRight 100s linear infinite; }
+        .cloud-2 { width: 320px; height: 110px; top: 22%; animation: driftRight 130s linear infinite; animation-delay: -30s; opacity: 0.4; }
+        .cloud-3 { width: 520px; height: 170px; top: 3%; animation: driftLeft 150s linear infinite; opacity: 0.35; }
+        .cloud-4 { width: 260px; height: 90px; top: 35%; animation: driftRight 110s linear infinite; animation-delay: -60s; opacity: 0.35; }
+
+        .particle { position: absolute; width: 4px; height: 4px; background: radial-gradient(circle, rgba(252,211,77,0.95) 0%, rgba(252,211,77,0) 70%); border-radius: 50%; bottom: -10px; animation: particleRise linear infinite; opacity: 0; }
+        @keyframes particleRise { 0%{transform:translateY(0) translateX(0) scale(0.4);opacity:0} 15%{opacity:0.9} 50%{transform:translateY(-50vh) translateX(20px) scale(1)} 100%{transform:translateY(-110vh) translateX(-20px) scale(0.3);opacity:0} }
+
+        .fog { position: absolute; bottom: 0; left: -20%; width: 140%; height: 30%; background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(254,243,199,0.35) 100%); filter: blur(30px); animation: fogMove 40s ease-in-out infinite alternate; }
+        @keyframes fogMove { 0%{transform:translateX(-4%);opacity:0.5} 100%{transform:translateX(4%);opacity:0.8} }
+
+        .light-sweep { position: absolute; top: -20%; left: 30%; width: 60%; height: 140%; background: linear-gradient(120deg, rgba(245,197,24,0) 30%, rgba(245,197,24,0.18) 50%, rgba(245,197,24,0) 70%); transform: rotate(-15deg); animation: sweepMove 18s ease-in-out infinite alternate; filter: blur(12px); }
+        @keyframes sweepMove { 0%{transform:translateX(-8%) rotate(-15deg);opacity:0.4} 100%{transform:translateX(8%) rotate(-15deg);opacity:0.8} }
+
+        .hero-content { position: relative; z-index: 10; }
+        .ambient.dim { opacity: 0.3; transition: opacity 0.6s ease; }
+        .logo-osis { background: linear-gradient(135deg, #0A2463 0%, #C2410C 100%); }
+
+        /* ===== GRADIENT TEXT ===== */
+        .gradient-text-gold {
+            background: linear-gradient(135deg, #C2410C 0%, #F5C518 50%, #FCD34D 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .gradient-text-animated {
+            background: linear-gradient(135deg, #C2410C, #F5C518, #FCD34D, #C2410C);
+            background-size: 300% 300%;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            animation: gradient 6s ease infinite;
+        }
+
+        .ornament-line {
+            width: 60px; height: 3px;
+            background: linear-gradient(90deg, transparent, #C2410C, transparent);
+            border-radius: 999px; margin: 0 auto;
+        }
+
+        .mading-scroll { scrollbar-width: thin; scrollbar-color: #C2410C #FEF3C7; }
+        .mading-scroll::-webkit-scrollbar { height: 6px; }
+        .mading-scroll::-webkit-scrollbar-thumb { background: #C2410C; border-radius: 3px; }
+
+        /* ===== PENGURUS CARD ===== */
+        .pengurus-bg {
+            background: linear-gradient(135deg, #FEFCE8 0%, #FEF3C7 25%, #FDE68A 50%, #FCD34D 75%, #F5C518 100%);
+            position: relative; overflow: hidden;
+        }
+        .pengurus-bg::before {
+            content: ''; position: absolute; top: -20%; left: -10%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(194,65,12,0.20) 0%, transparent 70%);
+            border-radius: 50%; animation: glowPulse 8s ease-in-out infinite alternate;
+        }
+        .pengurus-bg::after {
+            content: ''; position: absolute; bottom: -20%; right: -10%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(245,197,24,0.35) 0%, transparent 70%);
+            border-radius: 50%; animation: glowPulse 10s ease-in-out infinite alternate-reverse;
+        }
+        @keyframes glowPulse { 0%{transform:scale(1);opacity:0.6} 100%{transform:scale(1.2);opacity:0.9} }
+
+        .card-bph {
+            background: linear-gradient(160deg, #FFFFFF 0%, #FFFEF5 100%);
+            border-radius: 2rem; padding: 2.5rem 2rem;
+            position: relative; overflow: hidden;
+            box-shadow: 0 20px 50px rgba(194,65,12,0.15);
+            transition: all 0.4s ease;
+        }
+        .card-bph::before {
+            content: ''; position: absolute; inset: 0; border-radius: 2rem; padding: 2px;
+            background: linear-gradient(135deg, #F5C518, #C2410C, #FCD34D, #C2410C);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+        }
+        .card-bph:hover { transform: translateY(-8px); box-shadow: 0 35px 70px rgba(194,65,12,0.25); }
+
+        .card-pengurus {
+            position: relative; background: linear-gradient(145deg, #FFFFFF 0%, #FFFEF5 100%);
+            border-radius: 1.75rem; padding: 2px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(194,65,12,0.10);
+        }
+        .card-pengurus::before {
+            content: ''; position: absolute; inset: 0; border-radius: 1.75rem; padding: 2px;
+            background: linear-gradient(135deg, #FCD34D, #F5C518, #C2410C, #FCD34D);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0.6; transition: opacity 0.4s ease;
+        }
+        .card-pengurus:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(194,65,12,0.25); }
+        .card-pengurus:hover::before { opacity: 1; }
+
+        .card-pengurus-inner {
+            background: linear-gradient(160deg, #FFFFFF 0%, #FFFEF5 100%);
+            border-radius: 1.6rem; padding: 1.75rem 1.5rem; height: 100%;
+            position: relative; overflow: hidden;
+        }
+        .card-pengurus-inner::before {
+            content: ''; position: absolute; top: -30px; right: -30px;
+            width: 100px; height: 100px;
+            background: radial-gradient(circle, rgba(245,197,24,0.25) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .foto-pengurus {
+            width: 96px; height: 96px; border-radius: 50%; object-fit: cover;
+            padding: 3px; background: linear-gradient(135deg, #FCD34D, #F5C518, #C2410C);
+            box-shadow: 0 8px 24px rgba(194,65,12,0.3); transition: transform 0.4s ease;
+        }
+        .card-pengurus:hover .foto-pengurus, .card-bph:hover .foto-pengurus {
+            transform: scale(1.05) rotate(-2deg);
+        }
+
+        .badge-jabatan {
+            display: inline-block;
+            background: linear-gradient(135deg, #0A2463, #0369A1);
+            color: white; font-size: 10px; font-weight: 700;
+            letter-spacing: 0.05em; text-transform: uppercase;
+            padding: 4px 12px; border-radius: 999px;
+            box-shadow: 0 4px 12px rgba(10,36,99,0.25);
+        }
+        .badge-jabatan.gold {
+            background: linear-gradient(135deg, #C2410C, #F5C518);
+            box-shadow: 0 4px 12px rgba(194,65,12,0.35);
+        }
+
+        .social-icon {
+            width: 32px; height: 32px; border-radius: 50%;
+            background: rgba(10,36,99,0.06); display: inline-flex;
+            align-items: center; justify-content: center;
+            color: #0A2463; font-size: 12px; transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            background: linear-gradient(135deg, #C2410C, #F5C518);
+            color: white; transform: translateY(-2px);
+        }
+
+        /* ===== MOBILE MENU ===== */
+        .mobile-menu {
+            transform: translateY(-100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+        .mobile-menu.open {
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        .hamburger span {
+            display: block; width: 20px; height: 2px;
+            background: #1C1917; border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .hamburger span + span { margin-top: 4px; }
+        .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+
+        /* ===== FLOATING WHATSAPP ===== */
+        .wa-float {
+            position: fixed; bottom: 24px; right: 24px; z-index: 90;
+            width: 56px; height: 56px; border-radius: 50%;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 24px;
+            box-shadow: 0 8px 30px rgba(37,211,102,0.4);
+            transition: all 0.3s ease;
+            animation: waPulse 2s ease-in-out infinite;
+        }
+        .wa-float:hover { transform: scale(1.1); box-shadow: 0 12px 40px rgba(37,211,102,0.6); }
+        @keyframes waPulse {
+            0%, 100% { box-shadow: 0 8px 30px rgba(37,211,102,0.4); }
+            50% { box-shadow: 0 8px 40px rgba(37,211,102,0.7); }
+        }
+
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed; bottom: 90px; right: 24px; z-index: 90;
+            width: 44px; height: 44px; border-radius: 50%;
+            background: linear-gradient(135deg, #0A2463, #C2410C);
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 16px;
+            box-shadow: 0 8px 24px rgba(10,36,99,0.3);
+            opacity: 0; visibility: hidden; transform: translateY(20px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+        .back-to-top:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(10,36,99,0.4); }
+
+        /* ===== GALLERY ===== */
+        .gallery-item { transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .gallery-item:hover { transform: scale(1.05); z-index: 10; }
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        /* ===== FAQ ===== */
+        details > summary { list-style: none; cursor: pointer; }
         details > summary::-webkit-details-marker { display: none; }
+        details[open] .faq-icon { transform: rotate(45deg); }
+        details[open] summary ~ * { animation: sweep 0.5s ease-in-out; }
+        @keyframes sweep { 0% { opacity: 0; transform: translateY(-10px); } 100% { opacity: 1; transform: translateY(0); } }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 640px) {
+            .cloud { filter: blur(15px); opacity: 0.35; }
+            .cloud-1 { width: 280px; height: 90px; }
+            .cloud-2 { width: 220px; height: 75px; }
+            .cloud-3 { width: 340px; height: 110px; }
+            .cloud-4 { width: 180px; height: 60px; }
+            h1 { word-break: break-word; hyphens: auto; }
+            .foto-pengurus { width: 72px !important; height: 72px !important; }
+            .card-bph .foto-pengurus { width: 100px !important; height: 100px !important; }
+            .wa-float { width: 48px; height: 48px; font-size: 20px; bottom: 16px; right: 16px; }
+            .back-to-top { bottom: 76px; right: 16px; width: 40px; height: 40px; }
+        }
+
+        @supports (padding: env(safe-area-inset-top)) {
+            .nav-pill { margin-top: env(safe-area-inset-top); }
+        }
+
+        @media (hover: none) {
+            .card-hover:hover { transform: none; }
+            .card-hover:active { transform: scale(0.98); }
+            .card-pengurus:active { transform: scale(0.98); }
+            .card-bph:active { transform: scale(0.98); }
+        }
+
+        /* ===== DARK MODE ===== */
+        body.dark-mode {
+            background-color: #0F172A !important;
+            color: #E2E8F0;
+        }
+        body.dark-mode .bg-ivory, body.dark-mode .bg-cream, body.dark-mode .bg-white { background-color: #1E293B !important; }
+        body.dark-mode .text-ink { color: #F1F5F9 !important; }
+        body.dark-mode .text-slate { color: #94A3B8 !important; }
+        body.dark-mode .border-honey\/40 { border-color: #334155 !important; }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <!-- 1. NAVBAR PREMIUM -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 px-6 md:px-12 flex justify-between items-center text-white">
-        <div class="text-3xl font-bold font-playfair tracking-tight">Poulls<span class="text-terracotta">.</span></div>
-        
-        <div class="hidden lg:flex space-x-10 text-sm font-medium tracking-wide">
-            <a href="#home" class="hover:text-terracotta transition">Home</a>
-            <a href="#properties" class="hover:text-terracotta transition">Properties</a>
-            <a href="#about" class="hover:text-terracotta transition">About Us</a>
-            <a href="#testimonials" class="hover:text-terracotta transition">Testimonials</a>
-            <a href="#faq" class="hover:text-terracotta transition">FAQ</a>
+    <!-- ============== PRELOADER ============== -->
+    <div id="preloader">
+        <div class="flex flex-col items-center">
+            <div class="loader-logo">
+                <i class="fa-solid fa-users text-navy text-2xl"></i>
+            </div>
+            <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+            <p class="text-white/70 text-xs mt-4 tracking-[0.3em] uppercase">Loading</p>
         </div>
-        
-        <div class="hidden lg:flex items-center space-x-6">
-            <button class="text-sm font-medium hover:text-terracotta transition"><i class="fa-solid fa-magnifying-glass mr-2"></i>Search</button>
-            <button class="btn-shine bg-terracotta text-white px-8 py-3 rounded-full text-sm font-semibold hover:bg-opacity-90 transition shadow-lg shadow-terracotta/30">Contact Agent</button>
-        </div>
-        
-        <button class="lg:hidden text-2xl" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"><i class="fa-solid fa-bars"></i></button>
-    </nav>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden fixed top-20 left-0 w-full bg-white z-40 p-8 flex flex-col space-y-6 shadow-2xl lg:hidden">
-        <a href="#home" class="text-charcoal font-medium hover:text-forest">Home</a>
-        <a href="#properties" class="text-charcoal font-medium hover:text-forest">Properties</a>
-        <a href="#about" class="text-charcoal font-medium hover:text-forest">About Us</a>
-        <a href="#testimonials" class="text-charcoal font-medium hover:text-forest">Testimonials</a>
-        <a href="#faq" class="text-charcoal font-medium hover:text-forest">FAQ</a>
-        <button class="bg-forest text-white px-6 py-3 rounded-full text-sm font-semibold w-full mt-4">Contact Agent</button>
     </div>
 
-    <!-- 2. HERO SECTION -->
-    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
-        <!-- Background Image with Parallax & Overlay -->
-        <div class="absolute inset-0 z-0 hero-bg" style="background-image: url('https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=2565&auto=format&fit=crop');">
-            <div class="absolute inset-0 bg-gradient-to-r from-forest/95 via-forest/70 to-transparent"></div>
+    <!-- ============== SCROLL PROGRESS ============== -->
+    <div id="scroll-progress"><div id="scroll-progress-bar"></div></div>
+
+    <!-- ============== CUSTOM CURSOR ============== -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+    <div class="custom-cursor-dot" id="custom-cursor-dot"></div>
+
+    <!-- ============== HERO ============== -->
+    <section class="relative min-h-[100svh] md:min-h-screen hero-full flex flex-col overflow-hidden">
+
+        <div class="ambient" id="ambient">
+            <div class="cloud cloud-1"></div>
+            <div class="cloud cloud-2"></div>
+            <div class="cloud cloud-3"></div>
+            <div class="cloud cloud-4"></div>
+            <div class="light-sweep"></div>
+            <div class="fog"></div>
         </div>
-        
-        <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full pt-20">
-            <div class="max-w-2xl text-white" data-aos="fade-right" data-aos-duration="1200">
-                
-                <!-- Top Badge -->
-                <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 mb-8">
-                    <i class="fa-solid fa-leaf text-terracotta"></i>
-                    <span class="text-xs font-semibold tracking-widest uppercase text-gray-200">Premium Eco-Living</span>
-                </div>
 
-                <!-- Headline Utama -->
-                <h1 class="text-5xl md:text-7xl font-bold leading-[1.1] mb-6">
-                    Find Your <br> 
-                    <span class="text-terracotta">Dream Eco-Home</span>
-                </h1>
-
-                <!-- Sub-headline -->
-                <p class="text-lg text-gray-300 mb-10 max-w-lg leading-relaxed font-light">
-                    Experience the harmony of modern luxury and sustainable living. Explore our curated collection of eco-friendly properties designed for a healthier, greener future.
-                </p>
-
-                <!-- CTA Buttons -->
-                <div class="flex flex-wrap gap-4 mb-12">
-                    <button class="btn-shine bg-terracotta text-white px-8 py-4 rounded-full font-semibold hover:bg-opacity-90 transition shadow-xl shadow-terracotta/30 flex items-center gap-3">
-                        Explore Properties <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-                    <button class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition flex items-center gap-3">
-                        <i class="fa-solid fa-play text-terracotta"></i> Watch Showreel
-                    </button>
-                </div>
-
-                <!-- Trust Indicators (Social Proof) -->
-                <div class="flex items-center gap-6 pt-6 border-t border-white/20">
-                    <div class="flex -space-x-3">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2564&auto=format&fit=crop" alt="User" class="w-10 h-10 rounded-full border-2 border-forest object-cover">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2574&auto=format&fit=crop" alt="User" class="w-10 h-10 rounded-full border-2 border-forest object-cover">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2574&auto=format&fit=crop" alt="User" class="w-10 h-10 rounded-full border-2 border-forest object-cover">
-                        <div class="w-10 h-10 rounded-full border-2 border-forest bg-terracotta flex items-center justify-center text-xs font-bold">500+</div>
+        <!-- NAVBAR Desktop -->
+        <div class="relative z-30 w-full hidden md:flex justify-center pt-6 px-4">
+            <nav class="nav-pill rounded-full px-2 py-2 flex items-center gap-2 w-full max-w-6xl">
+                <a href="#" class="flex items-center gap-2 px-4 py-2">
+                    <div class="w-9 h-9 rounded-full logo-osis flex items-center justify-center">
+                        <i class="fa-solid fa-users text-white text-sm"></i>
                     </div>
+                    <div class="leading-tight">
+                        <div class="font-bold text-ink text-sm tracking-tight">OSIS SMAPA</div>
+                        <div class="text-[9px] text-slate font-medium">SMAN 1 Paciran</div>
+                    </div>
+                </a>
+
+                <div class="hidden lg:flex items-center gap-1 ml-2">
+                    <a href="#profil" class="px-3 py-2 text-sm text-ink/70 hover:text-ink rounded-full hover:bg-black/5 transition">Profil</a>
+                    <a href="#program" class="px-3 py-2 text-sm text-ink/70 hover:text-ink rounded-full hover:bg-black/5 transition">Program</a>
+                    <a href="#galeri" class="px-3 py-2 text-sm text-ink/70 hover:text-ink rounded-full hover:bg-black/5 transition">Galeri</a>
+                    <a href="#pengurus" class="px-3 py-2 text-sm text-ink/70 hover:text-ink rounded-full hover:bg-black/5 transition">Pengurus</a>
+                    <a href="#faq" class="px-3 py-2 text-sm text-ink/70 hover:text-ink rounded-full hover:bg-black/5 transition">FAQ</a>
+                </div>
+
+                <div class="ml-auto flex items-center gap-2">
+                    <button id="dark-toggle" class="w-9 h-9 rounded-full hover:bg-black/5 flex items-center justify-center text-ink/70 transition" aria-label="Toggle dark mode">
+                        <i class="fa-solid fa-moon text-sm"></i>
+                    </button>
+                    <button class="btn-gold text-sm px-5 py-2.5 rounded-full flex items-center gap-2">
+                        <i class="fa-solid fa-user-plus text-xs"></i> Gabung
+                    </button>
+                </div>
+            </nav>
+        </div>
+
+        <!-- NAVBAR Mobile -->
+        <div class="relative z-30 w-full md:hidden pt-4 px-4">
+            <nav class="nav-pill rounded-2xl px-3 py-2.5 flex items-center justify-between">
+                <a href="#" class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full logo-osis flex items-center justify-center">
+                        <i class="fa-solid fa-users text-white text-xs"></i>
+                    </div>
+                    <div class="leading-tight">
+                        <div class="font-bold text-ink text-xs tracking-tight">OSIS SMAPA</div>
+                        <div class="text-[8px] text-slate font-medium">SMAN 1 Paciran</div>
+                    </div>
+                </a>
+
+                <button id="hamburger-btn" class="hamburger w-9 h-9 rounded-full flex flex-col items-center justify-center gap-0 active:bg-black/5 transition" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 right-0 z-40 md:hidden bg-white/98 backdrop-blur-xl shadow-2xl rounded-b-3xl pt-20 pb-6 px-6">
+            <div class="flex flex-col gap-1">
+                <a href="#profil" class="mobile-link px-4 py-3 rounded-2xl text-ink font-medium hover:bg-butter transition flex items-center gap-3">
+                    <i class="fa-solid fa-circle-info text-terracotta w-5"></i> Profil
+                </a>
+                <a href="#program" class="mobile-link px-4 py-3 rounded-2xl text-ink font-medium hover:bg-butter transition flex items-center gap-3">
+                    <i class="fa-solid fa-list-check text-terracotta w-5"></i> Program Kerja
+                </a>
+                <a href="#galeri" class="mobile-link px-4 py-3 rounded-2xl text-ink font-medium hover:bg-butter transition flex items-center gap-3">
+                    <i class="fa-solid fa-images text-terracotta w-5"></i> Galeri
+                </a>
+                <a href="#pengurus" class="mobile-link px-4 py-3 rounded-2xl text-ink font-medium hover:bg-butter transition flex items-center gap-3">
+                    <i class="fa-solid fa-users text-terracotta w-5"></i> Pengurus
+                </a>
+                <a href="#faq" class="mobile-link px-4 py-3 rounded-2xl text-ink font-medium hover:bg-butter transition flex items-center gap-3">
+                    <i class="fa-solid fa-circle-question text-terracotta w-5"></i> FAQ
+                </a>
+                <button class="btn-gold mt-3 px-5 py-3.5 rounded-2xl text-sm flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-user-plus text-xs"></i> Gabung Sekarang
+                </button>
+            </div>
+        </div>
+
+        <!-- HERO CONTENT -->
+        <div class="hero-content flex-1 flex flex-col items-center justify-center text-center px-5 sm:px-6 -mt-4 md:-mt-8">
+            <div class="inline-flex items-center gap-2 bg-white/95 backdrop-blur-md border border-white/40 rounded-full px-3 sm:px-4 py-1.5 mb-6 sm:mb-8 shadow-lg">
+                <span class="w-2 h-2 rounded-full bg-leaf animate-pulse"></span>
+                <span class="text-[10px] sm:text-xs font-semibold text-ink">OSIS SMAN 1 Paciran · 2026/2027</span>
+            </div>
+
+            <h1 class="headline-shadow text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-tight leading-[1.05] text-white mb-5 sm:mb-6 max-w-4xl">
+                Semangat Meraih <br>
+                <span class="text-honey">Prestasi.</span>
+            </h1>
+
+            <p class="text-sm sm:text-base md:text-lg text-white/90 max-w-xl leading-relaxed mb-8 sm:mb-10 font-light px-2">
+                OSIS SMAN 1 Paciran — wadah siswa untuk tumbuh, berkarya, <br class="hidden md:block">
+                dan berkontribusi bagi sekolah dan masyarakat.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto px-4 sm:px-0">
+                <a href="#pengurus" class="btn-gold w-full sm:w-auto px-6 sm:px-7 py-3.5 rounded-full text-sm flex items-center justify-center gap-2">
+                    Kenalan dengan Pengurus <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+                <a href="#program" class="btn-light w-full sm:w-auto px-6 sm:px-7 py-3.5 rounded-full text-sm flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-list-check text-[10px]"></i> Lihat Program Kerja
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-content pb-6 sm:pb-10 flex justify-center">
+            <div class="scroll-float inline-flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-sm">
+                <span class="text-[9px] sm:text-[10px] font-semibold tracking-[0.2em] text-white uppercase">Scroll</span>
+                <i class="fa-solid fa-arrow-down text-[9px] sm:text-[10px] text-white"></i>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============== PROFIL ============== -->
+    <section id="profil" class="bg-ivory py-16 sm:py-20 md:py-24 px-5 sm:px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
+                <p class="text-[10px] font-bold tracking-[0.3em] text-terracotta uppercase mb-3 sm:mb-4">Tentang Kami</p>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink leading-tight max-w-2xl mx-auto">
+                    OSIS SMAN 1 Paciran
+                </h2>
+                <div class="ornament-line mt-6 sm:mt-8"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
+                <div class="text-center p-6 sm:p-8 bg-white rounded-3xl border border-honey/40 card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-gold to-honey flex items-center justify-center mx-auto mb-5 sm:mb-6 shadow-lg shadow-gold/30">
+                        <i class="fa-solid fa-eye text-white text-xl sm:text-2xl"></i>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-bold text-ink mb-2 sm:mb-3">Visi</h3>
+                    <p class="text-xs sm:text-sm text-slate leading-relaxed">
+                        Menjadi organisasi siswa yang aktif, inovatif, dan berkarakter, serta mampu menjadi jembatan aspirasi siswa.
+                    </p>
+                </div>
+
+                <div class="text-center p-6 sm:p-8 bg-white rounded-3xl border border-honey/40 card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-terracotta to-rust flex items-center justify-center mx-auto mb-5 sm:mb-6 shadow-lg shadow-terracotta/30">
+                        <i class="fa-solid fa-bullseye text-white text-xl sm:text-2xl"></i>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-bold text-ink mb-2 sm:mb-3">Misi</h3>
+                    <p class="text-xs sm:text-sm text-slate leading-relaxed">
+                        Menumbuhkan kepemimpinan, kolaborasi, dan tanggung jawab siswa melalui kegiatan positif.
+                    </p>
+                </div>
+
+                <div class="text-center p-6 sm:p-8 bg-white rounded-3xl border border-honey/40 card-hover sm:col-span-2 md:col-span-1" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-leaf to-moss flex items-center justify-center mx-auto mb-5 sm:mb-6 shadow-lg shadow-leaf/30">
+                        <i class="fa-solid fa-heart text-white text-xl sm:text-2xl"></i>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-bold text-ink mb-2 sm:mb-3">Nilai</h3>
+                    <p class="text-xs sm:text-sm text-slate leading-relaxed">
+                        Kepemimpinan, kolaborasi, dan kontribusi nyata untuk sekolah dan masyarakat.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============== PROGRAM ============== -->
+    <section id="program" class="bg-cream py-16 sm:py-20 md:py-24 px-5 sm:px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-10 sm:mb-14 gap-4 sm:gap-6" data-aos="fade-up">
+                <div>
+                    <p class="text-[10px] font-bold tracking-[0.3em] text-terracotta uppercase mb-3 sm:mb-4">Program Kerja</p>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink leading-tight">
+                        Kegiatan yang berdampak.
+                    </h2>
+                </div>
+                <span class="text-sm font-semibold text-slate">2026/2027</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 sm:gap-5">
+                <!-- GANTI: pentas-seni.jpg -->
+                <div class="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden group h-72 sm:h-80 md:h-auto md:min-h-[520px] card-hover" data-aos="fade-up">
+                    <img src="pentas-seni.jpg" alt="Pentas Seni" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-8 text-white">
+                        <span class="inline-block bg-gold text-ink text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">Unggulan</span>
+                        <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mb-1">Pentas Seni & Drama Musical</h3>
+                        <p class="text-xs sm:text-sm text-white/80 mb-3"><i class="fa-solid fa-calendar mr-1"></i> Setelah Lebaran · Aula SMAPA</p>
+                        <div class="flex items-center gap-3 sm:gap-6 text-xs sm:text-sm text-white/90 flex-wrap">
+                            <span><i class="fa-solid fa-users mr-1"></i> Kelas X & XI</span>
+                            <span><i class="fa-solid fa-masks-theater mr-1"></i> Drama Musical</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GANTI: class-meeting.jpg -->
+                <div class="relative rounded-3xl overflow-hidden group h-52 sm:h-60 card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <img src="class-meeting.jpg" alt="Class Meeting" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-terracotta/90 via-rust/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6 text-white">
+                        <h3 class="text-base sm:text-lg font-bold mb-0.5">Class Meeting</h3>
+                        <p class="text-xs text-white/80 mb-2">Lomba antar kelas</p>
+                        <span class="text-xs font-semibold text-honey">Desember</span>
+                    </div>
+                </div>
+
+                <!-- GANTI: bakti-sosial.jpg -->
+                <div class="relative rounded-3xl overflow-hidden group h-52 sm:h-60 card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <img src="bakti-sosial.jpg" alt="Bakti Sosial" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-leaf/90 via-moss/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6 text-white">
+                        <h3 class="text-base sm:text-lg font-bold mb-0.5">Bakti Sosial</h3>
+                        <p class="text-xs text-white/80 mb-2">Panti Asuhan & Desa Binaan</p>
+                        <span class="text-xs font-semibold text-honey">Semesteran</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mading Digital -->
+            <div class="mt-10 sm:mt-14" data-aos="fade-up">
+                <div class="flex items-end justify-between mb-5 sm:mb-6">
                     <div>
-                        <div class="flex text-terracotta text-sm mb-1">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-xs text-gray-400">Rated 4.9/5 by 500+ happy homeowners</p>
+                        <p class="text-[10px] font-bold tracking-[0.3em] text-terracotta uppercase mb-2">Mading Digital</p>
+                        <h3 class="text-xl sm:text-2xl font-bold text-ink">Poster kegiatan terbaru</h3>
                     </div>
+                    <span class="text-xs text-slate hidden md:block">Geser →</span>
                 </div>
-
-            </div>
-        </div>
-        
-        <!-- Scroll Down Indicator -->
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 text-white animate-bounce hidden md:block">
-            <i class="fa-solid fa-chevron-down text-2xl opacity-50"></i>
-        </div>
-    </section>
-
-    <!-- 3. FLOATING SEARCH BAR -->
-    <div class="relative z-20 max-w-6xl mx-auto px-6 -mt-16" data-aos="fade-up" data-aos-delay="300">
-        <div class="glass-search rounded-3xl p-4 md:p-6 shadow-2xl shadow-forest/20 flex flex-col md:flex-row items-center gap-4 border border-white/50">
-            
-            <!-- Input Lokasi -->
-            <div class="flex-1 w-full px-6 py-3 border-b md:border-b-0 md:border-r border-gray-200">
-                <label class="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-1 block">Location</label>
-                <div class="flex items-center">
-                    <i class="fa-solid fa-location-dot text-terracotta mr-3"></i>
-                    <input type="text" placeholder="City, ZIP, or Neighborhood" class="bg-transparent border-none outline-none w-full text-sm font-medium text-charcoal placeholder-gray-400 focus:ring-0">
-                </div>
-            </div>
-            
-            <!-- Input Tipe Properti -->
-            <div class="flex-1 w-full px-6 py-3 border-b md:border-b-0 md:border-r border-gray-200">
-                <label class="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-1 block">Property Type</label>
-                <div class="flex items-center">
-                    <i class="fa-solid fa-house text-terracotta mr-3"></i>
-                    <select class="bg-transparent border-none outline-none w-full text-sm font-medium text-charcoal cursor-pointer focus:ring-0">
-                        <option>All Types</option>
-                        <option>Villa</option>
-                        <option>Cabin</option>
-                        <option>Apartment</option>
-                    </select>
-                </div>
-            </div>
-            
-            <!-- Input Harga -->
-            <div class="flex-1 w-full px-6 py-3">
-                <label class="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-1 block">Price Range</label>
-                <div class="flex items-center">
-                    <i class="fa-solid fa-tag text-terracotta mr-3"></i>
-                    <select class="bg-transparent border-none outline-none w-full text-sm font-medium text-charcoal cursor-pointer focus:ring-0">
-                        <option>Any Price</option>
-                        <option>$100k - $300k</option>
-                        <option>$300k - $500k</option>
-                        <option>$500k+</option>
-                    </select>
-                </div>
-            </div>
-            
-            <!-- Tombol Search -->
-            <button class="btn-shine bg-forest text-white w-full md:w-auto px-10 py-4 rounded-2xl font-semibold hover:bg-opacity-90 transition shadow-lg flex items-center justify-center gap-2">
-                <i class="fa-solid fa-magnifying-glass"></i> Search
-            </button>
-        </div>
-    </div>
-
-    <!-- 4. TRUSTED BY / PARTNERS -->
-    <section class="py-16 px-6 max-w-7xl mx-auto">
-        <p class="text-center text-sm text-gray-400 uppercase tracking-widest mb-8" data-aos="fade-up">Trusted by leading eco-certifications</p>
-        <div class="flex flex-wrap justify-center items-center gap-12 opacity-50 grayscale hover:grayscale-0 transition duration-500" data-aos="fade-up" data-aos-delay="100">
-            <div class="text-2xl font-bold font-playfair text-forest">LEED</div>
-            <div class="text-2xl font-bold font-playfair text-forest">EnergyStar</div>
-            <div class="text-2xl font-bold font-playfair text-forest">GreenBuild</div>
-            <div class="text-2xl font-bold font-playfair text-forest">EcoCert</div>
-            <div class="text-2xl font-bold font-playfair text-forest">BREEAM</div>
-        </div>
-    </section>
-
-    <!-- 5. ABOUT / WELCOME SECTION -->
-    <section id="about" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
-        <div class="flex flex-col lg:flex-row items-center gap-20">
-            <!-- Left Images -->
-            <div class="lg:w-1/2 relative" data-aos="fade-right" data-aos-duration="1000">
-                <div class="rounded-[2rem] overflow-hidden shadow-2xl relative z-10">
-                    <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=2670&auto=format&fit=crop" alt="Wooden Eco House" class="w-full h-[500px] object-cover">
-                </div>
-                <!-- Secondary Image Overlay -->
-                <div class="absolute -bottom-10 -right-10 w-48 h-48 rounded-2xl overflow-hidden shadow-xl border-4 border-cream z-20 hidden md:block">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2670&auto=format&fit=crop" alt="Interior" class="w-full h-full object-cover">
-                </div>
-                <!-- Floating Badge -->
-                <div class="absolute -top-6 -left-6 bg-forest text-white rounded-full w-28 h-28 flex flex-col items-center justify-center shadow-2xl border-4 border-cream z-20">
-                    <i class="fa-solid fa-house-chimney text-3xl mb-1 text-terracotta"></i>
-                    <span class="text-xs font-bold text-center leading-tight">Find<br>Homes</span>
-                </div>
-            </div>
-            
-            <!-- Right Content -->
-            <div class="lg:w-1/2 space-y-8" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-                <div class="inline-flex items-center space-x-2 bg-forest/5 rounded-full px-4 py-1.5">
-                    <i class="fa-solid fa-seedling text-forest"></i>
-                    <span class="text-xs font-semibold text-forest uppercase tracking-wider">About Poulls</span>
-                </div>
-                <h2 class="text-4xl md:text-5xl font-bold text-charcoal leading-tight">Building a <span class="text-forest">Sustainable</span> Future, One Home at a Time.</h2>
-                <p class="text-gray-600 leading-relaxed">Kami percaya bahwa rumah bukan sekadar tempat tinggal, melainkan ruang untuk hidup yang lebih baik. Poulls menghubungkan Anda dengan properti ramah lingkungan yang dirancang untuk kenyamanan dan keberlanjutan.</p>
-                <p class="text-gray-600 leading-relaxed">Dari desain arsitektur hijau hingga lokasi yang asri, kami memastikan setiap properti memenuhi standar kualitas dan etika lingkungan tertinggi.</p>
-                
-                <div class="grid grid-cols-2 gap-6 pt-4">
-                    <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 rounded-full bg-forest/10 flex items-center justify-center text-forest flex-shrink-0">
-                            <i class="fa-solid fa-leaf text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-charcoal">Eco-Materials</h4>
-                            <p class="text-sm text-gray-500">Material bangunan berkelanjutan.</p>
-                        </div>
+                <div class="flex gap-3 sm:gap-4 overflow-x-auto pb-4 mading-scroll -mx-5 px-5 sm:mx-0 sm:px-0">
+                    <div class="flex-shrink-0 w-60 sm:w-72 h-40 sm:h-44 rounded-2xl bg-gradient-to-br from-navy to-ocean p-5 sm:p-6 text-white flex flex-col justify-between card-hover">
+                        <i class="fa-solid fa-music text-xl sm:text-2xl text-honey"></i>
+                        <div><div class="text-xs text-white/70 mb-1">Seni</div><div class="font-bold text-sm sm:text-base">Audisi Band Sekolah</div></div>
                     </div>
-                    <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 rounded-full bg-forest/10 flex items-center justify-center text-forest flex-shrink-0">
-                            <i class="fa-solid fa-solar-panel text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-charcoal">Energy Efficient</h4>
-                            <p class="text-sm text-gray-500">Hemat energi & biaya operasional.</p>
-                        </div>
+                    <div class="flex-shrink-0 w-60 sm:w-72 h-40 sm:h-44 rounded-2xl bg-gradient-to-br from-terracotta to-rust p-5 sm:p-6 text-white flex flex-col justify-between card-hover">
+                        <i class="fa-solid fa-seedling text-xl sm:text-2xl text-honey"></i>
+                        <div><div class="text-xs text-white/70 mb-1">Lingkungan</div><div class="font-bold text-sm sm:text-base">Bank Sampah SMAPA</div></div>
                     </div>
-                </div>
-                
-                <div class="pt-6">
-                    <button class="btn-shine bg-forest text-white px-10 py-4 rounded-full font-semibold hover:bg-opacity-90 transition shadow-lg flex items-center gap-3">
-                        Learn More About Us <i class="fa-solid fa-arrow-right"></i>
-                    </button>
+                    <div class="flex-shrink-0 w-60 sm:w-72 h-40 sm:h-44 rounded-2xl bg-gradient-to-br from-leaf to-moss p-5 sm:p-6 text-white flex flex-col justify-between card-hover">
+                        <i class="fa-solid fa-book-open text-xl sm:text-2xl text-honey"></i>
+                        <div><div class="text-xs text-white/70 mb-1">Literasi</div><div class="font-bold text-sm sm:text-base">Pekan Buku</div></div>
+                    </div>
+                    <div class="flex-shrink-0 w-60 sm:w-72 h-40 sm:h-44 rounded-2xl bg-gradient-to-br from-gold to-honey p-5 sm:p-6 text-ink flex flex-col justify-between card-hover">
+                        <i class="fa-solid fa-laptop-code text-xl sm:text-2xl text-terracotta"></i>
+                        <div><div class="text-xs text-ink/70 mb-1">Teknologi</div><div class="font-bold text-sm sm:text-base">Prodistik ITS Showcase</div></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 6. PROPERTIES SECTION (Dengan Filter) -->
-    <section id="properties" class="py-24 px-6 md:px-12 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-bold text-charcoal mb-4">Featured <span class="text-forest">Properties</span></h2>
-                <p class="text-gray-500 max-w-2xl mx-auto">Jelajahi koleksi properti eksklusif kami yang dirancang untuk gaya hidup berkelanjutan.</p>
-            </div>
-            
-            <!-- Filter Tabs -->
-            <div class="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up" data-aos-delay="100">
-                <button class="filter-btn active bg-forest text-white px-6 py-2 rounded-full text-sm font-medium transition" data-filter="all">All Properties</button>
-                <button class="filter-btn bg-gray-100 text-gray-600 hover:bg-gray-200 px-6 py-2 rounded-full text-sm font-medium transition" data-filter="villa">Villas</button>
-                <button class="filter-btn bg-gray-100 text-gray-600 hover:bg-gray-200 px-6 py-2 rounded-full text-sm font-medium transition" data-filter="cabin">Cabins</button>
-                <button class="filter-btn bg-gray-100 text-gray-600 hover:bg-gray-200 px-6 py-2 rounded-full text-sm font-medium transition" data-filter="apartment">Apartments</button>
-            </div>
-            
-            <!-- Property Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Property Card 1 -->
-                <div class="property-card bg-cream rounded-3xl overflow-hidden shadow-lg group" data-category="villa" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=2670&auto=format&fit=crop" alt="Luxury Villa" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                        <div class="absolute top-4 left-4 bg-terracotta text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">For Sale</div>
-                        <button class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-600 hover:text-red-500 transition shadow-lg">
-                            <i class="fa-regular fa-heart"></i>
-                        </button>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold text-charcoal mb-1">The Forest Villa</h3>
-                                <p class="text-sm text-gray-500 flex items-center gap-1"><i class="fa-solid fa-location-dot text-terracotta"></i> Bali, Indonesia</p>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-2xl font-bold text-forest">$450k</div>
-                                <div class="text-xs text-gray-400">Est. $2,100/mo</div>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-6 text-sm text-gray-600 border-t border-gray-200 pt-4">
-                            <span class="flex items-center gap-2"><i class="fa-solid fa-bed text-forest"></i> 4 Beds</span>
-                            <span class="flex items-center gap-2"><i class="fa-solid fa-bath text-forest"></i> 3 Baths</span>
-                            <span class="flex items-center gap-2"><i class="fa-solid fa-vector-square text-forest"></i> 3,200 sqft</span>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Property Card 2 -->
-                <div class="property-card bg-cream rounded-3xl overflow-hidden shadow-lg group" data-category="cabin" data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2675&auto=format&fit=crop" alt="Mountain Cabin" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                        <div class="absolute top-4 left-4 bg-forest text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">For Rent</div>
-                        <button class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-600 hover:text-red-500 transition shadow-lg">
-                            <i class="fa-regular fa-heart"></i>
-                        </button>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold text-charcoal mb-1">Alpine Eco Cabin</h3>
-                                <p class="text-sm text-gray-500 flex items-center gap-1"><i class="fa-solid fa-location-dot text-terracotta"></i> Aspen, Colorado</p>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-2xl font-bold text-forest">$3,500</div>
-                                <div class="text-xs text-gray-400">/month</div>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-6 text-sm text-gray-600 border-t border-gray-200 pt-4">
-                            <span class="flex items-center gap-2"><i class="fa-solid fa-bed text-forest"></i> 3 Beds</span>
-                            <span class="flex items-center gap-2"><i class="fa-solid fa-bath text-forest"></i> 2 Baths</span>
-                            <span class="flex items-center gap-2"><i class="fa-solid fa-vector-square text-forest"></i> 1,800 sqft</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property Card 3 -->
-                <div class="property-card bg-cream rounded-3xl overflow-hidden shadow-lg group" data-category="apartment" data-aos="fade-up" data-aos-delay="300">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2653&auto=format&fit=crop" alt="Modern Apartment" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                        <div class="absolute top-4 left-4 bg-terracotta text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">For Sale</div>
-                        <button class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-600 hover:text-red-500 transition shadow-lg">
-                            <i class="fa-regular fa-heart"></i>
-                        </button>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold text-charcoal mb-1">Urban Green Loft</h3>
-                                <p class="text-sm text-gray-500 flex items-center gap-1"><i class="fa-solid fa-location-dot text-terracotta"></i> Singapore</p>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-2xl font-bold text-forest">$280k</div>
-                                <div class="text-xs text-gray-400">Est. $1,400/mo</div>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-6 text-sm text-gray-600 border-t border-gray-200 pt-4">
-                            <span class="flex items-center gap-2"><i class="fa-solid fa-bed text-forest"></i> 2 Beds</span>
-                            <span class="flex items-center gap-2"><i class="fa-solid fa-bath text-forest"></i> 2 Baths</span>
-                            <span class="flex items-center gap-2"><i class="fa-solid fa-vector-square text-forest"></i> 1,200 sqft</span>
-                        </div>
-                    </div>
-                </div>
+    <!-- ============== GALERI ============== -->
+    <section id="galeri" class="bg-ivory py-16 sm:py-20 md:py-24 px-5 sm:px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
+                <p class="text-[10px] font-bold tracking-[0.3em] text-terracotta uppercase mb-3">Galeri</p>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink leading-tight max-w-2xl mx-auto">
+                    Momen kebersamaan kami.
+                </h2>
+                <div class="ornament-line mt-6 sm:mt-8"></div>
             </div>
-            
-            <div class="text-center mt-16" data-aos="fade-up">
-                <button class="border-2 border-forest text-forest px-10 py-4 rounded-full font-semibold hover:bg-forest hover:text-white transition duration-300 flex items-center gap-3 mx-auto">
-                    View All Properties <i class="fa-solid fa-arrow-right"></i>
-                </button>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+                <!-- GANTI: galeri-1.jpg (BESAR) -->
+                <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square md:col-span-2 md:row-span-2" data-aos="fade-up">
+                    <img src="galeri-1.jpg" alt="Galeri 1" class="w-full h-full object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <span class="text-white text-sm font-semibold">Pentas Seni 2025</span>
+                    </div>
+                </div>
+                <!-- GANTI: galeri-2.jpg -->
+                <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square" data-aos="fade-up" data-aos-delay="100">
+                    <img src="galeri-2.jpg" alt="Galeri 2" class="w-full h-full object-cover transition-transform duration-700">
+                </div>
+                <!-- GANTI: galeri-3.jpg -->
+                <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square" data-aos="fade-up" data-aos-delay="150">
+                    <img src="galeri-3.jpg" alt="Galeri 3" class="w-full h-full object-cover transition-transform duration-700">
+                </div>
+                <!-- GANTI: galeri-4.jpg -->
+                <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square" data-aos="fade-up" data-aos-delay="200">
+                    <img src="galeri-4.jpg" alt="Galeri 4" class="w-full h-full object-cover transition-transform duration-700">
+                </div>
+                <!-- GANTI: galeri-5.jpg -->
+                <div class="gallery-item relative rounded-2xl overflow-hidden aspect-square" data-aos="fade-up" data-aos-delay="250">
+                    <img src="galeri-5.jpg" alt="Galeri 5" class="w-full h-full object-cover transition-transform duration-700">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 7. STATS SECTION -->
-    <section class="py-20 bg-forest text-white relative overflow-hidden">
+
+    <!-- ============== PENGURUS ============== -->
+    <section id="pengurus" class="pengurus-bg py-16 sm:py-20 md:py-28 px-5 sm:px-6">
+        <div class="max-w-7xl mx-auto relative z-10">
+
+            <div class="text-center mb-12 sm:mb-16 md:mb-20" data-aos="fade-up">
+                <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-md border border-terracotta/20 rounded-full px-3 sm:px-5 py-1.5 sm:py-2 mb-4 sm:mb-6 shadow-sm">
+                    <i class="fa-solid fa-crown text-terracotta text-xs"></i>
+                    <span class="text-[9px] sm:text-[10px] font-bold tracking-[0.3em] text-rust uppercase">Kepengurusan 2026/2027</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight text-ink leading-tight mb-3 sm:mb-4">
+                    Kenalan dengan <br>
+                    <span class="gradient-text-animated">Pengurus OSIS.</span>
+                </h2>
+                <p class="text-rust/80 max-w-xl mx-auto text-xs sm:text-sm md:text-base font-medium px-2">
+                    Generasi muda SMAPA yang siap mengabdi, berkarya, dan membawa perubahan positif.
+                </p>
+                <div class="ornament-line mt-6 sm:mt-8"></div>
+            </div>
+
+            <!-- BPH -->
+            <div class="mb-14 sm:mb-20">
+                <div class="text-center mb-8 sm:mb-10" data-aos="fade-up">
+                    <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-ink mb-2">Badan Pengurus Harian</h3>
+                    <p class="text-xs sm:text-sm text-rust/70 font-medium">Inti kepengurusan OSIS SMAPA</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
+                    <!-- GANTI: ketua.jpg -->
+                    <div class="card-bph text-center sm:col-span-2 md:col-span-1" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex justify-center mb-5 sm:mb-6">
+                            <div class="relative">
+                                <img src="ketua.jpg" alt="Ketua OSIS" class="foto-pengurus">
+                                <span class="absolute -bottom-2 -right-2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-gold to-honey flex items-center justify-center text-ink shadow-lg">
+                                    <i class="fa-solid fa-crown text-xs sm:text-sm"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <span class="badge-jabatan gold">Ketua OSIS</span>
+                        <h4 class="text-lg sm:text-xl font-bold text-ink mt-3 sm:mt-4 mb-1">Ahmad Rizki Pratama</h4>
+                        <p class="text-xs sm:text-sm text-slate mb-3 sm:mb-4">Kelas XII MIPA 1</p>
+                        <p class="text-xs text-rust/70 italic mb-4 sm:mb-5 leading-relaxed px-2">
+                            "Memimpin dengan hati, bekerja dengan ilmu."
+                        </p>
+                        <div class="flex justify-center gap-2">
+                            <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+                            <a href="#" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- GANTI: wakil.jpg -->
+                    <div class="card-bph text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex justify-center mb-5 sm:mb-6">
+                            <div class="relative">
+                                <img src="wakil.jpg" alt="Wakil Ketua" class="foto-pengurus">
+                                <span class="absolute -bottom-2 -right-2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-navy to-ocean flex items-center justify-center text-white shadow-lg">
+                                    <i class="fa-solid fa-star text-xs sm:text-sm"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <span class="badge-jabatan">Wakil Ketua</span>
+                        <h4 class="text-lg sm:text-xl font-bold text-ink mt-3 sm:mt-4 mb-1">Siti Nurhaliza</h4>
+                        <p class="text-xs sm:text-sm text-slate mb-3 sm:mb-4">Kelas XI MIPA 2</p>
+                        <p class="text-xs text-rust/70 italic mb-4 sm:mb-5 leading-relaxed px-2">
+                            "Bersama kita bisa, bersama kita kuat."
+                        </p>
+                        <div class="flex justify-center gap-2">
+                            <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+                            <a href="#" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- GANTI: sekretaris.jpg -->
+                    <div class="card-bph text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex justify-center mb-5 sm:mb-6">
+                            <div class="relative">
+                                <img src="sekretaris.jpg" alt="Sekretaris" class="foto-pengurus">
+                                <span class="absolute -bottom-2 -right-2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-leaf to-moss flex items-center justify-center text-white shadow-lg">
+                                    <i class="fa-solid fa-pen text-xs sm:text-sm"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <span class="badge-jabatan">Sekretaris</span>
+                        <h4 class="text-lg sm:text-xl font-bold text-ink mt-3 sm:mt-4 mb-1">Dimas Anggara</h4>
+                        <p class="text-xs sm:text-sm text-slate mb-3 sm:mb-4">Kelas XI IPS 1</p>
+                        <p class="text-xs text-rust/70 italic mb-4 sm:mb-5 leading-relaxed px-2">
+                            "Detail adalah segalanya."
+                        </p>
+                        <div class="flex justify-center gap-2">
+                            <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+                            <a href="#" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sekbid -->
+            <div>
+                <div class="text-center mb-8 sm:mb-10" data-aos="fade-up">
+                    <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-ink mb-2">Koordinator Seksi Bidang</h3>
+                    <p class="text-xs sm:text-sm text-rust/70 font-medium">10 Sekbid yang siap bekerja untukmu</p>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5">
+                    <!-- SEKBID 1 -->
+                    <div class="card-pengurus" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
+                            <img src="sekbid-1.jpg" alt="Sekbid 1" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 1</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Rian Hidayat</h4>
+                            <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Keimanan & Ketakwaan</p>
+                            <div class="flex justify-center gap-1 sm:gap-1.5">
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-solid fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEKBID 2 -->
+                    <div class="card-pengurus" data-aos="fade-up" data-aos-delay="150">
+                        <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
+                            <img src="sekbid-2.jpg" alt="Sekbid 2" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 2</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Nabila Putri</h4>
+                            <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Budi Pekerti & Akhlak</p>
+                            <div class="flex justify-center gap-1 sm:gap-1.5">
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-solid fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEKBID 3 -->
+                    <div class="card-pengurus" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
+                            <img src="sekbid-3.jpg" alt="Sekbid 3" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 3</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Bagas Saputra</h4>
+                            <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Jasmani & Kesehatan</p>
+                            <div class="flex justify-center gap-1 sm:gap-1.5">
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-solid fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEKBID 4 -->
+                    <div class="card-pengurus" data-aos="fade-up" data-aos-delay="250">
+                        <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
+                            <img src="sekbid-4.jpg" alt="Sekbid 4" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 4</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Ayu Lestari</h4>
+                            <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Sastra & Budaya</p>
+                            <div class="flex justify-center gap-1 sm:gap-1.5">
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-solid fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEKBID 5 -->
+                    <div class="card-pengurus" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
+                            <img src="sekbid-5.jpg" alt="Sekbid 5" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 5</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Fajar Nugroho</h4>
+                            <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Teknologi & Informasi</p>
+                            <div class="flex justify-center gap-1 sm:gap-1.5">
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-solid fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEKBID 6 -->
+                    <div class="card-pengurus" data-aos="fade-up" data-aos-delay="350">
+                        <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
+                            <img src="sekbid-6.jpg" alt="Sekbid 6" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 6</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Dewi Anggraini</h4>
+                            <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Komunikasi & Bahasa</p>
+                            <div class="flex justify-center gap-1 sm:gap-1.5">
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-solid fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEKBID 7 -->
+                    <div class="card-pengurus" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
+                            <img src="sekbid-7.jpg" alt="Sekbid 7" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 7</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Yoga Pratama</h4>
+                            <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Kewirausahaan</p>
+                            <div class="flex justify-center gap-1 sm:gap-1.5">
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-solid fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEKBID 8 -->
+                    <div class="card-pengurus" data-aos="fade-up" data-aos-delay="450">
+                        <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
+                            <img src="sekbid-8.jpg" alt="Sekbid 8" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 8</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Intan Maharani</h4>
+                            <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Sosial & Lingkungan</p>
+                            <div class="flex justify-center gap-1 sm:gap-1.5">
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-solid fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEKBID 9 -->
+                    <div class="card-pengurus" data-aos="fade-up" data-aos-delay="500">
+                        <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
+                            <img src="sekbid-9.jpg" alt="Sekbid 9" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 9</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Arif Setiawan</h4>
+                            <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Kreativitas & Seni</p>
+                            <div class="flex justify-center gap-1 sm:gap-1.5">
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-solid fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEKBID 10 -->
+                    <div class="card-pengurus" data-aos="fade-up" data-aos-delay="550">
+                        <div class="card-pengurus-inner text-center !p-4 sm:!p-5 md:!p-7">
+                            <img src="sekbid-10.jpg" alt="Sekbid 10" class="foto-pengurus mx-auto mb-3 sm:mb-4">
+                            <span class="badge-jabatan text-[8px] sm:text-[10px]">Sekbid 10</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-ink mt-2 sm:mt-3 mb-1">Maya Sari</h4>
+                            <p class="text-[9px] sm:text-[10px] text-slate mb-2 sm:mb-3 leading-tight">Pendidikan & Literasi</p>
+                            <div class="flex justify-center gap-1 sm:gap-1.5">
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-solid fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ============== PRESTASI ============== -->
+    <section id="prestasi" class="bg-navy text-white py-16 sm:py-20 md:py-24 px-5 sm:px-6 relative overflow-hidden">
         <div class="absolute inset-0 opacity-10">
-            <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=2574&auto=format&fit=crop" alt="Leaf Pattern" class="w-full h-full object-cover">
+            <!-- GANTI: pattern.jpg -->
+            <img src="pattern.jpg" alt="Pattern" class="w-full h-full object-cover">
         </div>
-        <div class="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
-            <div data-aos="zoom-in" data-aos-delay="100">
-                <div class="text-5xl font-playfair font-bold mb-2 text-terracotta">500+</div>
-                <div class="text-sm uppercase tracking-widest text-gray-300">Eco Homes Sold</div>
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-10 sm:mb-14" data-aos="fade-up">
+                <p class="text-[10px] font-bold tracking-[0.3em] text-honey uppercase mb-3">Pencapaian</p>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white">SMAPA Semangat Meraih Prestasi</h2>
             </div>
-            <div data-aos="zoom-in" data-aos-delay="200">
-                <div class="text-5xl font-playfair font-bold mb-2 text-terracotta">98%</div>
-                <div class="text-sm uppercase tracking-widest text-gray-300">Client Satisfaction</div>
-            </div>
-            <div data-aos="zoom-in" data-aos-delay="300">
-                <div class="text-5xl font-playfair font-bold mb-2 text-terracotta">15+</div>
-                <div class="text-sm uppercase tracking-widest text-gray-300">Years Experience</div>
-            </div>
-            <div data-aos="zoom-in" data-aos-delay="400">
-                <div class="text-5xl font-playfair font-bold mb-2 text-terracotta">50+</div>
-                <div class="text-sm uppercase tracking-widest text-gray-300">Awards Won</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 8. TESTIMONIALS SECTION -->
-    <section id="testimonials" class="py-24 px-6 md:px-12 bg-cream">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-bold text-charcoal mb-4">What Our <span class="text-forest">Clients Say</span></h2>
-                <p class="text-gray-500 max-w-2xl mx-auto">Cerita nyata dari mereka yang telah menemukan rumah impian mereka bersama Poulls.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-white p-8 rounded-3xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex text-terracotta mb-4">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 italic mb-6 leading-relaxed">"Prosesnya sangat profesional. Tim Poulls membantu kami menemukan villa ramah lingkungan yang persis seperti impian kami. Sangat direkomendasikan!"</p>
-                    <div class="flex items-center gap-4">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2564&auto=format&fit=crop" alt="Client" class="w-14 h-14 rounded-full object-cover border-2 border-forest">
-                        <div>
-                            <div class="font-bold text-charcoal">Budi Santoso</div>
-                            <div class="text-sm text-gray-500">Homeowner, Bali</div>
-                        </div>
-                    </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-8 md:gap-10 text-center">
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-2 sm:mb-3 text-gold">87</div>
+                    <div class="text-[9px] sm:text-[10px] font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase text-white/60">Lolos PTN 2024</div>
                 </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="bg-white p-8 rounded-3xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex text-terracotta mb-4">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 italic mb-6 leading-relaxed">"Saya sangat menghargai komitmen mereka terhadap keberlanjutan. Setiap properti yang ditawarkan benar-benar mempertimbangkan dampak lingkungan."</p>
-                    <div class="flex items-center gap-4">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2574&auto=format&fit=crop" alt="Client" class="w-14 h-14 rounded-full object-cover border-2 border-forest">
-                        <div>
-                            <div class="font-bold text-charcoal">Sarah Wijaya</div>
-                            <div class="text-sm text-gray-500">Investor, Jakarta</div>
-                        </div>
-                    </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-2 sm:mb-3 text-gold">20+</div>
+                    <div class="text-[9px] sm:text-[10px] font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase text-white/60">Ekstrakurikuler</div>
                 </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="bg-white p-8 rounded-3xl shadow-lg" data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex text-terracotta mb-4">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 italic mb-6 leading-relaxed">"Layanan after-sales mereka luar biasa. Mereka membantu kami dengan semua dokumentasi dan bahkan memberikan tips untuk menjaga rumah tetap ramah lingkungan."</p>
-                    <div class="flex items-center gap-4">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2574&auto=format&fit=crop" alt="Client" class="w-14 h-14 rounded-full object-cover border-2 border-forest">
-                        <div>
-                            <div class="font-bold text-charcoal">Michael Chen</div>
-                            <div class="text-sm text-gray-500">Architect, Singapore</div>
-                        </div>
-                    </div>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-2 sm:mb-3 text-gold">15+</div>
+                    <div class="text-[9px] sm:text-[10px] font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase text-white/60">Prestasi 2025/2026</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-2 sm:mb-3 text-gold">7</div>
+                    <div class="text-[9px] sm:text-[10px] font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase text-white/60">Tahun Kerja Sama ITS</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 9. FAQ SECTION -->
-    <section id="faq" class="py-24 px-6 md:px-12 bg-white">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-bold text-charcoal mb-4">Frequently Asked <span class="text-forest">Questions</span></h2>
-                <p class="text-gray-500">Pertanyaan yang sering diajukan oleh calon pembeli dan penyewa.</p>
+
+    <!-- ============== FAQ ============== -->
+    <section id="faq" class="bg-cream py-16 sm:py-20 md:py-24 px-5 sm:px-6">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
+                <p class="text-[10px] font-bold tracking-[0.3em] text-terracotta uppercase mb-3">FAQ</p>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink leading-tight">
+                    Pertanyaan umum.
+                </h2>
+                <div class="ornament-line mt-6 sm:mt-8"></div>
             </div>
-            
-            <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
-                <details class="bg-cream rounded-2xl p-6 group cursor-pointer border border-gray-100">
-                    <summary class="flex justify-between items-center font-semibold text-lg text-charcoal list-none">
-                        Apa itu properti "Eco-Friendly"?
-                        <span class="text-forest group-open:rotate-180 transition-transform duration-300"><i class="fa-solid fa-chevron-down"></i></span>
+
+            <div class="space-y-3 sm:space-y-4">
+                <details class="bg-white rounded-2xl p-5 sm:p-6 border border-honey/40 hover:border-gold transition" data-aos="fade-up">
+                    <summary class="flex justify-between items-center font-bold text-ink text-sm sm:text-base gap-4">
+                        Siapa saja yang boleh jadi anggota OSIS?
+                        <i class="fa-solid fa-plus text-terracotta faq-icon transition-transform duration-300 flex-shrink-0"></i>
                     </summary>
-                    <p class="text-gray-600 mt-4 text-sm leading-relaxed">Properti ramah lingkungan adalah hunian yang dirancang untuk meminimalkan dampak negatif terhadap lingkungan. Ini mencakup penggunaan material berkelanjutan, efisiensi energi yang tinggi, penghematan air, dan lokasi yang mendukung keanekaragaman hayati.</p>
+                    <p class="text-slate text-xs sm:text-sm mt-3 leading-relaxed">
+                        Semua siswa aktif SMAN 1 Paciran kelas X dan XI boleh mendaftar. Kami mencari siswa yang punya semangat berkarya, komitmen, dan mau belajar hal baru.
+                    </p>
                 </details>
-                
-                <details class="bg-cream rounded-2xl p-6 group cursor-pointer border border-gray-100">
-                    <summary class="flex justify-between items-center font-semibold text-lg text-charcoal list-none">
-                        Apakah harga properti di Poulls lebih mahal?
-                        <span class="text-forest group-open:rotate-180 transition-transform duration-300"><i class="fa-solid fa-chevron-down"></i></span>
+
+                <details class="bg-white rounded-2xl p-5 sm:p-6 border border-honey/40 hover:border-gold transition" data-aos="fade-up" data-aos-delay="100">
+                    <summary class="flex justify-between items-center font-bold text-ink text-sm sm:text-base gap-4">
+                        Bagaimana cara mendaftar jadi pengurus OSIS?
+                        <i class="fa-solid fa-plus text-terracotta faq-icon transition-transform duration-300 flex-shrink-0"></i>
                     </summary>
-                    <p class="text-gray-600 mt-4 text-sm leading-relaxed">Meskipun biaya awal mungkin sedikit lebih tinggi karena teknologi dan material khusus, properti ramah lingkungan menawarkan penghematan jangka panjang yang signifikan melalui tagihan energi dan air yang lebih rendah, serta nilai jual kembali yang lebih tinggi.</p>
+                    <p class="text-slate text-xs sm:text-sm mt-3 leading-relaxed">
+                        Cukup ikuti 3 langkah: (1) isi formulir online, (2) wawancara singkat dengan pengurus, (3) dilantik dan mulai bertugas di divisi pilihanmu. Pendaftaran dibuka setiap awal tahun ajaran.
+                    </p>
                 </details>
-                
-                <details class="bg-cream rounded-2xl p-6 group cursor-pointer border border-gray-100">
-                    <summary class="flex justify-between items-center font-semibold text-lg text-charcoal list-none">
-                        Bagaimana proses pembelian properti di Poulls?
-                        <span class="text-forest group-open:rotate-180 transition-transform duration-300"><i class="fa-solid fa-chevron-down"></i></span>
+
+                <details class="bg-white rounded-2xl p-5 sm:p-6 border border-honey/40 hover:border-gold transition" data-aos="fade-up" data-aos-delay="200">
+                    <summary class="flex justify-between items-center font-bold text-ink text-sm sm:text-base gap-4">
+                        Apa saja program kerja OSIS tahun ini?
+                        <i class="fa-solid fa-plus text-terracotta faq-icon transition-transform duration-300 flex-shrink-0"></i>
                     </summary>
-                    <p class="text-gray-600 mt-4 text-sm leading-relaxed">Prosesnya sederhana: 1) Konsultasi kebutuhan Anda, 2) Kami kurasi properti yang sesuai, 3) Jadwalkan tur virtual atau kunjungan langsung, 4) Bantu proses negosiasi dan legal, 5) Serah terima kunci.</p>
+                    <p class="text-slate text-xs sm:text-sm mt-3 leading-relaxed">
+                        Ada 50+ program kerja, di antaranya Pentas Seni & Drama Musical, Class Meeting, Bakti Sosial, Pekan Buku, Bank Sampah, dan Prodistik ITS Showcase. Semua terbagi dalam 10 seksi bidang.
+                    </p>
+                </details>
+
+                <details class="bg-white rounded-2xl p-5 sm:p-6 border border-honey/40 hover:border-gold transition" data-aos="fade-up" data-aos-delay="300">
+                    <summary class="flex justify-between items-center font-bold text-ink text-sm sm:text-base gap-4">
+                        Apakah kegiatan OSIS mengganggu jam belajar?
+                        <i class="fa-solid fa-plus text-terracotta faq-icon transition-transform duration-300 flex-shrink-0"></i>
+                    </summary>
+                    <p class="text-slate text-xs sm:text-sm mt-3 leading-relaxed">
+                        Tidak. Kegiatan OSIS dirancang agar tidak mengganggu jam pelajaran. Rapat dan kegiatan biasanya diadakan setelah pulang sekolah atau hari libur, dengan persetujuan pembina dan kepala sekolah.
+                    </p>
+                </details>
+
+                <details class="bg-white rounded-2xl p-5 sm:p-6 border border-honey/40 hover:border-gold transition" data-aos="fade-up" data-aos-delay="400">
+                    <summary class="flex justify-between items-center font-bold text-ink text-sm sm:text-base gap-4">
+                        Bagaimana cara menghubungi pengurus OSIS?
+                        <i class="fa-solid fa-plus text-terracotta faq-icon transition-transform duration-300 flex-shrink-0"></i>
+                    </summary>
+                    <p class="text-slate text-xs sm:text-sm mt-3 leading-relaxed">
+                        Kamu bisa datang ke sekretariat OSIS di Ruang OSIS, Gedung B Lt. 1 (Senin–Jumat, 14.00–16.00 WIB), atau hubungi kami lewat Instagram @osis.smapani, WhatsApp, atau email sman1.paciran@yahoo.co.id.
+                    </p>
                 </details>
             </div>
         </div>
     </section>
 
-    <!-- 10. CTA SECTION -->
-    <section class="py-24 px-6 relative overflow-hidden">
-        <div class="absolute inset-0 bg-forest z-0">
-            <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=2574&auto=format&fit=crop" alt="Nature" class="w-full h-full object-cover opacity-20 mix-blend-overlay">
-        </div>
-        <div class="max-w-4xl mx-auto relative z-10 text-center" data-aos="zoom-in">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 font-playfair">Ready to Find Your <br> Dream Eco-Home?</h2>
-            <p class="text-gray-200 mb-10 max-w-xl mx-auto text-lg">Jangan lewatkan kesempatan untuk hidup lebih sehat dan berkelanjutan. Konsultasikan kebutuhan Anda dengan agen ahli kami sekarang.</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button class="btn-shine bg-terracotta text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl hover:bg-opacity-90 transition">
-                    Konsultasi Gratis
-                </button>
-                <button class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition">
-                    Lihat Katalog
-                </button>
+
+    <!-- ============== CTA ============== -->
+    <section class="bg-ivory py-16 sm:py-20 md:py-24 px-5 sm:px-6">
+        <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+            <h2 class="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight text-ink leading-[1.15] mb-4 sm:mb-6">
+                Mau jadi bagian <br>
+                <span class="gradient-text-animated">dari perubahan?</span>
+            </h2>
+            <p class="text-sm sm:text-base text-slate max-w-lg mx-auto mb-8 sm:mb-10 px-2">
+                Ikuti kegiatan OSIS SMAN 1 Paciran — dari Class Meeting, Pentas Seni, sampai Bakti Sosial.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 px-4 sm:px-0">
+                <a href="#" class="btn-gold w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-sm inline-flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-instagram"></i> Follow Instagram OSIS
+                </a>
+                <a href="#" class="btn-light w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-sm inline-flex items-center justify-center gap-2 border border-slate/15">
+                    <i class="fa-solid fa-envelope"></i> Hubungi Pengurus
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- 11. FOOTER -->
-    <footer class="bg-charcoal text-white pt-20 pb-10 px-6">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-            <div>
-                <div class="text-3xl font-bold font-playfair mb-6">Poulls<span class="text-terracotta">.</span></div>
-                <p class="text-gray-400 text-sm leading-relaxed mb-6">Membangun masa depan yang lebih hijau dengan menghubungkan Anda ke properti impian yang ramah lingkungan.</p>
-                <div class="flex space-x-4">
-                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-terracotta transition"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-terracotta transition"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-terracotta transition"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-terracotta transition"><i class="fa-brands fa-linkedin-in"></i></a>
+
+    <!-- ============== FOOTER ============== -->
+    <footer class="bg-ink text-white pt-14 sm:pt-20 pb-8 sm:pb-10 px-5 sm:px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-10 sm:mb-16">
+                <div class="sm:col-span-2 lg:col-span-1">
+                    <div class="flex items-center gap-2 mb-5 sm:mb-6">
+                        <div class="w-9 h-9 rounded-full logo-osis flex items-center justify-center">
+                            <i class="fa-solid fa-users text-white text-sm"></i>
+                        </div>
+                        <div class="leading-tight">
+                            <div class="font-bold text-base tracking-tight">OSIS SMAPA</div>
+                            <div class="text-[10px] text-white/60">SMAN 1 Paciran</div>
+                        </div>
+                    </div>
+                    <p class="text-white/60 text-sm leading-relaxed mb-5 sm:mb-6">
+                        Wadah siswa untuk tumbuh, berkarya, dan berkontribusi bagi sekolah dan masyarakat.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-ink transition"><i class="fa-brands fa-instagram text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-ink transition"><i class="fa-brands fa-tiktok text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-ink transition"><i class="fa-brands fa-youtube text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-ink transition"><i class="fa-brands fa-whatsapp text-sm"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm tracking-wide mb-5 sm:mb-6 uppercase">Navigasi</h4>
+                    <ul class="space-y-2.5 sm:space-y-3 text-white/60 text-sm">
+                        <li><a href="#profil" class="hover:text-gold transition">Profil</a></li>
+                        <li><a href="#program" class="hover:text-gold transition">Program Kerja</a></li>
+                        <li><a href="#galeri" class="hover:text-gold transition">Galeri</a></li>
+                        <li><a href="#pengurus" class="hover:text-gold transition">Pengurus</a></li>
+                        <li><a href="#faq" class="hover:text-gold transition">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm tracking-wide mb-5 sm:mb-6 uppercase">Sekretariat</h4>
+                    <ul class="space-y-2.5 sm:space-y-3 text-white/60 text-sm">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-location-dot mt-1 text-gold flex-shrink-0"></i> <span>Jl. Raya Kandangsemangkon No. 587, Paciran, Lamongan</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-clock mt-1 text-gold flex-shrink-0"></i> <span>Senin–Jumat, 14.00–16.00 WIB</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-envelope mt-1 text-gold flex-shrink-0"></i> <span class="break-all">sman1.paciran@yahoo.co.id</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-phone mt-1 text-gold flex-shrink-0"></i> <span>(0322) 661632</span></li>
+                    </ul>
+                </div>
+
+                <div class="sm:col-span-2 lg:col-span-1">
+                    <h4 class="font-bold text-sm tracking-wide mb-5 sm:mb-6 uppercase">Ikuti Kami</h4>
+                    <p class="text-white/60 text-sm mb-4">Update kegiatan OSIS terbaru di sosmed.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Email kamu" class="bg-white/10 border border-white/20 rounded-l-full px-4 py-3 text-sm w-full focus:outline-none focus:border-gold text-white placeholder-white/40">
+                        <button class="bg-gold text-ink px-4 py-3 rounded-r-full text-sm font-bold hover:bg-honey transition flex-shrink-0"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
                 </div>
             </div>
-            
-            <div>
-                <h4 class="font-bold text-lg mb-6 font-playfair">Quick Links</h4>
-                <ul class="space-y-3 text-gray-400 text-sm">
-                    <li><a href="#home" class="hover:text-terracotta transition">Home</a></li>
-                    <li><a href="#properties" class="hover:text-terracotta transition">Properties</a></li>
-                    <li><a href="#about" class="hover:text-terracotta transition">About Us</a></li>
-                    <li><a href="#testimonials" class="hover:text-terracotta transition">Testimonials</a></li>
-                </ul>
-            </div>
-            
-            <div>
-                <h4 class="font-bold text-lg mb-6 font-playfair">Services</h4>
-                <ul class="space-y-3 text-gray-400 text-sm">
-                    <li><a href="#" class="hover:text-terracotta transition">Buy Property</a></li>
-                    <li><a href="#" class="hover:text-terracotta transition">Sell Property</a></li>
-                    <li><a href="#" class="hover:text-terracotta transition">Property Management</a></li>
-                    <li><a href="#" class="hover:text-terracotta transition">Consultation</a></li>
-                </ul>
-            </div>
-            
-            <div>
-                <h4 class="font-bold text-lg mb-6 font-playfair">Newsletter</h4>
-                <p class="text-gray-400 text-sm mb-4">Dapatkan update properti terbaru langsung di inbox Anda.</p>
-                <div class="flex">
-                    <input type="email" placeholder="Email Anda" class="bg-white/10 border border-white/20 rounded-l-lg px-4 py-3 text-sm w-full focus:outline-none focus:border-terracotta text-white">
-                    <button class="bg-terracotta text-white px-4 py-3 rounded-r-lg text-sm font-semibold hover:bg-opacity-90 transition"><i class="fa-solid fa-paper-plane"></i></button>
+
+            <div class="border-t border-white/10 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-white/50 max-w-6xl mx-auto gap-3 sm:gap-4 text-center md:text-left">
+                <p>&copy; 2026 OSIS SMAN 1 Paciran. Dibuat oleh Sekbid Teknologi & Informasi.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition">Kode Etik</a>
+                    <a href="#" class="hover:text-white transition">AD/ART</a>
                 </div>
-            </div>
-        </div>
-        
-        <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 max-w-7xl mx-auto">
-            <p>&copy; 2024 Poulls Eco-Friendly Real Estate. All rights reserved.</p>
-            <div class="flex space-x-6 mt-4 md:mt-0">
-                <a href="#" class="hover:text-white transition">Privacy Policy</a>
-                <a href="#" class="hover:text-white transition">Terms of Service</a>
-                <a href="#" class="hover:text-white transition">Sitemap</a>
             </div>
         </div>
     </footer>
 
+
+    <!-- ============== FLOATING BUTTONS ============== -->
+    <a href="https://wa.me/6281234567890" target="_blank" class="wa-float" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Inisialisasi AOS
-        AOS.init({ once: true, offset: 100, duration: 800 });
-
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('bg-white', 'text-charcoal', 'shadow-lg', 'py-4');
-                nav.classList.remove('text-white', 'py-6');
-            } else {
-                nav.classList.remove('bg-white', 'text-charcoal', 'shadow-lg', 'py-4');
-                nav.classList.add('text-white', 'py-6');
-            }
+        /* ============ PRELOADER ============ */
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hidden');
+            }, 1200);
         });
 
-        // Property Filter Logic
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const propertyCards = document.querySelectorAll('.property-card');
+        /* ============ AOS ============ */
+        AOS.init({ once: true, offset: 80, duration: 800 });
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Update active button style
-                filterBtns.forEach(b => {
-                    b.classList.remove('bg-forest', 'text-white');
-                    b.classList.add('bg-gray-100', 'text-gray-600');
-                });
-                btn.classList.remove('bg-gray-100', 'text-gray-600');
-                btn.classList.add('bg-forest', 'text-white');
+        /* ============ CUSTOM CURSOR (Desktop only) ============ */
+        if (window.innerWidth >= 1024) {
+            const cursor = document.getElementById('custom-cursor');
+            const dot = document.getElementById('custom-cursor-dot');
+            let mouseX = 0, mouseY = 0;
+            let cursorX = 0, cursorY = 0;
 
-                // Filter cards
-                const filterValue = btn.getAttribute('data-filter');
-                propertyCards.forEach(card => {
-                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                        card.style.display = 'block';
-                        setTimeout(() => card.style.opacity = '1', 50);
-                    } else {
-                        card.style.opacity = '0';
-                        setTimeout(() => card.style.display = 'none', 300);
-                    }
-                });
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                dot.style.left = mouseX + 'px';
+                dot.style.top = mouseY + 'px';
+            });
+
+            function animateCursor() {
+                cursorX += (mouseX - cursorX) * 0.15;
+                cursorY += (mouseY - cursorY) * 0.15;
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+
+            document.querySelectorAll('a, button, .card-hover, .card-pengurus, .card-bph, .gallery-item').forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+            });
+        }
+
+        /* ============ SCROLL PROGRESS ============ */
+        const progressBar = document.getElementById('scroll-progress-bar');
+        const backToTop = document.getElementById('back-to-top');
+        const ambient = document.getElementById('ambient');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            progressBar.style.width = scrollPercent + '%';
+
+            if (scrollTop > 400) backToTop.classList.add('show');
+            else backToTop.classList.remove('show');
+
+            if (scrollTop > window.innerHeight * 0.8) ambient.classList.add('dim');
+            else ambient.classList.remove('dim');
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        /* ============ AMBIENT PARTICLES ============ */
+        const particleCount = window.innerWidth < 640 ? 20 : 40;
+
+        function createParticle() {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.bottom = '-10px';
+            const duration = 6 + Math.random() * 8;
+            p.style.animation = `particleRise ${duration}s linear infinite`;
+            p.style.animationDelay = `-${Math.random() * duration}s`;
+            const size = 2 + Math.random() * 4;
+            p.style.width = size + 'px';
+            p.style.height = size + 'px';
+            ambient.appendChild(p);
+        }
+
+        for (let i = 0; i < particleCount; i++) createParticle();
+
+        /* ============ MOBILE MENU ============ */
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerBtn.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburgerBtn.classList.remove('open');
+                mobileMenu.classList.remove('open');
             });
         });
 
-        // Favorite Heart Toggle
-        document.querySelectorAll('.property-card button').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const icon = this.querySelector('i');
-                if (icon.classList.contains('fa-regular')) {
-                    icon.classList.remove('fa-regular');
-                    icon.classList.add('fa-solid', 'text-red-500');
-                } else {
-                    icon.classList.remove('fa-solid', 'text-red-500');
-                    icon.classList.add('fa-regular');
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+                hamburgerBtn.classList.remove('open');
+                mobileMenu.classList.remove('open');
+            }
+        });
+
+        /* ============ DARK MODE TOGGLE ============ */
+        const darkToggle = document.getElementById('dark-toggle');
+        const darkIcon = darkToggle.querySelector('i');
+
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            darkIcon.classList.remove('fa-moon');
+            darkIcon.classList.add('fa-sun');
+        }
+
+        darkToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDark);
+
+            if (isDark) {
+                darkIcon.classList.remove('fa-moon');
+                darkIcon.classList.add('fa-sun');
+            } else {
+                darkIcon.classList.remove('fa-sun');
+                darkIcon.classList.add('fa-moon');
+            }
+        });
+
+        /* ============ SMOOTH SCROLL ============ */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    const offset = 20;
+                    const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
                 }
             });
         });
     </script>
+
 </body>
 </html>

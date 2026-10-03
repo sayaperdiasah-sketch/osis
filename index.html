@@ -14,21 +14,20 @@
             theme: {
                 extend: {
                     colors: {
-                        // Palet dari foto sekolah SMAN 1 Paciran
-                        gold: '#F5C518',        // Kuning bangunan sekolah
-                        honey: '#FCD34D',       // Kuning madu lembut
-                        butter: '#FEF3C7',      // Kuning krem
-                        terracotta: '#C2410C',  // Jingga atap sekolah
-                        rust: '#9A3412',        // Cokelat kemerahan
-                        leaf: '#16A34A',        // Hijau daun
-                        moss: '#15803D',        // Hijau tua
-                        sky: '#0EA5E9',         // Biru langit
-                        ocean: '#0369A1',       // Biru laut dalam
-                        navy: '#0A2463',        // Navy korporat
-                        cream: '#FEFCE8',       // Krem background
-                        ivory: '#FFFEF5',       // Ivory
-                        ink: '#1C1917',         // Hampir hitam
-                        slate: '#78716C'        // Abu cokelat
+                        gold: '#F5C518',
+                        honey: '#FCD34D',
+                        butter: '#FEF3C7',
+                        terracotta: '#C2410C',
+                        rust: '#9A3412',
+                        leaf: '#16A34A',
+                        moss: '#15803D',
+                        sky: '#0EA5E9',
+                        ocean: '#0369A1',
+                        navy: '#0A2463',
+                        cream: '#FEFCE8',
+                        ivory: '#FFFEF5',
+                        ink: '#1C1917',
+                        slate: '#78716C'
                     },
                     fontFamily: { inter: ['Inter', 'sans-serif'] }
                 }
@@ -39,18 +38,37 @@
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #FFFEF5; color: #1C1917; overflow-x: hidden; }
         
-        /* Hero background - pakai foto sekolah */
+        /* ============ HERO BACKGROUND ============ */
         .hero-full {
-            background-image: url('image.jpg');
+            /* FOTO LOKAL - taruh file foto sekolah di folder yang sama, beri nama sekolah.jpg */
+            background-image: url('sekolah.jpg');
+            
+            /* FALLBACK - kalau foto lokal tidak ada, pakai foto dari Unsplash */
+            background-color: #0A2463;
+            
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
+        
+        /* Overlay gradasi agar teks tetap terbaca di atas foto sekolah */
         .hero-full::after {
-            content: ''; position: absolute; inset: 0;
-            background: linear-gradient(135deg, rgba(10,36,99,0.85) 0%, rgba(194,65,12,0.65) 50%, rgba(245,197,24,0.55) 100%);
-            pointer-events: none; z-index: 2;
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(10, 36, 99, 0.88) 0%,
+                rgba(10, 36, 99, 0.70) 35%,
+                rgba(194, 65, 12, 0.55) 70%,
+                rgba(245, 197, 24, 0.40) 100%
+            );
+            pointer-events: none;
+            z-index: 2;
         }
 
         .nav-pill { background: rgba(255,255,255,0.96); backdrop-filter: blur(20px); box-shadow: 0 8px 30px rgba(10,36,99,0.12); }
-        .headline-shadow { text-shadow: 0 4px 40px rgba(0,0,0,0.4); }
+        .headline-shadow { text-shadow: 0 4px 40px rgba(0,0,0,0.45); }
 
         .btn-gold {
             background: linear-gradient(135deg, #F5C518, #FCD34D);
@@ -82,7 +100,7 @@
 
         /* ===== AMBIENT ANIMASI ===== */
         .ambient { position: absolute; inset: 0; pointer-events: none; z-index: 3; overflow: hidden; }
-        .cloud { position: absolute; background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.5) 40%, rgba(255,255,255,0) 70%); border-radius: 50%; filter: blur(20px); opacity: 0.6; will-change: transform; }
+        .cloud { position: absolute; background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.5) 40%, rgba(255,255,255,0) 70%); border-radius: 50%; filter: blur(20px); opacity: 0.55; will-change: transform; }
         .cloud::before, .cloud::after { content: ''; position: absolute; background: inherit; border-radius: 50%; }
         .cloud::before { width: 60%; height: 60%; top: -20%; left: 10%; }
         .cloud::after { width: 50%; height: 50%; top: -10%; right: 5%; }
@@ -96,7 +114,7 @@
         .particle { position: absolute; width: 4px; height: 4px; background: radial-gradient(circle, rgba(252,211,77,0.95) 0%, rgba(252,211,77,0) 70%); border-radius: 50%; bottom: -10px; animation: particleRise linear infinite; opacity: 0; }
         @keyframes particleRise { 0%{transform:translateY(0) translateX(0) scale(0.4);opacity:0} 15%{opacity:0.9} 50%{transform:translateY(-50vh) translateX(20px) scale(1)} 100%{transform:translateY(-110vh) translateX(-20px) scale(0.3);opacity:0} }
 
-        .fog { position: absolute; bottom: 0; left: -20%; width: 140%; height: 30%; background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(254,243,199,0.4) 100%); filter: blur(30px); animation: fogMove 40s ease-in-out infinite alternate; }
+        .fog { position: absolute; bottom: 0; left: -20%; width: 140%; height: 30%; background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(254,243,199,0.35) 100%); filter: blur(30px); animation: fogMove 40s ease-in-out infinite alternate; }
         @keyframes fogMove { 0%{transform:translateX(-4%);opacity:0.5} 100%{transform:translateX(4%);opacity:0.8} }
 
         .light-sweep { position: absolute; top: -20%; left: 30%; width: 60%; height: 140%; background: linear-gradient(120deg, rgba(245,197,24,0) 30%, rgba(245,197,24,0.18) 50%, rgba(245,197,24,0) 70%); transform: rotate(-15deg); animation: sweepMove 18s ease-in-out infinite alternate; filter: blur(12px); }
@@ -449,7 +467,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Ketua -->
                     <div class="card-bph text-center" data-aos="fade-up" data-aos-delay="100">
                         <div class="flex justify-center mb-6">
                             <div class="relative">
@@ -472,7 +489,6 @@
                         </div>
                     </div>
 
-                    <!-- Wakil -->
                     <div class="card-bph text-center" data-aos="fade-up" data-aos-delay="200">
                         <div class="flex justify-center mb-6">
                             <div class="relative">
@@ -495,7 +511,6 @@
                         </div>
                     </div>
 
-                    <!-- Sekretaris -->
                     <div class="card-bph text-center" data-aos="fade-up" data-aos-delay="300">
                         <div class="flex justify-center mb-6">
                             <div class="relative">
